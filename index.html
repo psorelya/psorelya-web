@@ -19,18 +19,22 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* MENU FIXE (Sticky Header Garanti) */
+        /* MENU FIXE */
         header { 
-            position: fixed; 
-            top: 0; left: 0; width: 100%; 
-            padding: 20px 50px; 
+            position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; 
             display: flex; justify-content: space-between; align-items: center; 
-            z-index: 9999; 
-            background: rgba(234, 233, 229, 0.95); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            z-index: 9999; background: rgba(234, 233, 229, 0.95); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s ease;
         }
-        .logo { font-family: var(--font-titre); font-size: 1.8rem; letter-spacing: 8px; text-transform: uppercase; color: var(--texte-fonce); text-decoration: none;}
+        
+        /* NOUVEAU STYLE POUR LE LOGO IMAGE */
+        .logo img { 
+            height: 45px; /* Taille idéale pour le menu */
+            width: auto; 
+            transition: transform 0.4s ease; 
+            display: block;
+        }
+        .logo:hover img { transform: scale(1.05); } /* Petit zoom au survol */
         
         .menu-btn { width: 30px; height: 1px; background: var(--texte-fonce); position: relative; cursor: pointer; }
         .menu-btn::before, .menu-btn::after { content: ''; position: absolute; width: 30px; height: 1px; background: var(--texte-fonce); left: 0; }
@@ -40,17 +44,15 @@
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* HERO SECTION (Image qui fonctionnait bien) */
+        /* HERO SECTION */
         .hero { 
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             background: linear-gradient(rgba(234, 233, 229, 0.6), rgba(234, 233, 229, 0.8)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2000&auto=format&fit=crop') center/cover;
-            background-attachment: fixed;
-            padding-top: 80px;
+            background-attachment: fixed; padding-top: 80px;
         }
         .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; }
         h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; }
         
-        /* BOUTON LUXE */
         .btn-luxe {
             padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte);
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
@@ -64,7 +66,6 @@
         
         .grid-produits { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
         
-        /* NOUVELLES CARTES SANS IMAGES (100% Fiables) */
         .carte-produit { position: relative; width: 320px; height: 450px; overflow: hidden; cursor: pointer; background-color: var(--noir-luxe); }
         .image-placeholder { width: 100%; height: 100%; background: radial-gradient(circle at center, #3A3A3A 0%, #1A1A1A 100%); transition: transform 1s ease; opacity: 0.8; }
         .carte-produit:hover .image-placeholder { transform: scale(1.08); opacity: 1; }
@@ -75,7 +76,7 @@
         }
         .carte-info h3 { font-family: var(--font-titre); font-size: 2.2rem; margin-bottom: 5px; font-weight: 400; color: #EAE9E5;}
         .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; color: var(--or); transition: all 0.3s ease;}
-        .carte-produit:hover .carte-info span { padding-left: 10px; } /* Micro-animation au survol */
+        .carte-produit:hover .carte-info span { padding-left: 10px; }
 
         /* FOOTER / NEWSLETTER */
         .atelier { padding: 100px 20px; text-align: center; background-color: var(--brume); }
@@ -84,7 +85,7 @@
         input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; }
         
         footer { padding: 60px 20px; text-align: center; background-color: #fff; }
-        footer .logo { font-size: 1.5rem; margin-bottom: 30px; color: var(--texte-fonce); }
+        .footer-logo img { height: 60px; margin-bottom: 30px; } /* Logo plus grand dans le footer */
         .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap;}
     </style>
 </head>
@@ -92,8 +93,10 @@
 
     <header>
         <div class="menu-btn"></div>
-        <a href="#" class="logo">Psorelya</a>
-        <div style="font-size: 0.8rem; letter-spacing: 2px;">PANIER (0)</div>
+        <a href="#" class="logo">
+            <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
+        </a>
+        <div style="font-size: 0.8rem; letter-spacing: 2px; font-weight: 500;">PANIER (0)</div>
     </header>
 
     <section class="hero reveal">
@@ -141,7 +144,9 @@
     </section>
 
     <footer>
-        <div class="logo">Psorelya</div>
+        <div class="footer-logo">
+            <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
+        </div>
         <div class="footer-links">
             <span>L'ESSENCE</span>
             <span>COLLECTIONS</span>
@@ -158,14 +163,14 @@
                 for (var i = 0; i < reveals.length; i++) {
                     var windowHeight = window.innerHeight;
                     var elementTop = reveals[i].getBoundingClientRect().top;
-                    var elementVisible = 50; // Plus petit pour déclencher plus tôt
+                    var elementVisible = 50; 
                     if (elementTop < windowHeight - elementVisible) {
                         reveals[i].classList.add("active");
                     }
                 }
             }
             window.addEventListener("scroll", reveal);
-            setTimeout(reveal, 100); // Déclenchement garanti au démarrage
+            setTimeout(reveal, 100); 
         });
     </script>
 </body>
