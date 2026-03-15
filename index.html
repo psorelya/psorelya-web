@@ -3,237 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psorelya | Essence de Sérénité</title>
-    
-    <!-- Typographie : Cormorant Garamond -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <title>Psorelya | L'Essence du Bien-être</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* VARIABLES & DESIGN SYSTEM */
         :root {
-            --brume-claire: #E9ECF3; /* Centre du dégradé */
-            --brume-fond: #DEE1EA;   /* Couleur de base */
-            --or: #E2CC9B;
-            --texte-titre: #2D2D2D;  /* Gris profond pour contraste */
-            --texte-corps: #4A4A4A;
-            --font-main: 'Cormorant Garamond', serif;
+            --brume: #DEE1EA;
+            --or: #C5A47E; /* Un or plus profond pour la lisibilité */
+            --texte: #2D2D2D; /* Gris anthracite pour le contraste */
+            --font-titre: 'Cormorant Garamond', serif;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--brume-fond);
-            font-family: var(--font-main);
-            color: var(--texte-corps);
-            overflow: hidden; /* Nécessaire pour le contrôle du snap-scroll */
-        }
-
-        /* EFFET BRUME : Dégradé radial sur le conteneur principal */
-        .scroll-container {
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Montserrat', sans-serif; background-color: var(--brume); color: var(--texte); }
+        
+        /* Fond avec un léger dégradé pour plus de profondeur */
+        .hero {
             height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            background: radial-gradient(circle, var(--brume-claire) 0%, var(--brume-fond) 100%);
-        }
-
-        /* STRUCTURE DES SECTIONS */
-        section {
-            height: 100vh;
-            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            scroll-snap-align: start;
-            padding: 0 10%;
+            background: radial-gradient(circle, rgba(222,225,234,1) 0%, rgba(200,205,220,1) 100%);
             text-align: center;
-            position: relative;
+            padding: 0 20px;
         }
 
-        /* TYPOGRAPHIE & CONTRASTE */
-        h1 { 
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
-            font-weight: 300; 
-            color: var(--texte-titre); 
-            letter-spacing: 0.25em; /* Aération demandée */
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            text-shadow: 0px 2px 10px rgba(0,0,0,0.02);
-        }
+        .logo-top { position: absolute; top: 40px; right: 40px; font-family: var(--font-titre); letter-spacing: 6px; color: var(--or); font-size: 1.4rem; font-weight: 500; }
+        
+        h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 300; margin-bottom: 10px; letter-spacing: 2px; line-height: 1.1; }
+        .subtitle { font-family: var(--font-titre); font-style: italic; font-size: 1.5rem; color: #555; margin-bottom: 40px; }
+        
+        .line { width: 80px; height: 1px; background: var(--or); margin-bottom: 30px; }
 
-        h2 { 
-            font-size: clamp(2rem, 5vw, 3.5rem); 
-            font-weight: 300; 
-            color: var(--texte-titre); 
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
-        }
-
-        p { 
-            font-size: 1.4rem; 
-            max-width: 700px; 
-            line-height: 1.8; 
-            color: var(--texte-corps);
-            text-shadow: 0px 1px 2px rgba(255,255,255,0.5); /* Subtile lisibilité */
-        }
-
-        .accent-line { 
-            width: 80px; 
-            height: 1px; 
-            background: var(--or); 
-            margin: 30px auto; 
-        }
-
-        /* MENU HAMBURGER (Haut Gauche) */
-        .nav-container {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            z-index: 1000;
-        }
-
-        .hamburger {
-            cursor: pointer;
-            background: none;
-            border: none;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 35px;
-            height: 1px;
-            background-color: var(--texte-titre);
-            transition: all 0.4s ease;
-        }
-
-        /* Animation Hamburger */
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--or); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--or); }
-
-        /* MENU RETRACTABLE */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            max-width: 400px;
-            height: 100%;
-            background-color: white;
-            box-shadow: 15px 0 50px rgba(0,0,0,0.05);
-            transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 60px;
-            z-index: 999;
-        }
-
-        .menu-overlay.active {
-            left: 0;
-        }
-
-        .menu-overlay a {
-            font-size: 2.2rem;
-            text-decoration: none;
-            color: var(--texte-titre);
-            margin: 20px 0;
-            transition: all 0.3s;
-            font-weight: 300;
-        }
-
-        .menu-overlay a:hover {
-            color: var(--or);
-            padding-left: 10px;
-        }
-
-        /* BOUTON LUXE OR (DÉCOUVRIR) */
         .btn-or {
-            margin-top: 40px;
             padding: 15px 45px;
-            border: 2px solid var(--or); /* Bordure 2px Or */
+            border: 1.5px solid var(--or);
             background: transparent;
-            color: var(--texte-titre);
-            font-family: var(--font-main);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            z-index: 1;
-        }
-
-        .btn-or:hover {
-            color: #fff;
-            border-color: var(--or);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(226, 204, 155, 0.3);
-        }
-
-        .btn-or::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background-color: var(--or);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            z-index: -1;
-        }
-
-        .btn-or:hover::before {
-            left: 0;
-        }
-
-        /* LOGO ET INDICATEURS */
-        .logo-fixed {
-            position: fixed;
-            top: 40px;
-            right: 50px;
-            font-size: 1.4rem;
-            letter-spacing: 6px;
-            color: var(--texte-titre);
-            z-index: 1000;
-            font-weight: 400;
-        }
-
-        /* PETIT INDICATEUR DE SCROLL */
-        .scroll-hint {
-            position: absolute;
-            bottom: 30px;
-            font-size: 0.8rem;
+            color: var(--texte);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.6;
+            cursor: pointer;
+            transition: all 0.4s ease;
         }
+        .btn-or:hover { background: var(--or); color: white; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 164, 126, 0.2); }
+
+        .nav-trigger { position: absolute; top: 40px; left: 40px; cursor: pointer; }
+        .nav-trigger div { width: 30px; height: 1px; background: var(--or); margin: 8px 0; }
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-    <div class="nav-container">
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <div class="logo-fixed">PSORELYA</div>
-
-    <nav class="menu-overlay" id="menuOverlay">
-
+    <div class="nav-trigger"><div></div><div></div></div>
+    <div class="logo-top">PSORELYA</div>
+    
+    <section class="hero">
+        <div class="line"></div>
+        <h1>L'Essence de Psorelya</h1>
+        <p class="subtitle">Une parenthèse de douceur dans un écrin de brume et d'or.</p>
+        <button class="btn-or">Découvrir l'univers</button>
+    </section>
+</body>
+</html>
