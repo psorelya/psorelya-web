@@ -11,6 +11,7 @@
             --or: #8A6D4B;
             --texte-fonce: #2D2D2D;
             --texte-clair: #F5F5F5;
+            --noir-luxe: #1A1A1A;
             --font-titre: 'Cormorant Garamond', serif;
             --font-texte: 'Montserrat', sans-serif;
         }
@@ -18,34 +19,32 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* MENU FIXE (Sticky Header) */
+        /* MENU FIXE (Sticky Header Garanti) */
         header { 
-            position: fixed; /* Reste en haut */
-            top: 0; width: 100%; 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; 
             padding: 20px 50px; 
             display: flex; justify-content: space-between; align-items: center; 
-            z-index: 1000; 
-            background: rgba(234, 233, 229, 0.85); /* Fond semi-transparent */
-            backdrop-filter: blur(10px); /* Effet flou luxueux */
-            border-bottom: 1px solid rgba(138, 109, 75, 0.1);
+            z-index: 9999; 
+            background: rgba(234, 233, 229, 0.95); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
-        .logo { font-family: var(--font-titre); font-size: 1.8rem; letter-spacing: 8px; text-transform: uppercase; }
+        .logo { font-family: var(--font-titre); font-size: 1.8rem; letter-spacing: 8px; text-transform: uppercase; color: var(--texte-fonce); text-decoration: none;}
         
         .menu-btn { width: 30px; height: 1px; background: var(--texte-fonce); position: relative; cursor: pointer; }
         .menu-btn::before, .menu-btn::after { content: ''; position: absolute; width: 30px; height: 1px; background: var(--texte-fonce); left: 0; }
         .menu-btn::before { top: -8px; } .menu-btn::after { top: 8px; }
 
         /* ANIMATIONS AU SCROLL */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* HERO SECTION */
+        /* HERO SECTION (Image qui fonctionnait bien) */
         .hero { 
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            /* Image de fond réparée */
-            background: linear-gradient(rgba(234, 233, 229, 0.5), rgba(234, 233, 229, 0.9)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2000&auto=format&fit=crop') center/cover;
-            background-attachment: fixed; /* Effet Parallaxe */
+            background: linear-gradient(rgba(234, 233, 229, 0.6), rgba(234, 233, 229, 0.8)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2000&auto=format&fit=crop') center/cover;
+            background-attachment: fixed;
             padding-top: 80px;
         }
         .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; }
@@ -56,7 +55,7 @@
             padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte);
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
         }
-        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
         /* SECTION PRODUITS */
         .essences { padding: 120px 20px; text-align: center; background-color: #fff; }
@@ -65,16 +64,18 @@
         
         .grid-produits { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
         
-        .carte-produit { position: relative; width: 320px; height: 450px; overflow: hidden; cursor: pointer; }
-        .carte-produit img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
-        .carte-produit:hover img { transform: scale(1.08); } /* Zoom doux au survol */
+        /* NOUVELLES CARTES SANS IMAGES (100% Fiables) */
+        .carte-produit { position: relative; width: 320px; height: 450px; overflow: hidden; cursor: pointer; background-color: var(--noir-luxe); }
+        .image-placeholder { width: 100%; height: 100%; background: radial-gradient(circle at center, #3A3A3A 0%, #1A1A1A 100%); transition: transform 1s ease; opacity: 0.8; }
+        .carte-produit:hover .image-placeholder { transform: scale(1.08); opacity: 1; }
         
         .carte-info { 
             position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 20px 30px; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: var(--texte-clair); text-align: left; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: var(--texte-clair); text-align: left; 
         }
-        .carte-info h3 { font-family: var(--font-titre); font-size: 2.2rem; margin-bottom: 5px; font-weight: 400;}
-        .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; }
+        .carte-info h3 { font-family: var(--font-titre); font-size: 2.2rem; margin-bottom: 5px; font-weight: 400; color: #EAE9E5;}
+        .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; color: var(--or); transition: all 0.3s ease;}
+        .carte-produit:hover .carte-info span { padding-left: 10px; } /* Micro-animation au survol */
 
         /* FOOTER / NEWSLETTER */
         .atelier { padding: 100px 20px; text-align: center; background-color: var(--brume); }
@@ -83,7 +84,7 @@
         input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; }
         
         footer { padding: 60px 20px; text-align: center; background-color: #fff; }
-        footer .logo { font-size: 1.5rem; margin-bottom: 30px; }
+        footer .logo { font-size: 1.5rem; margin-bottom: 30px; color: var(--texte-fonce); }
         .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap;}
     </style>
 </head>
@@ -91,7 +92,7 @@
 
     <header>
         <div class="menu-btn"></div>
-        <div class="logo">Psorelya</div>
+        <a href="#" class="logo">Psorelya</a>
         <div style="font-size: 0.8rem; letter-spacing: 2px;">PANIER (0)</div>
     </header>
 
@@ -107,21 +108,21 @@
         
         <div class="grid-produits">
             <div class="carte-produit reveal">
-                <img src="https://images.unsplash.com/photo-1615486171448-4af1a634125c?q=80&w=800&auto=format&fit=crop" alt="Safran">
+                <div class="image-placeholder"></div>
                 <div class="carte-info">
                     <h3>Safran de l'Atlas</h3>
                     <span>Explorer</span>
                 </div>
             </div>
             <div class="carte-produit reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1559564484-e48b3e040ff4?q=80&w=800&auto=format&fit=crop" alt="Rose">
+                <div class="image-placeholder"></div>
                 <div class="carte-info">
                     <h3>Rose de Damas</h3>
                     <span>Découvrir</span>
                 </div>
             </div>
             <div class="carte-produit reveal" style="transition-delay: 0.4s;">
-                <img src="https://images.unsplash.com/photo-1629858602444-6ccebd0c9502?q=80&w=800&auto=format&fit=crop" alt="Reishi">
+                <div class="image-placeholder"></div>
                 <div class="carte-info">
                     <h3>Champignon Reishi</h3>
                     <span>Consulter l'herbier</span>
@@ -151,19 +152,21 @@
     </footer>
 
     <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        document.addEventListener('DOMContentLoaded', function() {
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 50; // Plus petit pour déclencher plus tôt
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
                 }
             }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Déclencher au chargement initial
+            window.addEventListener("scroll", reveal);
+            setTimeout(reveal, 100); // Déclenchement garanti au démarrage
+        });
     </script>
 </body>
 </html>
