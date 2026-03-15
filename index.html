@@ -3,303 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psorelya | Herboristerie de Luxe</title>
-    
-    <!-- Polices : Cormorant Garamond & Manrope -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
-    
+    <title>Psorelya | Botanique de Prestige</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brume: #DEE1EA;
-            --brume-claire: #E9ECF3;
-            --or: #E2CC9B;
-            --or-brosse: #745a39;
-            --texte-fond: #2D2D2D;
-            --charcoal: #1b1c1a;
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Manrope', sans-serif;
+            --brume: #EAE9E5;
+            --or: #8A6D4B; /* Un or brun/kintsugi plus élégant */
+            --texte-fonce: #2D2D2D;
+            --texte-clair: #F5F5F5;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
         }
 
-        /* 1. ANIMATION CHARGEMENT VOILE (FOG FADE-IN) */
-        @keyframes mistRise {
-            0% { opacity: 0; filter: blur(10px); transform: translateY(20px); }
-            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--brume);
-            font-family: var(--font-serif);
-            color: var(--texte-fond);
-            overflow-x: hidden;
-            animation: mistRise 2.5s ease-out;
-        }
+        /* Animation d'apparition (Le Voile) */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1.5s ease-out forwards; }
 
         /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(222, 225, 234, 0.8);
-            backdrop-filter: blur(10px);
-        }
+        header { position: absolute; top: 0; width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+        .logo { font-family: var(--font-titre); font-size: 1.8rem; letter-spacing: 8px; text-transform: uppercase; }
+        .menu-btn { width: 30px; height: 1px; background: var(--texte-fonce); position: relative; cursor: pointer; }
+        .menu-btn::before, .menu-btn::after { content: ''; position: absolute; width: 30px; height: 1px; background: var(--texte-fonce); left: 0; }
+        .menu-btn::before { top: -8px; } .menu-btn::after { top: 8px; }
 
-        .hamburger {
-            width: 25px;
-            height: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-
-        .hamburger span { width: 100%; height: 1px; background: var(--texte-fond); }
-
-        .logo { font-size: 1.4rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 400; }
-        .cart-icon { width: 20px; cursor: pointer; }
-
-        /* HERO SECTION & PARALLAX */
-        .hero {
-            position: relative;
-            height: 120vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding-bottom: 10vh;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 140%; /* Plus grande pour le parallaxe */
-            object-fit: cover;
-            z-index: -1;
-            transition: transform 0.1s ease-out;
-            filter: brightness(0.9);
-        }
-
-        .hero-content { text-align: center; z-index: 2; color: var(--texte-fond); }
-        .hero-subtitle { font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; }
-        .hero-title { font-size: clamp(4rem, 15vw, 8rem); margin: 10px 0; font-weight: 300; }
-
-        /* BOUTON LIQUIDE */
-        .btn-liquid {
-            position: relative;
-            padding: 18px 50px;
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: white;
-            background: var(--or-brosse);
-            border: none;
-            cursor: pointer;
-            overflow: hidden;
-            transition: color 0.4s;
-        }
-
-        .btn-liquid::before {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--or);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            z-index: -1;
-        }
-
-        .btn-liquid:hover::before { top: 0; }
-        .btn-liquid:hover { color: var(--charcoal); }
-
-        /* SECTION ESSENCES */
-        .section-essences { padding: 100px 20px; background: white; text-align: center; }
-        .section-title { font-size: 3rem; margin-bottom: 20px; font-style: italic; }
-        .section-intro { max-width: 500px; margin: 0 auto 60px; font-family: var(--font-sans); font-size: 0.9rem; line-height: 1.6; opacity: 0.6; }
-
-        /* CARTES PRODUITS INTERACTIVES */
-        .product-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-        
-        .product-card {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
-            cursor: pointer;
-        }
-
-        .product-card img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s scale;
-            z-index: 1;
-        }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
-            z-index: 2;
-            transition: background 0.5s;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 3;
-            color: white;
-            text-align: left;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .card-overlay { background: rgba(0,0,0,0.8); }
-        .product-card:hover .card-content { transform: translateY(-15px); }
-        .product-card:hover img { transform: scale(1.05); }
-
-        .card-category { font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
-        .card-name { font-size: 2.2rem; margin: 5px 0; font-weight: 300; }
-        .card-link { font-family: var(--font-sans); font-size: 0.7rem; text-decoration: underline; text-underline-offset: 5px; opacity: 0.6; }
-
-        /* FORMULAIRE ATELIER */
-        .newsletter { padding: 100px 20px; background: var(--brume); text-align: center; }
-        .newsletter input {
-            width: 100%; max-width: 400px;
-            padding: 15px;
-            border: none;
-            border-bottom: 1px solid var(--or);
-            background: transparent;
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        /* HERO SECTION */
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
             text-align: center;
+            background-image: linear-gradient(rgba(234, 233, 229, 0.7), rgba(234, 233, 229, 0.9)), url('https://images.unsplash.com/photo-1536882240095-0379873feb4e?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Effet Parallaxe */
         }
-
-        /* FOOTER */
-        footer { padding: 60px 20px; text-align: center; background: white; border-top: 1px solid #eee; }
-        .footer-logo { letter-spacing: 8px; font-size: 1.8rem; margin-bottom: 40px; }
-        .footer-nav { display: flex; justify-content: center; gap: 20px; font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; }
-        .footer-nav a { text-decoration: none; color: var(--texte-fond); }
-        .copyright { font-size: 0.7rem; opacity: 0.4; letter-spacing: 1px; }
-
-        /* Desktop Adjustments */
-        @media (min-width: 768px) {
-            .product-grid { grid-template-columns: 1fr 1fr 1fr; }
-            .hero-title { font-size: 10rem; }
+        .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; }
+        h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; }
+        
+        /* BOUTON LUXE */
+        .btn-luxe {
+            padding: 18px 50px;
+            background-color: var(--or);
+            color: var(--texte-clair);
+            border: none;
+            font-family: var(--font-texte);
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
         }
+        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* SECTION PRODUITS */
+        .essences { padding: 100px 20px; text-align: center; background-color: #fff; }
+        .essences h2 { font-family: var(--font-titre); font-size: 3.5rem; font-style: italic; margin-bottom: 20px; }
+        .essences p { max-width: 600px; margin: 0 auto 60px auto; line-height: 1.8; color: #666; font-weight: 300; }
+        
+        .grid-produits { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        .carte-produit { 
+            flex: 1; 
+            min-width: 300px; 
+            height: 450px; 
+            position: relative; 
+            overflow: hidden; 
+            cursor: pointer; 
+        }
+        .carte-produit img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .carte-produit:hover img { transform: scale(1.05); }
+        
+        .carte-info { 
+            position: absolute; 
+            bottom: 0; left: 0; right: 0; 
+            padding: 40px 20px 30px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
+            color: var(--texte-clair); 
+            text-align: left; 
+        }
+        .carte-info h3 { font-family: var(--font-titre); font-size: 2rem; margin-bottom: 5px; }
+        .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; }
+
+        /* FOOTER / NEWSLETTER */
+        .atelier { padding: 100px 20px; text-align: center; background-color: var(--brume); }
+        .atelier h2 { font-family: var(--font-titre); font-size: 3rem; font-style: italic; margin-bottom: 20px; }
+        .input-group { margin-top: 40px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;}
+        input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; }
+        
+        footer { padding: 60px 20px; text-align: center; background-color: #fff; }
+        footer .logo { font-size: 1.5rem; margin-bottom: 30px; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap;}
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="hamburger"><span></span><span></span><span></span></div>
-        <div class="logo">PSORELYA</div>
-        <div class="cart-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-        </div>
+    <header class="fade-in">
+        <div class="menu-btn"></div>
+        <div class="logo">Psorelya</div>
+        <div>BAG (0)</div>
     </header>
 
-    <main>
-        <!-- Hero Section avec Parallaxe -->
-        <section class="hero">
-            <img src="https://images.unsplash.com/photo-1501004318641-739e8297524c?auto=format&fit=crop&q=80&w=1500" class="hero-image" id="parallaxBg" alt="Plante Botanique">
-            <div class="hero-content">
-                <p class="hero-subtitle">Botanique de Prestige</p>
-                <h1 class="hero-title">Psorelya</h1>
-                <button class="btn-liquid">Découvrir</button>
-            </div>
-        </section>
+    <section class="hero fade-in">
+        <div class="sur-titre">Botanique de Prestige</div>
+        <h1>Psorelya</h1>
+        <button class="btn-luxe">Découvrir</button>
+    </section>
 
-        <!-- Section Essences -->
-        <section class="section-essences">
-            <h2 class="section-title">Nos Essences Précieuses</h2>
-            <p class="section-intro">Une sélection rigoureuse d'ingrédients ancestraux, élevés au rang de icônes cosmétiques.</p>
-            
-            <div class="product-grid">
-                <!-- Safran -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d0c9cb5?auto=format&fit=crop&q=80&w=800" alt="Safran">
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <p class="card-category">L'Or Rouge</p>
-                        <h3 class="card-name">Safran de l'Atlas</h3>
-                        <p class="card-link">EXPLORER —</p>
-                    </div>
-                </div>
-
-                <!-- Rose -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&q=80&w=800" alt="Rose de Damas">
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <p class="card-category">Pureté Absolue</p>
-                        <h3 class="card-name">Rose de Damas</h3>
-                        <p class="card-link">DÉCOUVRIR —</p>
-                    </div>
-                </div>
-
-                <!-- Reishi -->
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=800" alt="Reishi">
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <p class="card-category">L'Immortalité</p>
-                        <h3 class="card-name">Champignon Reishi</h3>
-                        <p class="card-link">CONSULTER L'HERBIER —</p>
-                    </div>
+    <section class="essences">
+        <h2>Nos Essences Précieuses</h2>
+        <p>Une sélection rigoureuse d'ingrédients ancestraux, élevés au rang d'icônes cosmétiques.</p>
+        
+        <div class="grid-produits">
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1596647900405-b0a6f8742d13?q=80&w=800&auto=format&fit=crop" alt="Safran">
+                <div class="carte-info">
+                    <h3>Safran de l'Atlas</h3>
+                    <span>Explorer</span>
                 </div>
             </div>
-        </section>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?q=80&w=800&auto=format&fit=crop" alt="Rose">
+                <div class="carte-info">
+                    <h3>Rose de Damas</h3>
+                    <span>Découvrir</span>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1611078816823-38890d93700b?q=80&w=800&auto=format&fit=crop" alt="Reishi">
+                <div class="carte-info">
+                    <h3>Champignon Reishi</h3>
+                    <span>Consulter l'herbier</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Newsletter -->
-        <section class="newsletter">
-            <h2 class="section-title">Rejoindre l'Atelier</h2>
-            <p class="section-intro">Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
-            <form>
-                <input type="email" placeholder="votre@email.com"><br>
-                <button type="submit" class="btn-liquid">S'inscrire</button>
-            </form>
-        </section>
-    </main>
+    <section class="atelier">
+        <h2>Rejoindre l'Atelier</h2>
+        <p>Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
+        <div class="input-group">
+            <input type="email" placeholder="votre@email.com">
+            <button class="btn-luxe">S'inscrire</button>
+        </div>
+    </section>
 
     <footer>
-        <div class="logo footer-logo">PSORELYA</div>
-        <nav class="footer-nav">
-            <a href="#">L'Essence</a>
-            <a href="#">Collections</a>
-            <a href="#">Engagements</a>
-            <a href="#">Contact</a>
-        </nav>
-        <p class="copyright">© 2024 PSORELYA PARIS</p>
+        <div class="logo">Psorelya</div>
+        <div class="footer-links">
+            <span>L'ESSENCE</span>
+            <span>COLLECTIONS</span>
+            <span>ENGAGEMENTS</span>
+            <span>CONTACT</span>
+        </div>
+        <p style="font-size: 0.7rem; color: #999;">© 2026 PSORELYA PARIS</p>
     </footer>
 
-    <script>
-        // 2. INTERACTION PARALLAXE DOUX
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const bg = document.getElementById('parallaxBg');
-            // La plante bouge plus lentement que le scroll
-            bg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
-        });
-
-        // 4. INTERACTION CARTES (Géré en CSS, mais extension JS possible ici)
-        const cards = document.querySelectorAll('.product-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                // Logique additionnelle si besoin
-            });
-        });
-    </script>
 </body>
 </html>
