@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psorelya | Sérénité & Éclat</title>
+    <title>Psorelya | Essence de Sérénité</title>
     
-    <!-- Importation Police Cormorant Garamond -->
+    <!-- Typographie : Cormorant Garamond -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* VARIABLES & RESET */
+        /* VARIABLES & DESIGN SYSTEM */
         :root {
-            --brume: #DEE1EA;
+            --brume-claire: #E9ECF3; /* Centre du dégradé */
+            --brume-fond: #DEE1EA;   /* Couleur de base */
             --or: #E2CC9B;
-            --texte: #4A4A4A;
+            --texte-titre: #2D2D2D;  /* Gris profond pour contraste */
+            --texte-corps: #4A4A4A;
             --font-main: 'Cormorant Garamond', serif;
         }
 
@@ -28,19 +30,21 @@
         }
 
         body {
-            background-color: var(--brume);
+            background-color: var(--brume-fond);
             font-family: var(--font-main);
-            color: var(--texte);
-            overflow: hidden; /* Pour le contrôle du full-scroll via JS ou snap */
+            color: var(--texte-corps);
+            overflow: hidden; /* Nécessaire pour le contrôle du snap-scroll */
         }
 
-        /* FULL-SCROLL STRUCTURE */
+        /* EFFET BRUME : Dégradé radial sur le conteneur principal */
         .scroll-container {
             height: 100vh;
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
+            background: radial-gradient(circle, var(--brume-claire) 0%, var(--brume-fond) 100%);
         }
 
+        /* STRUCTURE DES SECTIONS */
         section {
             height: 100vh;
             width: 100%;
@@ -49,21 +53,50 @@
             justify-content: center;
             align-items: center;
             scroll-snap-align: start;
-            padding: 2rem;
+            padding: 0 10%;
             text-align: center;
+            position: relative;
         }
 
-        /* TYPOGRAPHIE */
-        h1 { font-size: 4rem; font-weight: 300; color: var(--texte); margin-bottom: 1rem; }
-        h2 { font-size: 3rem; font-weight: 300; color: var(--or); margin-bottom: 1rem; }
-        p { font-size: 1.5rem; max-width: 800px; line-height: 1.6; }
-        .accent-line { width: 60px; height: 1px; background: var(--or); margin: 20px auto; }
+        /* TYPOGRAPHIE & CONTRASTE */
+        h1 { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 300; 
+            color: var(--texte-titre); 
+            letter-spacing: 0.25em; /* Aération demandée */
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.02);
+        }
+
+        h2 { 
+            font-size: clamp(2rem, 5vw, 3.5rem); 
+            font-weight: 300; 
+            color: var(--texte-titre); 
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        p { 
+            font-size: 1.4rem; 
+            max-width: 700px; 
+            line-height: 1.8; 
+            color: var(--texte-corps);
+            text-shadow: 0px 1px 2px rgba(255,255,255,0.5); /* Subtile lisibilité */
+        }
+
+        .accent-line { 
+            width: 80px; 
+            height: 1px; 
+            background: var(--or); 
+            margin: 30px auto; 
+        }
 
         /* MENU HAMBURGER (Haut Gauche) */
         .nav-container {
             position: fixed;
-            top: 30px;
-            left: 30px;
+            top: 40px;
+            left: 40px;
             z-index: 1000;
         }
 
@@ -73,36 +106,37 @@
             border: none;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 7px;
         }
 
         .hamburger span {
             display: block;
-            width: 30px;
-            height: 2px;
-            background-color: var(--or);
-            transition: 0.4s;
+            width: 35px;
+            height: 1px;
+            background-color: var(--texte-titre);
+            transition: all 0.4s ease;
         }
 
         /* Animation Hamburger */
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--or); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--or); }
 
         /* MENU RETRACTABLE */
         .menu-overlay {
             position: fixed;
             top: 0;
             left: -100%;
-            width: 300px;
+            width: 100%;
+            max-width: 400px;
             height: 100%;
             background-color: white;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.05);
-            transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            box-shadow: 15px 0 50px rgba(0,0,0,0.05);
+            transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 50px;
+            padding-left: 60px;
             z-index: 999;
         }
 
@@ -111,45 +145,80 @@
         }
 
         .menu-overlay a {
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-decoration: none;
-            color: var(--texte);
-            margin: 15px 0;
-            transition: color 0.3s;
+            color: var(--texte-titre);
+            margin: 20px 0;
+            transition: all 0.3s;
+            font-weight: 300;
         }
 
         .menu-overlay a:hover {
             color: var(--or);
+            padding-left: 10px;
         }
 
-        /* BOUTON D'ACTION */
+        /* BOUTON LUXE OR (DÉCOUVRIR) */
         .btn-or {
-            margin-top: 30px;
-            padding: 12px 35px;
-            border: 1px solid var(--or);
+            margin-top: 40px;
+            padding: 15px 45px;
+            border: 2px solid var(--or); /* Bordure 2px Or */
             background: transparent;
-            color: var(--texte);
+            color: var(--texte-titre);
             font-family: var(--font-main);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             cursor: pointer;
-            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1;
         }
 
         .btn-or:hover {
-            background: var(--or);
-            color: white;
+            color: #fff;
+            border-color: var(--or);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(226, 204, 155, 0.3);
         }
 
-        /* DÉTAILS DÉCORATIFS */
-        .logo-center {
+        .btn-or::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--or);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: -1;
+        }
+
+        .btn-or:hover::before {
+            left: 0;
+        }
+
+        /* LOGO ET INDICATEURS */
+        .logo-fixed {
             position: fixed;
-            top: 30px;
-            right: 40px;
-            font-size: 1.5rem;
-            letter-spacing: 4px;
-            color: var(--or);
+            top: 40px;
+            right: 50px;
+            font-size: 1.4rem;
+            letter-spacing: 6px;
+            color: var(--texte-titre);
+            z-index: 1000;
+            font-weight: 400;
+        }
+
+        /* PETIT INDICATEUR DE SCROLL */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -157,65 +226,14 @@
 
     <!-- Navigation -->
     <div class="nav-container">
-        <button class="hamburger" onclick="toggleMenu()">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
 
-    <div class="logo-center">PSORELYA</div>
+    <div class="logo-fixed">PSORELYA</div>
 
     <nav class="menu-overlay" id="menuOverlay">
-        <a href="#accueil" onclick="toggleMenu()">Accueil</a>
-        <a href="#concept" onclick="toggleMenu()">Le Concept</a>
-        <a href="#rituels" onclick="toggleMenu()">Nos Rituels</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </nav>
 
-    <!-- Contenu Full-Scroll -->
-    <div class="scroll-container">
-        
-        <!-- Section 1 : Accueil -->
-        <section id="accueil">
-            <h1>L'Essence de Psorelya</h1>
-            <div class="accent-line"></div>
-            <p>Une parenthèse de douceur dans un écrin de brume et d'or.</p>
-            <button class="btn-or">Découvrir</button>
-        </section>
-
-        <!-- Section 2 : Concept -->
-        <section id="concept" style="background-color: #f7f8fa;">
-            <h2>Le Concept</h2>
-            <div class="accent-line"></div>
-            <p>L'harmonie entre la nature et votre peau. Nous utilisons des textures nuageuses et des reflets dorés pour sublimer votre rituel quotidien.</p>
-        </section>
-
-        <!-- Section 3 : Rituels -->
-        <section id="rituels">
-            <h2>Nos Rituels</h2>
-            <div class="accent-line"></div>
-            <p>Des soins pensés pour le calme intérieur et l'éclat extérieur.</p>
-            <button class="btn-or">Explorer la gamme</button>
-        </section>
-
-        <!-- Section 4 : Contact -->
-        <section id="contact" style="background-color: #f7f8fa;">
-            <h2>Contact</h2>
-            <div class="accent-line"></div>
-            <p>Une question ? Un moment pour vous ?</p>
-            <p style="font-size: 1.2rem; margin-top: 20px;">contact@psorelya.com</p>
-        </section>
-
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menuOverlay');
-            const hamburger = document.querySelector('.hamburger');
-            menu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
