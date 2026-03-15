@@ -8,7 +8,7 @@
     <style>
         :root {
             --brume: #EAE9E5;
-            --or: #8A6D4B; /* Un or brun/kintsugi plus élégant */
+            --or: #8A6D4B;
             --texte-fonce: #2D2D2D;
             --texte-clair: #F5F5F5;
             --font-titre: 'Cormorant Garamond', serif;
@@ -18,75 +18,62 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* Animation d'apparition (Le Voile) */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in { animation: fadeIn 1.5s ease-out forwards; }
-
-        /* HEADER */
-        header { position: absolute; top: 0; width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+        /* MENU FIXE (Sticky Header) */
+        header { 
+            position: fixed; /* Reste en haut */
+            top: 0; width: 100%; 
+            padding: 20px 50px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            z-index: 1000; 
+            background: rgba(234, 233, 229, 0.85); /* Fond semi-transparent */
+            backdrop-filter: blur(10px); /* Effet flou luxueux */
+            border-bottom: 1px solid rgba(138, 109, 75, 0.1);
+            transition: all 0.3s ease;
+        }
         .logo { font-family: var(--font-titre); font-size: 1.8rem; letter-spacing: 8px; text-transform: uppercase; }
+        
         .menu-btn { width: 30px; height: 1px; background: var(--texte-fonce); position: relative; cursor: pointer; }
         .menu-btn::before, .menu-btn::after { content: ''; position: absolute; width: 30px; height: 1px; background: var(--texte-fonce); left: 0; }
         .menu-btn::before { top: -8px; } .menu-btn::after { top: 8px; }
 
+        /* ANIMATIONS AU SCROLL */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         /* HERO SECTION */
         .hero { 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center;
-            background-image: linear-gradient(rgba(234, 233, 229, 0.7), rgba(234, 233, 229, 0.9)), url('https://images.unsplash.com/photo-1536882240095-0379873feb4e?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            /* Image de fond réparée */
+            background: linear-gradient(rgba(234, 233, 229, 0.5), rgba(234, 233, 229, 0.9)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2000&auto=format&fit=crop') center/cover;
             background-attachment: fixed; /* Effet Parallaxe */
+            padding-top: 80px;
         }
         .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; }
         h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; }
         
         /* BOUTON LUXE */
         .btn-luxe {
-            padding: 18px 50px;
-            background-color: var(--or);
-            color: var(--texte-clair);
-            border: none;
-            font-family: var(--font-texte);
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s ease;
+            padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte);
+            font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
         }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
         /* SECTION PRODUITS */
-        .essences { padding: 100px 20px; text-align: center; background-color: #fff; }
+        .essences { padding: 120px 20px; text-align: center; background-color: #fff; }
         .essences h2 { font-family: var(--font-titre); font-size: 3.5rem; font-style: italic; margin-bottom: 20px; }
         .essences p { max-width: 600px; margin: 0 auto 60px auto; line-height: 1.8; color: #666; font-weight: 300; }
         
         .grid-produits { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
         
-        .carte-produit { 
-            flex: 1; 
-            min-width: 300px; 
-            height: 450px; 
-            position: relative; 
-            overflow: hidden; 
-            cursor: pointer; 
-        }
-        .carte-produit img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-        .carte-produit:hover img { transform: scale(1.05); }
+        .carte-produit { position: relative; width: 320px; height: 450px; overflow: hidden; cursor: pointer; }
+        .carte-produit img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
+        .carte-produit:hover img { transform: scale(1.08); } /* Zoom doux au survol */
         
         .carte-info { 
-            position: absolute; 
-            bottom: 0; left: 0; right: 0; 
-            padding: 40px 20px 30px; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
-            color: var(--texte-clair); 
-            text-align: left; 
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 20px 30px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: var(--texte-clair); text-align: left; 
         }
-        .carte-info h3 { font-family: var(--font-titre); font-size: 2rem; margin-bottom: 5px; }
+        .carte-info h3 { font-family: var(--font-titre); font-size: 2.2rem; margin-bottom: 5px; font-weight: 400;}
         .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; }
 
         /* FOOTER / NEWSLETTER */
@@ -102,39 +89,39 @@
 </head>
 <body>
 
-    <header class="fade-in">
+    <header>
         <div class="menu-btn"></div>
         <div class="logo">Psorelya</div>
-        <div>BAG (0)</div>
+        <div style="font-size: 0.8rem; letter-spacing: 2px;">PANIER (0)</div>
     </header>
 
-    <section class="hero fade-in">
+    <section class="hero reveal">
         <div class="sur-titre">Botanique de Prestige</div>
         <h1>Psorelya</h1>
         <button class="btn-luxe">Découvrir</button>
     </section>
 
     <section class="essences">
-        <h2>Nos Essences Précieuses</h2>
-        <p>Une sélection rigoureuse d'ingrédients ancestraux, élevés au rang d'icônes cosmétiques.</p>
+        <h2 class="reveal">Nos Essences Précieuses</h2>
+        <p class="reveal">Une sélection rigoureuse d'ingrédients ancestraux, élevés au rang d'icônes cosmétiques.</p>
         
         <div class="grid-produits">
-            <div class="carte-produit">
-                <img src="https://images.unsplash.com/photo-1596647900405-b0a6f8742d13?q=80&w=800&auto=format&fit=crop" alt="Safran">
+            <div class="carte-produit reveal">
+                <img src="https://images.unsplash.com/photo-1615486171448-4af1a634125c?q=80&w=800&auto=format&fit=crop" alt="Safran">
                 <div class="carte-info">
                     <h3>Safran de l'Atlas</h3>
                     <span>Explorer</span>
                 </div>
             </div>
-            <div class="carte-produit">
-                <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?q=80&w=800&auto=format&fit=crop" alt="Rose">
+            <div class="carte-produit reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1559564484-e48b3e040ff4?q=80&w=800&auto=format&fit=crop" alt="Rose">
                 <div class="carte-info">
                     <h3>Rose de Damas</h3>
                     <span>Découvrir</span>
                 </div>
             </div>
-            <div class="carte-produit">
-                <img src="https://images.unsplash.com/photo-1611078816823-38890d93700b?q=80&w=800&auto=format&fit=crop" alt="Reishi">
+            <div class="carte-produit reveal" style="transition-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1629858602444-6ccebd0c9502?q=80&w=800&auto=format&fit=crop" alt="Reishi">
                 <div class="carte-info">
                     <h3>Champignon Reishi</h3>
                     <span>Consulter l'herbier</span>
@@ -143,7 +130,7 @@
         </div>
     </section>
 
-    <section class="atelier">
+    <section class="atelier reveal">
         <h2>Rejoindre l'Atelier</h2>
         <p>Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
         <div class="input-group">
@@ -160,8 +147,23 @@
             <span>ENGAGEMENTS</span>
             <span>CONTACT</span>
         </div>
-        <p style="font-size: 0.7rem; color: #999;">© 2026 PSORELYA PARIS</p>
+        <p style="font-size: 0.7rem; color: #999; margin-top: 20px;">© 2026 PSORELYA PARIS</p>
     </footer>
 
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Déclencher au chargement initial
+    </script>
 </body>
 </html>
