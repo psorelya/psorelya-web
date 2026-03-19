@@ -19,7 +19,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* MENU FIXE */
+        /* MENU FIXE (Template standard) */
         header { 
             position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -43,23 +43,24 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* SECTION HERO INTERNE (Immersion Experte Pertinente) */
-        .hero-interne { 
-            height: 60vh; /* Prend 60% de l'écran pour l'immersion */
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            /* IMAGE PERTINENTE : Composition d'apothicaire experte texturée (SANS FACES GÉNÉRIQUES) */
-            background: linear-gradient(rgba(234, 233, 229, 0.4), rgba(234, 233, 229, 0.95)), url('Logo-Psorelya-FINAL-RVB-WEB.png') center/contain no-repeat, radial-gradient(circle at center, #D6D3C9 0%, #D0CDC2 100%);
-            /* Correction: j'utilise Logo-Psorelya-FINAL-RVB-WEB.png comme placeholder pour l'image d'immersion experte de l'apothicaire ( hands interacting with Psoralea raw ingredients and Guilde des herboristes du Québec notation). */
-            background-size: contain, contain, cover; /* Illustration centrale */
-            background-attachment: fixed; padding-top: 80px;
+        /* SECTION HERO/IMMERSION (Image validée: image_25.png) */
+        .story-immersion { 
+            width: 100%; height: 60vh; overflow: hidden; position: relative;
+            background-color: var(--brume); margin-top: 80px;
         }
-        .hero-interne h1 { font-family: var(--font-titre); font-size: clamp(4rem, 8vw, 6rem); font-weight: 300; letter-spacing: 2px; color: var(--texte-fonce); }
+        .story-immersion img { 
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; transition: transform 0.8s ease;
+        }
+        .story-immersion:hover img { transform: scale(1.03); } /* Doux effet de zoom */
 
         /* SECTION TEXTE */
         .histoire-section { padding: 40px 20px 100px; background-color: var(--brume); }
         .histoire-container { max-width: 700px; margin: 0 auto; text-align: left; }
         
+        .histoire-container h1 { font-family: var(--font-titre); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 300; text-align: center; margin-bottom: 20px; color: var(--texte-fonce); }
         .histoire-container h2 { font-family: var(--font-titre); font-size: 2.5rem; font-weight: 300; text-align: center; margin: 80px 0 30px; color: var(--texte-fonce); }
+        
         .histoire-container .intro { font-family: var(--font-titre); font-size: 2rem; font-style: italic; text-align: center; color: var(--or); margin-bottom: 60px; line-height: 1.4; }
         
         .histoire-container p { font-family: var(--font-texte); font-size: 1.05rem; line-height: 2; color: #444; font-weight: 300; margin-bottom: 30px; }
@@ -72,7 +73,7 @@
         }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-        /* FOOTER */
+        /* FOOTER (Template standard) */
         footer { padding: 60px 20px; text-align: center; background-color: #fff; margin-top: 50px; }
         .footer-logo img { height: 60px; margin-bottom: 30px; }
         .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap;}
@@ -90,12 +91,13 @@
         </div>
     </header>
 
-    <section class="hero-interne reveal">
-        <h1>Notre histoire</h1>
+    <section class="story-immersion reveal">
+        <img src="image_25.png" alt="Atelier de formulation de prestige Psorelya">
     </section>
 
     <section class="histoire-section">
         <div class="histoire-container">
+            <h1 class="reveal">Notre histoire</h1>
             
             <div class="intro reveal">Il y a des choses qu'on ne comprend vraiment que de l'intérieur.</div>
             
@@ -125,45 +127,4 @@
             
             <p class="reveal">Chaque produit — savon, crème, lotion, baume, savon d'Alep, débarbouillette en bambou — a été sélectionné pour sa douceur, sa pureté et son efficacité. Rien d'irritant. Rien de superflu. Que du soin, vrai et sincère.</p>
             
-            <p class="reveal">Mais au-delà des produits, c'est une expérience que nous voulons vous offrir. Celle de prendre enfin soin de vous, sans crainte, sans compromis — comme un véritable rituel spa, vécu chez vous, à votre rythme, chaque jour.</p>
-            
-            <p class="reveal" style="font-weight: 500; text-align: center; color: var(--or); margin-top: 50px; font-size: 1.2rem;">Parce que votre peau n'a plus à être un champ de bataille. Réconciliez-vous avec elle.</p>
-            
-            <div class="btn-container reveal">
-                <a href="collection-origine.html" class="btn-luxe">👉 Découvrez la Collection Origine</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">
-            <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
-        </div>
-        <div class="footer-links">
-            <span>L'ESSENCE</span>
-            <span>COLLECTIONS</span>
-            <span>ENGAGEMENTS</span>
-            <span>CONTACT</span>
-        </div>
-        <p style="font-size: 0.7rem; color: #999; margin-top: 20px;">© 2026 PSORELYA PARIS</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function reveal() {
-                var reveals = document.querySelectorAll(".reveal");
-                for (var i = 0; i < reveals.length; i++) {
-                    var windowHeight = window.innerHeight;
-                    var elementTop = reveals[i].getBoundingClientRect().top;
-                    var elementVisible = 30; 
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveals[i].classList.add("active");
-                    }
-                }
-            }
-            window.addEventListener("scroll", reveal);
-            setTimeout(reveal, 100); 
-        });
-    </script>
-</body>
-</html>
+            <p class="reveal">Mais au-delà des produits, c'est une expérience que nous voulons vous offrir. Celle de prendre enfin soin de vous, sans crainte, sans compromis
