@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psorelya | Notre histoire</title>
+    <title>Psorelya | Notre histoire - Botanique de Prestige</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,7 +19,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* MENU FIXE (Identique à l'accueil) */
+        /* MENU FIXE (Cloné de l'accueil) */
         header { 
             position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -59,6 +59,19 @@
         
         .histoire-container p { font-family: var(--font-texte); font-size: 1.05rem; line-height: 1.9; color: #444; font-weight: 300; margin-bottom: 25px; }
 
+        /* IMAGE ENJOLIVÉE - ILLUSTRATION APOTHICAIRE */
+        .botanical-illustration { 
+            width: 100%; max-width: 700px; height: 400px; margin: 80px auto; 
+            background: linear-gradient(rgba(234, 233, 229, 0.1), rgba(234, 233, 229, 0.2)), url('Logo-Psorelya-FINAL-RVB-WEB.png') center no-repeat, radial-gradient(circle at center, #E0DED7 0%, #D8D6CD 100%);
+            background-size: contain, 300px, cover; /* Illustration centrale */
+            border: 1px solid #D1D1D1; /* Cadre fin de prestige */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Doux relief */
+            position: relative; overflow: hidden;
+        }
+        .botanical-illustration::before { /* Accent Or */
+            content: ''; position: absolute; top: -10px; right: 20px; width: 5px; height: 100px; background-color: var(--or);
+        }
+
         /* BOUTON LUXE */
         .btn-container { text-align: center; margin-top: 70px; }
         .btn-luxe {
@@ -67,7 +80,7 @@
         }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-        /* FOOTER */
+        /* FOOTER (Cloné de l'accueil) */
         footer { padding: 60px 20px; text-align: center; background-color: #fff; }
         .footer-logo img { height: 60px; margin-bottom: 30px; }
         .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap;}
@@ -111,6 +124,8 @@
             
             <p class="reveal">Elle incarne parfaitement ce que Psorelya veut être : pas le produit le plus visible sur l'étagère, mais le plus juste. Celui qu'on choisit quand on sait ce qu'on cherche vraiment.</p>
             
+            <div class="botanical-illustration reveal"></div>
+            
             <h2 class="reveal">Notre philosophie</h2>
             
             <p class="reveal">Psorelya, c'est une gamme de soins naturels pensée de A à Z pour les peaux à tendance atopique et sensibles. Pas formulée dans un bureau, mais construite avec l'exigence de quelqu'un qui sait exactement ce que ressent une peau qui souffre.</p>
@@ -122,7 +137,7 @@
             <p class="reveal" style="font-weight: 500; text-align: center; color: var(--or); margin-top: 40px;">Parce que votre peau n'a plus à être un champ de bataille. Réconciliez-vous avec elle.</p>
             
             <div class="btn-container reveal">
-                <a href="collection-origine.html" class="btn-luxe">Découvrir la Collection</a>
+                <a href="collection-origine.html" class="btn-luxe">👉 Découvrez la Collection</a>
             </div>
         </div>
     </section>
