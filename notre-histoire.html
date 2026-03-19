@@ -19,7 +19,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* MENU FIXE (Cloné de l'accueil) */
+        /* MENU FIXE */
         header { 
             position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -27,12 +27,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s ease;
         }
         
-        .logo img { 
-            height: 100px; 
-            width: auto; 
-            transition: transform 0.4s ease; 
-            display: block;
-        }
+        .logo img { height: 100px; width: auto; transition: transform 0.4s ease; display: block; }
         .logo:hover img { transform: scale(1.05); }
         
         .menu-btn { width: 30px; height: 1px; background: var(--texte-fonce); position: relative; cursor: pointer; }
@@ -48,12 +43,15 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* SECTION HERO INTERNE (Le secret du luxe, SANS IMAGE DE FOND) */
+        /* SECTION HERO INTERNE (Immersion Experte Pertinente) */
         .hero-interne { 
-            height: 40vh; /* Prend 40% de l'écran pour l'immersion */
+            height: 60vh; /* Prend 60% de l'écran pour l'immersion */
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background: rgba(234, 233, 229, 0.95); /* Fond Brume, pas d'image */
-            padding-top: 80px;
+            /* IMAGE PERTINENTE : Composition d'apothicaire experte texturée (SANS FACES GÉNÉRIQUES) */
+            background: linear-gradient(rgba(234, 233, 229, 0.4), rgba(234, 233, 229, 0.95)), url('Logo-Psorelya-FINAL-RVB-WEB.png') center/contain no-repeat, radial-gradient(circle at center, #D6D3C9 0%, #D0CDC2 100%);
+            /* Correction: j'utilise Logo-Psorelya-FINAL-RVB-WEB.png comme placeholder pour l'image d'immersion experte de l'apothicaire ( hands interacting with Psoralea raw ingredients and Guilde des herboristes du Québec notation). */
+            background-size: contain, contain, cover; /* Illustration centrale */
+            background-attachment: fixed; padding-top: 80px;
         }
         .hero-interne h1 { font-family: var(--font-titre); font-size: clamp(4rem, 8vw, 6rem); font-weight: 300; letter-spacing: 2px; color: var(--texte-fonce); }
 
