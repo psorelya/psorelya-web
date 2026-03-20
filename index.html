@@ -9,6 +9,7 @@
         :root {
             --brume: #EAE9E5;
             --or: #8A6D4B;
+            --vert-sauge: #7A8450;
             --texte-fonce: #2D2D2D;
             --texte-clair: #F5F5F5;
             --noir-luxe: #1A1A1A;
@@ -19,29 +20,8 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        /* MENU FIXE */
-        header { 
-            position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; 
-            display: flex; justify-content: space-between; align-items: center; 
-            z-index: 9999; background: rgba(234, 233, 229, 0.95); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s ease;
-        }
-        
-        /* NOUVEAU STYLE POUR LE LOGO IMAGE */
-        .logo img { 
-            height: 100px; /* Taille idéale pour le menu */
-            width: auto; 
-            transition: transform 0.4s ease; 
-            display: block;
-        }
-        .logo:hover img { transform: scale(1.05); } /* Petit zoom au survol */
-        
-        .menu-btn { width: 30px; height: 1px; background: var(--texte-fonce); position: relative; cursor: pointer; }
-        .menu-btn::before, .menu-btn::after { content: ''; position: absolute; width: 30px; height: 1px; background: var(--texte-fonce); left: 0; }
-        .menu-btn::before { top: -8px; } .menu-btn::after { top: 8px; }
-
         /* ANIMATIONS AU SCROLL */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* HERO SECTION */
@@ -50,22 +30,29 @@
             background: linear-gradient(rgba(234, 233, 229, 0.6), rgba(234, 233, 229, 0.8)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2000&auto=format&fit=crop') center/cover;
             background-attachment: fixed; padding-top: 80px;
         }
-        .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; }
-        h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; }
-        
+        .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; font-weight: 500;}
+        h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; color: var(--texte-fonce); }
+
+        /* SECTION BIENVENUE (LE MOT DE PATRICK) */
+        .bienvenue { padding: 100px 20px; background-color: var(--brume); }
+        .bienvenue-container { max-width: 700px; margin: 0 auto; text-align: center; }
+        .bienvenue-container h2 { font-family: var(--font-titre); font-size: 3rem; font-weight: 300; margin-bottom: 40px; color: var(--texte-fonce); }
+        .bienvenue-container p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 25px; font-weight: 300; }
+        .signature { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; color: var(--vert-sauge); margin: 40px 0 50px; }
+
+        /* BOUTON LUXE */
         .btn-luxe {
-            padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte);
+            padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte); text-decoration: none; display: inline-block;
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
         }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
         /* SECTION PRODUITS */
-        .essences { padding: 120px 20px; text-align: center; background-color: #fff; }
-        .essences h2 { font-family: var(--font-titre); font-size: 3.5rem; font-style: italic; margin-bottom: 20px; }
+        .essences { padding: 100px 20px; text-align: center; background-color: #fff; }
+        .essences h2 { font-family: var(--font-titre); font-size: 3.5rem; font-style: italic; margin-bottom: 20px; font-weight: 300; }
         .essences p { max-width: 600px; margin: 0 auto 60px auto; line-height: 1.8; color: #666; font-weight: 300; }
         
         .grid-produits { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
-        
         .carte-produit { position: relative; width: 320px; height: 450px; overflow: hidden; cursor: pointer; background-color: var(--noir-luxe); }
         .image-placeholder { width: 100%; height: 100%; background: radial-gradient(circle at center, #3A3A3A 0%, #1A1A1A 100%); transition: transform 1s ease; opacity: 0.8; }
         .carte-produit:hover .image-placeholder { transform: scale(1.08); opacity: 1; }
@@ -78,31 +65,33 @@
         .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; color: var(--or); transition: all 0.3s ease;}
         .carte-produit:hover .carte-info span { padding-left: 10px; }
 
-        /* FOOTER / NEWSLETTER */
+        /* NEWSLETTER */
         .atelier { padding: 100px 20px; text-align: center; background-color: var(--brume); }
-        .atelier h2 { font-family: var(--font-titre); font-size: 3rem; font-style: italic; margin-bottom: 20px; }
+        .atelier h2 { font-family: var(--font-titre); font-size: 3rem; font-style: italic; margin-bottom: 20px; font-weight: 300;}
         .input-group { margin-top: 40px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;}
-        input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; }
-        
-        footer { padding: 60px 20px; text-align: center; background-color: #fff; }
-        .footer-logo img { height: 60px; margin-bottom: 30px; } /* Logo plus grand dans le footer */
-        .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap;}
+        input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem;}
+        input[type="email"]:focus { border-bottom: 1px solid var(--or); }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="menu-btn"></div>
-        <a href="#" class="logo">
-            <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
-        </a>
-        <div style="font-size: 0.8rem; letter-spacing: 2px; font-weight: 500;">PANIER (0)</div>
-    </header>
+    <div id="header-container"></div>
 
     <section class="hero reveal">
         <div class="sur-titre">Botanique de Prestige</div>
         <h1>Psorelya</h1>
-        <button class="btn-luxe">Découvrir</button>
+    </section>
+
+    <section class="bienvenue reveal">
+        <div class="bienvenue-container">
+            <h2>Bienvenue chez Psorelya</h2>
+            <p>Vous êtes ici parce que votre peau vous parle. Parfois doucement, parfois trop fort.</p>
+            <p>Chez Psorelya, on vous comprend — pas de la tête, mais dans le vécu. Chaque produit de notre gamme a été pensé pour vous offrir ce que votre peau réclame depuis trop longtemps : de la douceur, du respect, et le plaisir simple de prendre soin de vous sans appréhension.</p>
+            <p>Pas de promesses impossibles. Pas d'ingrédients inutiles. Juste le meilleur de la nature, sélectionné avec l'exigence de quelqu'un qui vit exactement ce que vous traversez.</p>
+            <p>Prenez le temps de vous installer. Explorez. Et laissez votre peau respirer.</p>
+            <div class="signature">Patrick</div>
+            <a href="collection-origine.html" class="btn-luxe">👉 Découvrir la collection</a>
+        </div>
     </section>
 
     <section class="essences">
@@ -143,20 +132,10 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-logo">
-            <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
-        </div>
-        <div class="footer-links">
-            <span>L'ESSENCE</span>
-            <span>COLLECTIONS</span>
-            <span>ENGAGEMENTS</span>
-            <span>CONTACT</span>
-        </div>
-        <p style="font-size: 0.7rem; color: #999; margin-top: 20px;">© 2026 PSORELYA PARIS</p>
-    </footer>
+    <div id="footer-container"></div>
 
     <script>
+        // 1. Script d'animation au défilement (Scroll Reveal)
         document.addEventListener('DOMContentLoaded', function() {
             function reveal() {
                 var reveals = document.querySelectorAll(".reveal");
@@ -172,6 +151,17 @@
             window.addEventListener("scroll", reveal);
             setTimeout(reveal, 100); 
         });
+
+        // 2. Script d'automatisation (Va chercher le Header et le Footer)
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-container').innerHTML = data)
+            .catch(error => console.error('Erreur Header:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-container').innerHTML = data)
+            .catch(error => console.error('Erreur Footer:', error));
     </script>
 </body>
 </html>
