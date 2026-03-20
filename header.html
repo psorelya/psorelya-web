@@ -1,31 +1,57 @@
 <style>
-    .site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(234, 233, 229, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s ease; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    .site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(234, 233, 229, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
     
-    /* NOUVEAU MENU DE NAVIGATION */
-    .site-header .main-nav { display: flex; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-    .site-header .main-nav a { text-decoration: none; color: #2D2D2D; transition: color 0.3s ease; }
-    .site-header .main-nav a:hover { color: #8A6D4B; }
+    /* GAUCHE : Hamburger et Menu déroulant */
+    .header-left { position: relative; flex: 1; display: flex; align-items: center; }
     
-    .site-header .logo img { height: 100px; width: auto; transition: transform 0.4s ease; display: block; }
-    .site-header .logo:hover img { transform: scale(1.05); }
+    /* Le dessin du Hamburger */
+    .menu-btn { width: 30px; height: 16px; position: relative; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
+    .menu-btn span { display: block; height: 2px; background: #2D2D2D; width: 100%; }
     
-    .site-header .lang-switch { font-size: 0.8rem; letter-spacing: 2px; font-weight: 500; }
-    .site-header .lang-switch a { text-decoration: none; color: #999; transition: color 0.3s; }
-    .site-header .lang-switch a:hover { color: #8A6D4B; }
-    .site-header .lang-switch .active { color: #2D2D2D; }
+    /* La boîte du menu déroulant (Cachée par défaut) */
+    .dropdown-menu { display: none; position: absolute; top: 40px; left: 0; background: #fff; padding: 25px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); flex-direction: column; gap: 20px; border: 1px solid #EAE9E5; }
+    .dropdown-menu.show { display: flex; } /* La classe qui s'ajoute au clic pour l'afficher */
+    
+    /* Les liens dans la boîte */
+    .dropdown-menu a { text-decoration: none; color: #2D2D2D; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease; white-space: nowrap; }
+    .dropdown-menu a:hover { color: #8A6D4B; }
+    
+    /* CENTRE : Logo */
+    .header-center { flex: 1; display: flex; justify-content: center; }
+    .logo img { height: 100px; width: auto; transition: transform 0.4s ease; display: block; }
+    .logo:hover img { transform: scale(1.05); }
+    
+    /* DROITE : Langue */
+    .header-right { flex: 1; display: flex; justify-content: flex-end; }
+    .lang-switch { font-size: 0.8rem; letter-spacing: 2px; font-weight: 500; }
+    .lang-switch a { text-decoration: none; color: #999; transition: color 0.3s; }
+    .lang-switch a:hover { color: #8A6D4B; }
+    .lang-switch .active { color: #2D2D2D; }
 </style>
 
 <header class="site-header">
-    <nav class="main-nav">
-        <a href="index.html">Accueil</a>
-        <a href="notre-histoire.html">Notre histoire</a>
-    </nav>
+    <div class="header-left">
+        <div class="menu-btn" onclick="document.getElementById('mon-menu').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav id="mon-menu" class="dropdown-menu">
+            <a href="index.html">Accueil</a>
+            <a href="notre-histoire.html">Notre histoire</a>
+        </nav>
+    </div>
     
-    <a href="index.html" class="logo">
-        <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
-    </a>
+    <div class="header-center">
+        <a href="index.html" class="logo">
+            <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
+        </a>
+    </div>
     
-    <div class="lang-switch">
-        <span class="active">FR</span> | <a href="en/index.html">EN</a>
+    <div class="header-right">
+        <div class="lang-switch">
+            <span class="active">FR</span> | <a href="en/index.html">EN</a>
+        </div>
     </div>
 </header>
