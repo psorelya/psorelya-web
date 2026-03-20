@@ -34,7 +34,7 @@
         h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; color: var(--texte-fonce); }
 
         /* SECTION BIENVENUE (LE MOT DE PATRICK) */
-        .bienvenue { padding: 100px 20px; background-color: var(--brume); }
+        .bienvenue { padding: 120px 20px; background-color: var(--brume); }
         .bienvenue-container { max-width: 700px; margin: 0 auto; text-align: center; }
         .bienvenue-container h2 { font-family: var(--font-titre); font-size: 3rem; font-weight: 300; margin-bottom: 40px; color: var(--texte-fonce); }
         .bienvenue-container p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 25px; font-weight: 300; }
@@ -47,26 +47,8 @@
         }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-        /* SECTION PRODUITS */
-        .essences { padding: 100px 20px; text-align: center; background-color: #fff; }
-        .essences h2 { font-family: var(--font-titre); font-size: 3.5rem; font-style: italic; margin-bottom: 20px; font-weight: 300; }
-        .essences p { max-width: 600px; margin: 0 auto 60px auto; line-height: 1.8; color: #666; font-weight: 300; }
-        
-        .grid-produits { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .carte-produit { position: relative; width: 320px; height: 450px; overflow: hidden; cursor: pointer; background-color: var(--noir-luxe); }
-        .image-placeholder { width: 100%; height: 100%; background: radial-gradient(circle at center, #3A3A3A 0%, #1A1A1A 100%); transition: transform 1s ease; opacity: 0.8; }
-        .carte-produit:hover .image-placeholder { transform: scale(1.08); opacity: 1; }
-        
-        .carte-info { 
-            position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 20px 30px; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: var(--texte-clair); text-align: left; 
-        }
-        .carte-info h3 { font-family: var(--font-titre); font-size: 2.2rem; margin-bottom: 5px; font-weight: 400; color: #EAE9E5;}
-        .carte-info span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--or); padding-bottom: 3px; color: var(--or); transition: all 0.3s ease;}
-        .carte-produit:hover .carte-info span { padding-left: 10px; }
-
         /* NEWSLETTER */
-        .atelier { padding: 100px 20px; text-align: center; background-color: var(--brume); }
+        .atelier { padding: 100px 20px; text-align: center; background-color: #fff; }
         .atelier h2 { font-family: var(--font-titre); font-size: 3rem; font-style: italic; margin-bottom: 20px; font-weight: 300;}
         .input-group { margin-top: 40px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;}
         input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem;}
@@ -94,35 +76,6 @@
         </div>
     </section>
 
-    <section class="essences">
-        <h2 class="reveal">Nos Essences Précieuses</h2>
-        <p class="reveal">Une sélection rigoureuse d'ingrédients ancestraux, élevés au rang d'icônes cosmétiques.</p>
-        
-        <div class="grid-produits">
-            <div class="carte-produit reveal">
-                <div class="image-placeholder"></div>
-                <div class="carte-info">
-                    <h3>Safran de l'Atlas</h3>
-                    <span>Explorer</span>
-                </div>
-            </div>
-            <div class="carte-produit reveal" style="transition-delay: 0.2s;">
-                <div class="image-placeholder"></div>
-                <div class="carte-info">
-                    <h3>Rose de Damas</h3>
-                    <span>Découvrir</span>
-                </div>
-            </div>
-            <div class="carte-produit reveal" style="transition-delay: 0.4s;">
-                <div class="image-placeholder"></div>
-                <div class="carte-info">
-                    <h3>Champignon Reishi</h3>
-                    <span>Consulter l'herbier</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="atelier reveal">
         <h2>Rejoindre l'Atelier</h2>
         <p>Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
@@ -135,7 +88,6 @@
     <div id="footer-container"></div>
 
     <script>
-        // 1. Script d'animation au défilement (Scroll Reveal)
         document.addEventListener('DOMContentLoaded', function() {
             function reveal() {
                 var reveals = document.querySelectorAll(".reveal");
@@ -152,16 +104,22 @@
             setTimeout(reveal, 100); 
         });
 
-        // 2. Script d'automatisation (Va chercher le Header et le Footer)
+        // Automatisation Header & Footer
         fetch('header.html')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error("Fichier header.html introuvable (Erreur " + response.status + ")");
+                return response.text();
+            })
             .then(data => document.getElementById('header-container').innerHTML = data)
-            .catch(error => console.error('Erreur Header:', error));
+            .catch(error => console.error(error));
 
         fetch('footer.html')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error("Fichier footer.html introuvable (Erreur " + response.status + ")");
+                return response.text();
+            })
             .then(data => document.getElementById('footer-container').innerHTML = data)
-            .catch(error => console.error('Erreur Footer:', error));
+            .catch(error => console.error(error));
     </script>
 </body>
 </html>
