@@ -1,0 +1,21 @@
+<style>
+    .site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(234, 233, 229, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s ease; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    .site-header .logo img { height: 100px; width: auto; transition: transform 0.4s ease; display: block; }
+    .site-header .logo:hover img { transform: scale(1.05); }
+    .site-header .menu-btn { width: 30px; height: 1px; background: #2D2D2D; position: relative; cursor: pointer; }
+    .site-header .menu-btn::before, .site-header .menu-btn::after { content: ''; position: absolute; width: 30px; height: 1px; background: #2D2D2D; left: 0; }
+    .site-header .menu-btn::before { top: -8px; } .site-header .menu-btn::after { top: 8px; }
+    .site-header .lang-switch { font-size: 0.8rem; letter-spacing: 2px; font-weight: 500; }
+    .site-header .lang-switch a { text-decoration: none; color: #999; transition: color 0.3s; }
+    .site-header .lang-switch a:hover { color: #8A6D4B; }
+    .site-header .lang-switch .active { color: #2D2D2D; }
+</style>
+<header class="site-header">
+    <div class="menu-btn"></div>
+    <a href="index.html" class="logo">
+        <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
+    </a>
+    <div class="lang-switch">
+        <span class="active">FR</span> | <a href="en/index.html">EN</a>
+    </div>
+</header>
