@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3, K2 et Magnésium : un trio bienfaiteur ? | Psorelya</title>
+    <meta name="description" content="Découvrez pourquoi la vitamine D3, la K2 et le magnésium forment une synergie essentielle pour les peaux sensibles. Une analyse scientifique par Psorelya.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brume: #EAE9E5;
+            --or: #8A6D4B;
+            --texte-fonce: #2D2D2D;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* Fond avec votre image subtile, superposée à la couleur Brume */
+        body { 
+            font-family: var(--font-texte); 
+            background-color: var(--brume); 
+            background-image: url('fond-botanique.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--texte-fonce); 
+            overflow-x: hidden; 
+        }
+
+        .article-container { max-width: 800px; margin: 150px auto 100px; padding: 40px; background: rgba(234, 233, 229, 0.85); box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        
+        h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 300; text-align: center; margin-bottom: 50px; color: var(--texte-fonce); line-height: 1.2; }
+        h2 { font-family: var(--font-titre); font-size: 2rem; font-weight: 400; margin: 50px 0 20px; color: var(--or); }
+        
+        p { font-size: 1.05rem; line-height: 2; color: #333; font-weight: 300; margin-bottom: 25px; text-align: justify; }
+        
+        /* La belle première lettre façon magazine */
+        .lettrine { float: left; font-size: 4rem; line-height: 0.8; padding-top: 8px; padding-right: 12px; font-family: var(--font-titre); color: var(--or); }
+        
+        .signature { font-family: var(--font-titre); font-size: 1.5rem; font-style: italic; text-align: right; margin-top: 40px; color: var(--texte-fonce); }
+        
+        .references { margin-top: 80px; padding-top: 30px; border-top: 1px solid #ccc; font-size: 0.85rem; color: #666; }
+        .references h3 { font-family: var(--font-texte); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .references p { font-size: 0.8rem; margin-bottom: 8px; line-height: 1.5; text-align: left; }
+
+        .btn-luxe { padding: 12px 30px; background-color: var(--or); color: #fff; border: none; font-family: var(--font-texte); text-decoration: none; display: inline-block; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; margin-top: 20px; }
+        .btn-luxe:hover { background-color: var(--texte-fonce); }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <article class="article-container">
+        <h1>La vitamine D3 : bien plus qu'une vitamine du soleil</h1>
+        
+        <p><span class="lettrine">O</span>n l'appelle "la vitamine du soleil", mais cette étiquette lui rend un mauvais service — elle sous-entend qu'on en manque rarement, qu'elle est anodine, accessoire. La réalité est tout autre.</p>
+        <p>La vitamine D3 joue un rôle reconnu dans l'équilibre immunitaire et dans la santé de la peau. Elle contribue à moduler la réponse inflammatoire de l'organisme et intervient dans le renouvellement des cellules cutanées — un processus dont le dérèglement est au cœur de plusieurs affections de peau bien connues [1, 2]. Sa forme active est d'ailleurs déjà utilisée en dermatologie sous forme topique, ce qui témoigne de son importance dans l'écosystème cutané [3].</p>
+        <p>Ce qui m'a frappé dans mes recherches, c'est la fréquence des taux insuffisants de vitamine D observés chez les personnes souffrant d'affections cutanées inflammatoires — une réalité documentée qui mérite attention [4]. Des travaux publiés dans le Journal of the American Academy of Dermatology ont observé des améliorations notables du confort cutané avec une supplémentation adaptée, particulièrement en association avec d'autres approches [5].</p>
+        <p><em>Votre médecin ou pharmacien peut évaluer vos taux sanguins et vous recommander ce qui vous convient.</em></p>
+
+        <h2>La vitamine K2 : l'alliée discrète que personne ne mentionne</h2>
+        <p>Si la D3 est relativement connue, la K2 reste dans l'ombre — et c'est dommage, parce qu'elle joue un rôle fondamental, notamment lorsqu'on supplémente en D3.</p>
+        <p>Son premier rôle est d'orienter le calcium vers là où il doit aller, évitant qu'il ne se dépose dans les tissus où il n'est pas le bienvenu [6]. Mais ce qui m'intéresse davantage dans notre contexte, c'est son action sur certains marqueurs de l'inconfort cutané — des indicateurs biologiques bien documentés dans les affections de peau inflammatoires [7].</p>
+        <p>Elle améliore également l'absorption et l'utilisation de la vitamine D3, rendant la supplémentation plus équilibrée et plus efficace. En d'autres mots : la K2 ne fait pas que compléter la D3 — elle la rend plus intelligente.</p>
+
+        <h2>Le magnésium : le grand oublié de la peau</h2>
+        <p>On parle beaucoup de magnésium pour le stress, pour le sommeil, pour les crampes. Mais son rôle dans la santé cutanée reste étonnamment méconnu.</p>
+        <p>Le magnésium intervient dans la régulation de certains mécanismes inflammatoires internes et dans l'équilibre cellulaire de la peau [8, 9]. Mais ce qui me touche le plus dans son profil, c'est son lien avec le stress. Le stress est l'un des déclencheurs les plus documentés des poussées d'inconfort cutané — et le magnésium joue un rôle reconnu dans la régulation de l'hormone du stress. C'est un cercle vertueux : un meilleur équilibre intérieur, une peau qui respire mieux.</p>
+        <p>Des travaux publiés dans Clinical and Experimental Dermatology ont observé une amélioration globale du confort et de l'apparence de la peau après une supplémentation adaptée sur plusieurs mois [10]. Le magnésium topique — sous forme d'huiles ou de sels d'Epsom — est par ailleurs utilisé depuis longtemps pour calmer l'inconfort cutané.</p>
+
+        <h2>Quand les trois se parlent : une synergie documentée</h2>
+        <p>Ce qui rend ce trio particulièrement intéressant, c'est que chacun potentialise les deux autres.</p>
+        <p>Le magnésium est nécessaire à la conversion de la vitamine D en sa forme active dans l'organisme [11]. La K2 sécurise l'utilisation du calcium mobilisé par la D3. Et ensemble, ils contribuent à un meilleur équilibre de la réponse cutanée — ce qui peut présenter un intérêt pour les personnes souhaitant soutenir le confort de leur peau au quotidien [12, 13, 14].</p>
+        <p>Ce n'est pas une formule magique. C'est une synergie documentée, qui mérite d'être connue.</p>
+
+        <h2>Les trouver naturellement — avant tout</h2>
+        <p>Avant même de penser supplémentation, voici où ces trois nutriments se trouvent dans l'alimentation :</p>
+        <ul style="margin-left: 20px; margin-bottom: 25px; line-height: 2; font-weight: 300;">
+            <li><strong>Vitamine D3 :</strong> poissons gras (saumon, maquereau, hareng), jaune d'œuf, champignons exposés au soleil.</li>
+            <li><strong>Vitamine K2 :</strong> natto (soja fermenté japonais), fromages affinés (gouda, brie), foie de volaille.</li>
+            <li><strong>Magnésium :</strong> épinards, amandes, graines de citrouille, chocolat noir à plus de 70 %, légumineuses.</li>
+        </ul>
+        <p>L'alimentation reste la première ligne. La supplémentation vient en complément — toujours en discussion avec votre médecin ou pharmacien, qui pourra évaluer vos besoins réels.</p>
+
+        <h2>Pourquoi Psorelya vous parle de tout ça ?</h2>
+        <p>Parce que prendre soin d'une peau atopique, ce n'est pas seulement ce qu'on met dessus. C'est aussi ce qu'on comprend de l'intérieur.</p>
+        <p>Chez Psorelya, nous croyons en une approche complète — des soins topiques formulés avec exigence, et une éducation honnête sur ce que la science dit vraiment. Pas de promesses impossibles. Pas de raccourcis. Juste la rigueur de quelqu'un qui vit avec sa peau chaque matin, et qui a décidé de ne jamais arrêter de chercher.</p>
+        
+        <div class="signature">
+            Patrick<br>
+            <span style="font-size: 1rem; color: #999; font-style: normal; font-family: var(--font-texte);">Fondateur — Psorelya</span>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="text-align: center; font-style: italic;">👉 Et pour apaiser votre peau de l'extérieur pendant que vous la nourrissez de l'intérieur...</p>
+            <a href="collection-origine.html" class="btn-luxe">Découvrez la Collection Origine</a>
+        </div>
+
+        <div class="references">
+            <h3>Références scientifiques</h3>
+            <p>[1] Journal of Investigative Dermatology (2012) — Rôle de la vitamine D dans la modulation immunitaire cutanée.</p>
+            <p>[2] British Journal of Dermatology (2017) — Vitamine D et différenciation des cellules cutanées.</p>
+            <p>[3] Cochrane Database (2013) — Efficacité du calcitriol topique.</p>
+            <p>[4] Dermato-Endocrinology (2013) — Taux de vitamine D et affections cutanées inflammatoires.</p>
+            <p>[5] Journal of the American Academy of Dermatology (2016) — Supplémentation en D3 et confort cutané.</p>
+            <p>[6] Nutrients (2019) — Synergie D3/K2.</p>
+            <p>[7] International Journal of Molecular Sciences (2020) — K2 et équilibre inflammatoire.</p>
+            <p>[8] Magnesium Research (2015) — Magnésium et régulation inflammatoire.</p>
+            <p>[9] Journal of Trace Elements in Medicine and Biology (2018) — Équilibre cellulaire et magnésium.</p>
+            <p>[10] Clinical and Experimental Dermatology (2015) — Magnésium et confort cutané.</p>
+            <p>[11] The Journal of Steroid Biochemistry (2018) — Magnésium et métabolisme de la vitamine D.</p>
+            <p>[12] Journal of Allergy and Clinical Immunology (2016) — Vitamine D et confort cutané.</p>
+            <p>[13] Dermato-Endocrinology (2016) — Vitamine D et équilibre sébacé.</p>
+            <p>[14] Oral Diseases (2017) — Vitamine D et santé des muqueuses.</p>
+        </div>
+    </article>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // Automatisation Header & Footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-container').innerHTML = data)
+            .catch(error => console.error(error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-container').innerHTML = data)
+            .catch(error => console.error(error));
+    </script>
+</body>
+</html>
