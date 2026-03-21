@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psorelya test | Botanique de Prestige</title>
+    <title>Psorelya | Botanique de Prestige</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================================
-           1. VARIABLES ET BASE (Palette Psorelya en rem)
+           1. VARIABLES ET BASE
            ========================================================== */
         :root {
             --brume: #EAE9E5;
@@ -19,42 +19,33 @@
             --noir-luxe: #1A1A1A;
             --font-titre: 'Cormorant Garamond', serif;
             --font-texte: 'Montserrat', sans-serif;
-            
-            /* Hauteur de votre header (fixe) définie une fois pour toutes */
-            --header-height: 8.125rem; /* ~130px en rem */
+            --header-height: 8.125rem; 
         }
 
-        /* Base Responsive (ADA Tech School Rule #1 & #2) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        html { font-size: 100%; } /* 1rem = 16px */
+        html { font-size: 100%; }
         
         body { 
             font-family: var(--font-texte); 
             background-color: var(--brume); 
             color: var(--texte-fonce); 
             overflow-x: hidden;
-            /* Pour ne pas que le contenu glisse sous le header fixe */
             scroll-padding-top: var(--header-height);
         }
 
-        /* Animations au Scroll (Optimisées) */
-        .reveal { opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1); will-change: transform, opacity; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
         /* ==========================================================
-           2. BOUTONS LUXE (ADA Tech School Rule #5 - Grande zone de Touch)
+           2. BOUTONS LUXE
            ========================================================== */
         .btn-luxe {
-            padding: 1rem 3rem; /* 16px vertical, 48px horizontal - Zone de touch énorme */
+            padding: 1rem 3rem; 
             background-color: var(--or); 
             color: var(--texte-clair); 
             border: none; 
             font-family: var(--font-texte); 
             text-decoration: none; 
             display: inline-block;
-            font-size: 0.8rem; /* 12.8px */
-            letter-spacing: 0.2rem; /* 3.2px */
+            font-size: 0.8rem; 
+            letter-spacing: 0.2rem; 
             text-transform: uppercase; 
             cursor: pointer; 
             transition: all 0.4s ease;
@@ -65,44 +56,55 @@
            3. STRUCTURES ET SECTIONS (MOBILE FIRST)
            ========================================================== */
         
-        /* Conteneur universel flexible (ADA Tech School Rule #1) */
         .container { 
             width: 90%; 
-            max-width: 45rem; /* ~720px - Largeur de lecture confortable */
+            max-width: 45rem; 
             margin: 0 auto; 
             text-align: center;
         }
 
-       /* --- HERO SECTION (Mobile First) --- */
-    .hero { 
-        /* Empile tout verticalement par défaut */
-        display: flex; flex-direction: column; justify-content: center; align-items: center; 
-        text-align: center;
-        /* L'espace pour le header fixe */
-        margin-top: var(--header-height);
-        /* Hauteur flexible mais prend de la place */
-        min-height: 80vh; 
-        padding: 2rem;
-        /* L'image pure, sans filtre par-dessus : */
-        background: url('fond-header-psorelya.png') center/cover no-repeat;
-    }
+        /* --- HERO SECTION (AVEC VOILE ASSOMBRISSANT) --- */
+        .hero { 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center;
+            margin-top: var(--header-height);
+            min-height: 80vh; 
+            padding: 2rem;
+            /* Gardez le nom de l'image qui fonctionne en ce moment pour vous : */
+            background: url('fond-header-psorelya.png') center/cover no-repeat;
+            position: relative; 
+        }
         
-        .hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: #555; margin-bottom: 1rem; font-weight: 500;}
+        /* Le voile semi-transparent qui assombrit l'image */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* 40% de noir */
+            z-index: 0;
+        }
         
-        /* Titre hyper-élastique (clamp() en rem !) */
+        .hero .sur-titre { 
+            font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; 
+            color: var(--texte-clair); /* Texte en blanc */
+            margin-bottom: 1rem; font-weight: 500;
+            position: relative; z-index: 1; 
+        }
+        
         .hero h1 { 
             font-family: var(--font-titre); 
             font-size: clamp(2.5rem, 8vw, 6rem); 
             font-weight: 300; 
             letter-spacing: 0.1rem; 
-            color: var(--texte-fonce); 
+            color: var(--texte-clair); /* Texte en blanc */
             line-height: 1.1; 
             margin-bottom: 3rem;
+            position: relative; z-index: 1; 
         }
 
-        /* --- SECTION BIENVENUE (LE MOT DE PATRICK) --- */
+        /* --- SECTION BIENVENUE --- */
         .bienvenue { 
-            padding: 4rem 1rem; /* Marges en rem */
+            padding: 4rem 1rem; 
             background-color: var(--brume); 
         }
         .bienvenue h2 { font-family: var(--font-titre); font-size: 2.2rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--texte-fonce); }
@@ -119,7 +121,7 @@
         .atelier p { font-size: 1rem; color: #666; font-weight: 300; margin-bottom: 3rem; }
         
         .input-group { 
-            display: flex; flex-direction: column; /* Stack sur mobile */
+            display: flex; flex-direction: column; 
             justify-content: center; align-items: center; 
             gap: 1rem; 
         }
@@ -130,22 +132,15 @@
            4. MÉDIAS QUERIES (DESKTOP)
            ========================================================== */
         
-        /* ADA Tech School Rule #2 & #3 (Un seul breakpoint propre) */
-        @media (min-width: 48rem) { /* ~768px (Tablette et Desktop) */
-            
-            /* HERO SECTION - Parallax activé seulement sur grand écran */
+        @media (min-width: 48rem) { 
             .hero { 
                 background-attachment: fixed;
                 min-height: calc(100vh - var(--header-height)); 
                 padding: 4rem; 
             }
             .hero h1 { margin-bottom: 4rem; }
-
-            /* BIENVENUE */
             .bienvenue { padding: 8rem 2rem; }
             .bienvenue h2 { font-size: 3rem; margin-bottom: 3rem; }
-
-            /* ATELIER */
             .atelier { padding: 6rem 2rem; }
             .atelier h2 { font-size: 3.5rem; }
             .input-group { flex-direction: row; gap: 0.5rem; }
@@ -158,12 +153,12 @@
     <div id="header-container"></div>
 
     <main>
-        <section class="hero reveal">
+        <section class="hero">
             <div class="sur-titre">Botanique de Prestige</div>
             <h1>Psorelya</h1>
         </section>
 
-        <section class="bienvenue reveal">
+        <section class="bienvenue">
             <div class="container">
                 <h2>Bienvenue chez Psorelya</h2>
                 <p>Vous êtes ici parce que votre peau vous parle. Parfois doucement, parfois trop fort.</p>
@@ -175,7 +170,7 @@
             </div>
         </section>
 
-        <section class="atelier reveal">
+        <section class="atelier">
             <div class="container">
                 <h2>Rejoindre l'Atelier</h2>
                 <p>Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
@@ -191,7 +186,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Automatisation Header & Footer
             fetch('header.html')
                 .then(r => r.text())
                 .then(d => document.getElementById('header-container').innerHTML = d)
@@ -201,19 +195,6 @@
                 .then(r => r.text())
                 .then(d => document.getElementById('footer-container').innerHTML = d)
                 .catch(e => console.error("Footer introuvable", e));
-
-            // 2. Animations au Scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 }); // Active l'animation quand 10% de la section est visible
-
-            document.querySelectorAll('.reveal').forEach(section => {
-                observer.observe(section);
-            });
         });
     </script>
 </body>
