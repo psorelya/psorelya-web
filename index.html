@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psorelya | Botanique de Prestige</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
+        /* ==========================================================
+           1. VARIABLES ET BASE (Palette Psorelya en rem)
+           ========================================================== */
         :root {
             --brume: #EAE9E5;
             --or: #8A6D4B;
@@ -15,114 +19,205 @@
             --noir-luxe: #1A1A1A;
             --font-titre: 'Cormorant Garamond', serif;
             --font-texte: 'Montserrat', sans-serif;
+            
+            /* Hauteur de votre header (fixe) définie une fois pour toutes */
+            --header-height: 8.125rem; /* ~130px en rem */
         }
 
+        /* Base Responsive (ADA Tech School Rule #1 & #2) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+        
+        html { font-size: 100%; } /* 1rem = 16px */
+        
+        body { 
+            font-family: var(--font-texte); 
+            background-color: var(--brume); 
+            color: var(--texte-fonce); 
+            overflow-x: hidden;
+            /* Pour ne pas que le contenu glisse sous le header fixe */
+            scroll-padding-top: var(--header-height);
+        }
 
-        /* ANIMATIONS AU SCROLL */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        /* Animations au Scroll (Optimisées) */
+        .reveal { opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* HERO SECTION - CORRIGÉE POUR LE .PNG */
-        .hero { 
-            height: calc(100vh - 130px);
-            margin-top: 130px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            /* La ligne modifiée est ici : on cherche le .png */
-            background: linear-gradient(rgba(234, 233, 229, 0.6), rgba(234, 233, 229, 0.8)), url('fond-header-psorelya.png') center/cover;
-            background-attachment: fixed;
-        }
-        .sur-titre { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 20px; font-weight: 500;}
-        h1 { font-family: var(--font-titre); font-size: clamp(4rem, 10vw, 8rem); font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; color: var(--texte-fonce); }
-
-        /* SECTION BIENVENUE (LE MOT DE PATRICK) */
-        .bienvenue { padding: 120px 20px; background-color: var(--brume); }
-        .bienvenue-container { max-width: 700px; margin: 0 auto; text-align: center; }
-        .bienvenue-container h2 { font-family: var(--font-titre); font-size: 3rem; font-weight: 300; margin-bottom: 40px; color: var(--texte-fonce); }
-        .bienvenue-container p { font-size: 1.1rem; line-height: 1.9; color: #444; margin-bottom: 25px; font-weight: 300; }
-        .signature { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; color: var(--vert-sauge); margin: 40px 0 50px; }
-
-        /* BOUTON LUXE */
+        /* ==========================================================
+           2. BOUTONS LUXE (ADA Tech School Rule #5 - Grande zone de Touch)
+           ========================================================== */
         .btn-luxe {
-            padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte); text-decoration: none; display: inline-block;
-            font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
+            padding: 1rem 3rem; /* 16px vertical, 48px horizontal - Zone de touch énorme */
+            background-color: var(--or); 
+            color: var(--texte-clair); 
+            border: none; 
+            font-family: var(--font-texte); 
+            text-decoration: none; 
+            display: inline-block;
+            font-size: 0.8rem; /* 12.8px */
+            letter-spacing: 0.2rem; /* 3.2px */
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: all 0.4s ease;
         }
-        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-0.2rem); box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1); }
 
-        /* NEWSLETTER */
-        .atelier { padding: 100px 20px; text-align: center; background-color: #fff; }
-        .atelier h2 { font-family: var(--font-titre); font-size: 3rem; font-style: italic; margin-bottom: 20px; font-weight: 300;}
-        .input-group { margin-top: 40px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;}
-        input[type="email"] { padding: 15px 20px; width: 300px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem;}
+        /* ==========================================================
+           3. STRUCTURES ET SECTIONS (MOBILE FIRST)
+           ========================================================== */
+        
+        /* Conteneur universel flexible (ADA Tech School Rule #1) */
+        .container { 
+            width: 90%; 
+            max-width: 45rem; /* ~720px - Largeur de lecture confortable */
+            margin: 0 auto; 
+            text-align: center;
+        }
+
+        /* --- HERO SECTION (Mobile First) --- */
+        .hero { 
+            /* Empile tout verticalement par défaut */
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center;
+            /* L'espace pour le header fixe */
+            margin-top: var(--header-height);
+            /* Hauteur flexible mais prend de la place */
+            min-height: 80vh; 
+            padding: 2rem;
+            /* L'image de fond anonyme (ADA Tech School Rule #4) */
+            background-image: linear-gradient(rgba(234, 233, 229, 0.6), rgba(234, 233, 229, 0.8)), url('fond-header-psorelya.png');
+            background-position: center;
+            background-size: cover;
+            /* Pas de parallax sur mobile (c'est lourd !) */
+        }
+        
+        .hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: #555; margin-bottom: 1rem; font-weight: 500;}
+        
+        /* Titre hyper-élastique (clamp() en rem !) */
+        .hero h1 { 
+            font-family: var(--font-titre); 
+            font-size: clamp(2.5rem, 8vw, 6rem); 
+            font-weight: 300; 
+            letter-spacing: 0.1rem; 
+            color: var(--texte-fonce); 
+            line-height: 1.1; 
+            margin-bottom: 3rem;
+        }
+
+        /* --- SECTION BIENVENUE (LE MOT DE PATRICK) --- */
+        .bienvenue { 
+            padding: 4rem 1rem; /* Marges en rem */
+            background-color: var(--brume); 
+        }
+        .bienvenue h2 { font-family: var(--font-titre); font-size: 2.2rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--texte-fonce); }
+        .bienvenue p { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1.5rem; font-weight: 300; }
+        .signature { font-family: var(--font-titre); font-size: 2.2rem; font-style: italic; color: var(--vert-sauge); margin: 3rem 0 4rem; }
+
+        /* --- ATELIER (NEWSLETTER) --- */
+        .atelier { 
+            padding: 4rem 1rem; 
+            text-align: center; 
+            background-color: #fff; 
+        }
+        .atelier h2 { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; margin-bottom: 1.5rem; font-weight: 300;}
+        .atelier p { font-size: 1rem; color: #666; font-weight: 300; margin-bottom: 3rem; }
+        
+        .input-group { 
+            display: flex; flex-direction: column; /* Stack sur mobile */
+            justify-content: center; align-items: center; 
+            gap: 1rem; 
+        }
+        input[type="email"] { padding: 1rem; width: 100%; max-width: 20rem; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem;}
         input[type="email"]:focus { border-bottom: 1px solid var(--or); }
+
+        /* ==========================================================
+           4. MÉDIAS QUERIES (DESKTOP)
+           ========================================================== */
+        
+        /* ADA Tech School Rule #2 & #3 (Un seul breakpoint propre) */
+        @media (min-width: 48rem) { /* ~768px (Tablette et Desktop) */
+            
+            /* HERO SECTION - Parallax activé seulement sur grand écran */
+            .hero { 
+                background-attachment: fixed;
+                min-height: calc(100vh - var(--header-height)); 
+                padding: 4rem; 
+            }
+            .hero h1 { margin-bottom: 4rem; }
+
+            /* BIENVENUE */
+            .bienvenue { padding: 8rem 2rem; }
+            .bienvenue h2 { font-size: 3rem; margin-bottom: 3rem; }
+
+            /* ATELIER */
+            .atelier { padding: 6rem 2rem; }
+            .atelier h2 { font-size: 3.5rem; }
+            .input-group { flex-direction: row; gap: 0.5rem; }
+            input[type="email"] { width: auto; max-width: none; }
+        }
     </style>
 </head>
 <body>
 
     <div id="header-container"></div>
 
-    <section class="hero reveal">
-        <div class="sur-titre">Botanique de Prestige</div>
-        <h1>Psorelya</h1>
-    </section>
+    <main>
+        <section class="hero reveal">
+            <div class="sur-titre">Botanique de Prestige</div>
+            <h1>Psorelya</h1>
+        </section>
 
-    <section class="bienvenue reveal">
-        <div class="bienvenue-container">
-            <h2>Bienvenue chez Psorelya</h2>
-            <p>Vous êtes ici parce que votre peau vous parle. Parfois doucement, parfois trop fort.</p>
-            <p>Chez Psorelya, on vous comprend — pas de la tête, mais dans le vécu. Chaque produit de notre gamme a été pensé pour vous offrir ce que votre peau réclame depuis trop longtemps : de la douceur, du respect, et le plaisir simple de prendre soin de vous sans appréhension.</p>
-            <p>Pas de promesses impossibles. Pas d'ingrédients inutiles. Juste le meilleur de la nature, sélectionné avec l'exigence de quelqu'un qui vit exactement ce que vous traversez.</p>
-            <p>Prenez le temps de vous installer. Explorez. Et laissez votre peau respirer.</p>
-            <div class="signature">Patrick</div>
-            <a href="collection-origine.html" class="btn-luxe">👉 Découvrir la collection</a>
-        </div>
-    </section>
+        <section class="bienvenue reveal">
+            <div class="container">
+                <h2>Bienvenue chez Psorelya</h2>
+                <p>Vous êtes ici parce que votre peau vous parle. Parfois doucement, parfois trop fort.</p>
+                <p>Chez Psorelya, on vous comprend — pas de la tête, mais dans le vécu. Chaque produit de notre gamme a été pensé pour vous offrir ce que votre peau réclame depuis trop longtemps : de la douceur, du respect, et le plaisir simple de prendre soin de vous sans appréhension.</p>
+                <p>Pas de promesses impossibles. Pas d'ingrédients inutiles. Juste le meilleur de la nature, sélectionné avec l'exigence de quelqu'un qui vit exactement ce que vous traversez.</p>
+                <p>Prenez le temps de vous installer. Explorez. Et laissez votre peau respirer.</p>
+                <div class="signature">Patrick</div>
+                <a href="collection-origine.html" class="btn-luxe">👉 Découvrir la collection</a>
+            </div>
+        </section>
 
-    <section class="atelier reveal">
-        <h2>Rejoindre l'Atelier</h2>
-        <p>Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
-        <div class="input-group">
-            <input type="email" placeholder="votre@email.com">
-            <button class="btn-luxe">S'inscrire</button>
-        </div>
-    </section>
+        <section class="atelier reveal">
+            <div class="container">
+                <h2>Rejoindre l'Atelier</h2>
+                <p>Recevez nos carnets botaniques et découvrez les secrets de nos prochaines récoltes.</p>
+                <div class="input-group">
+                    <input type="email" placeholder="votre@email.com">
+                    <button class="btn-luxe">S'inscrire</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <div id="footer-container"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            function reveal() {
-                var reveals = document.querySelectorAll(".reveal");
-                for (var i = 0; i < reveals.length; i++) {
-                    var windowHeight = window.innerHeight;
-                    var elementTop = reveals[i].getBoundingClientRect().top;
-                    var elementVisible = 50; 
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveals[i].classList.add("active");
+            // 1. Automatisation Header & Footer
+            fetch('header.html')
+                .then(r => r.text())
+                .then(d => document.getElementById('header-container').innerHTML = d)
+                .catch(e => console.error("Header introuvable", e));
+
+            fetch('footer.html')
+                .then(r => r.text())
+                .then(d => document.getElementById('footer-container').innerHTML = d)
+                .catch(e => console.error("Footer introuvable", e));
+
+            // 2. Animations au Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
                     }
-                }
-            }
-            window.addEventListener("scroll", reveal);
-            setTimeout(reveal, 100); 
+                });
+            }, { threshold: 0.1 }); // Active l'animation quand 10% de la section est visible
+
+            document.querySelectorAll('.reveal').forEach(section => {
+                observer.observe(section);
+            });
         });
-
-        // Automatisation Header & Footer
-        fetch('header.html')
-            .then(response => {
-                if (!response.ok) throw new Error("Fichier header.html introuvable (Erreur " + response.status + ")");
-                return response.text();
-            })
-            .then(data => document.getElementById('header-container').innerHTML = data)
-            .catch(error => console.error(error));
-
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error("Fichier footer.html introuvable (Erreur " + response.status + ")");
-                return response.text();
-            })
-            .then(data => document.getElementById('footer-container').innerHTML = data)
-            .catch(error => console.error(error));
     </script>
 </body>
 </html>
