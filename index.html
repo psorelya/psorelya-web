@@ -73,22 +73,19 @@
             text-align: center;
         }
 
-        /* --- HERO SECTION (Mobile First) --- */
-        .hero { 
-            /* Empile tout verticalement par défaut */
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center;
-            /* L'espace pour le header fixe */
-            margin-top: var(--header-height);
-            /* Hauteur flexible mais prend de la place */
-            min-height: 80vh; 
-            padding: 2rem;
-            /* L'image de fond anonyme (ADA Tech School Rule #4) */
-            background-image: linear-gradient(rgba(234, 233, 229, 0.6), rgba(234, 233, 229, 0.8)), url('fond-header-psorelya.png');
-            background-position: center;
-            background-size: cover;
-            /* Pas de parallax sur mobile (c'est lourd !) */
-        }
+       /* --- HERO SECTION (Mobile First) --- */
+    .hero { 
+        /* Empile tout verticalement par défaut */
+        display: flex; flex-direction: column; justify-content: center; align-items: center; 
+        text-align: center;
+        /* L'espace pour le header fixe */
+        margin-top: var(--header-height);
+        /* Hauteur flexible mais prend de la place */
+        min-height: 80vh; 
+        padding: 2rem;
+        /* L'image pure, sans filtre par-dessus : */
+        background: url('fond-header-psorelya.png') center/cover no-repeat;
+    }
         
         .hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: #555; margin-bottom: 1rem; font-weight: 500;}
         
