@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales | Psorelya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brume: #EAE9E5;
+            --or: #8A6D4B;
+            --texte-fonce: #2D2D2D;
+            --blanc: #FFFFFF;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+
+        .legal-hero { padding: 5rem 2rem 4rem; text-align: center; background-color: var(--blanc); border-bottom: 1px solid #DDD; }
+        .legal-hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; font-weight: 500; }
+        .legal-hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 1.5rem; line-height: 1.1; }
+        .legal-hero p { font-size: 0.85rem; color: #999; letter-spacing: 0.05rem; font-weight: 300; }
+
+        .legal-nav { position: sticky; top: 0; z-index: 100; background-color: var(--blanc); border-bottom: 1px solid #DDD; padding: 0 2rem; overflow-x: auto; white-space: nowrap; }
+        .legal-nav ul { display: inline-flex; list-style: none; }
+        .legal-nav ul li a { display: block; padding: 1.1rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18rem; text-transform: uppercase; text-decoration: none; color: #888; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .legal-nav ul li a:hover, .legal-nav ul li a.active { color: var(--or); border-bottom-color: var(--or); }
+
+        .legal-wrapper { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+
+        .legal-section { padding: 4rem 0 3rem; border-bottom: 1px solid #D8D6D1; }
+        .legal-section:last-child { border-bottom: none; }
+
+        .section-tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.25rem; text-transform: uppercase; color: var(--or); font-weight: 500; margin-bottom: 1rem; }
+        .legal-section h2 { font-family: var(--font-titre); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 2.5rem; line-height: 1.15; }
+        .legal-section h3 { font-family: var(--font-titre); font-size: 1.5rem; font-weight: 400; color: var(--texte-fonce); margin: 2.5rem 0 0.8rem; }
+        .legal-section p { font-size: 0.92rem; line-height: 1.95; color: #555; font-weight: 300; margin-bottom: 1.2rem; }
+        .legal-section ul { margin: 0.5rem 0 1.5rem 1.2rem; }
+        .legal-section ul li { font-size: 0.92rem; line-height: 1.95; color: #555; font-weight: 300; margin-bottom: 0.4rem; }
+        .legal-section a { color: var(--or); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .legal-section a:hover { border-bottom-color: var(--or); }
+
+        .legal-highlight { background-color: var(--blanc); border-left: 3px solid var(--or); padding: 1.5rem 2rem; margin: 2rem 0; font-size: 0.9rem; line-height: 1.8; color: #444; font-weight: 300; }
+        .legal-highlight strong { font-weight: 500; color: var(--texte-fonce); }
+
+        .disclaimer-box { background-color: #FAF8F5; border: 1px solid #D8C9B5; padding: 2rem 2.5rem; margin: 2rem 0; text-align: center; }
+        .disclaimer-box .disclaimer-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .disclaimer-box p { font-size: 0.88rem; color: #666; font-style: italic; margin-bottom: 0; }
+
+        .back-to-top { display: inline-block; margin-top: 1.5rem; font-size: 0.7rem; letter-spacing: 0.2rem; text-transform: uppercase; color: #AAA; text-decoration: none; transition: color 0.3s; }
+        .back-to-top:hover { color: var(--or); }
+
+        .update-badge { display: inline-block; font-size: 0.7rem; color: #AAA; letter-spacing: 0.1rem; font-weight: 300; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+    <div class="legal-hero" id="top">
+        <div class="sur-titre">Psorelya — Québec</div>
+        <h1>Mentions légales</h1>
+        <p>Dernière mise à jour : avril 2026</p>
+    </div>
+
+    <nav class="legal-nav">
+        <ul>
+            <li><a href="#confidentialite">Confidentialité</a></li>
+            <li><a href="#conditions">Conditions d'utilisation</a></li>
+            <li><a href="#retours">Retours & remboursements</a></li>
+            <li><a href="#mentions">Mentions légales</a></li>
+            <li><a href="#livraison">Livraison</a></li>
+            <li><a href="#sante">Avertissement santé</a></li>
+        </ul>
+    </nav>
+
+    <div class="legal-wrapper">
+
+        <section class="legal-section" id="confidentialite">
+            <span class="section-tag">01 — Données personnelles</span>
+            <h2>Politique de confidentialité</h2>
+            <span class="update-badge">En vigueur depuis le 1er janvier 2025</span>
+            <p>Chez Psorelya, la protection de votre vie privée est une priorité. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles, conformément à la <em>Loi 25</em> sur la protection des renseignements personnels dans le secteur privé (Québec) et au <em>Règlement général sur la protection des données</em> (RGPD) pour nos visiteurs européens.</p>
+            <h3>Informations que nous collectons</h3>
+            <ul>
+                <li>Nom, adresse courriel et adresse postale lors d'une commande ou d'une inscription à notre infolettre</li>
+                <li>Données de navigation anonymisées (pages visitées, durée de session) via des outils d'analyse</li>
+                <li>Informations de paiement — traitées directement par notre prestataire sécurisé, jamais stockées sur nos serveurs</li>
+            </ul>
+            <h3>Comment nous utilisons vos données</h3>
+            <ul>
+                <li>Traitement et suivi de vos commandes</li>
+                <li>Envoi de notre infolettre <em>L'Atelier</em>, uniquement si vous y avez consenti</li>
+                <li>Amélioration de l'expérience sur notre site</li>
+                <li>Communication de service liée à votre compte ou vos achats</li>
+            </ul>
+            <div class="legal-highlight">
+                <strong>Nous ne vendons jamais vos données.</strong> Vos informations personnelles ne sont jamais cédées, louées ou vendues à des tiers à des fins commerciales.
+            </div>
+            <h3>Vos droits</h3>
+            <p>Vous disposez à tout moment du droit d'accéder à vos données, de les corriger, de les supprimer, ou de retirer votre consentement. Le responsable de la protection des renseignements personnels est <strong>Patrick Lottin</strong>. Vous pouvez le contacter à <a href="mailto:privacy@psorelya.com">privacy@psorelya.com</a>.</p>
+            <h3>Cookies</h3>
+            <p>Notre site utilise des cookies fonctionnels essentiels et des cookies d'analyse anonymisés. Vous pouvez désactiver ces derniers via les paramètres de votre navigateur.</p>
+            <h3>Conservation des données</h3>
+            <p>Vos données de commande sont conservées pendant 7 ans conformément aux obligations comptables québécoises. Les données d'abonnement à l'infolettre sont conservées jusqu'à votre désabonnement.</p>
+            <a href="#top" class="back-to-top">↑ Haut de page</a>
+        </section>
+
+        <section class="legal-section" id="conditions">
+            <span class="section-tag">02 — Utilisation du site</span>
+            <h2>Conditions d'utilisation</h2>
+            <span class="update-badge">En vigueur depuis le 1er janvier 2025</span>
+            <p>En accédant et en naviguant sur le site <strong>psorelya.com</strong>, vous acceptez les présentes conditions d'utilisation dans leur intégralité.</p>
+            <h3>Propriété intellectuelle</h3>
+            <p>L'ensemble du contenu présent sur ce site — textes, images, logo, graphismes, mise en page, articles — est la propriété exclusive de Psorelya et est protégé par les lois canadiennes et internationales sur la propriété intellectuelle. Toute reproduction sans autorisation écrite préalable est strictement interdite.</p>
+            <h3>Utilisation acceptable</h3>
+            <p>Ce site est destiné à un usage personnel et non commercial. Il vous est interdit de :</p>
+            <ul>
+                <li>Reproduire ou distribuer le contenu à des fins commerciales</li>
+                <li>Utiliser des robots ou scrapers pour extraire des données</li>
+                <li>Tenter de compromettre la sécurité du site</li>
+                <li>Publier des informations fausses ou trompeuses</li>
+            </ul>
+            <h3>Limitation de responsabilité</h3>
+            <p>Psorelya s'efforce d'assurer l'exactitude des informations publiées mais ne peut garantir leur exhaustivité. Psorelya ne saurait être tenue responsable de tout dommage résultant de l'utilisation du site.</p>
+            <h3>Droit applicable</h3>
+            <p>Ces conditions sont régies par les lois de la province de Québec et les lois fédérales du Canada. Tout litige sera soumis à la juridiction exclusive des tribunaux du Québec.</p>
+            <a href="#top" class="back-to-top">↑ Haut de page</a>
+        </section>
+
+        <section class="legal-section" id="retours">
+            <span class="section-tag">03 — Retours & remboursements</span>
+            <h2>Politique de retour</h2>
+            <span class="update-badge">En vigueur depuis le 1er janvier 2025</span>
+            <p>Votre satisfaction est notre priorité. Si pour une raison quelconque vous n'êtes pas pleinement satisfait de votre commande, voici comment nous procédons.</p>
+            <h3>Délai de retour</h3>
+            <p>Vous disposez de <strong>30 jours</strong> suivant la réception de votre commande pour nous contacter afin d'initier un retour.</p>
+            <h3>Conditions de retour</h3>
+            <ul>
+                <li>Les produits doivent être retournés dans leur emballage d'origine, non ouverts et non utilisés</li>
+                <li>Les produits endommagés à la réception sont éligibles au remboursement complet — une photo est requise dans les 48h</li>
+                <li>Les produits en promotion ne sont pas remboursables, sauf défaut de fabrication</li>
+            </ul>
+            <div class="legal-highlight">
+                <strong>Exception — réaction cutanée :</strong> Si vous constatez une réaction inhabituelle après utilisation d'un produit Psorelya, contactez-nous immédiatement à <a href="mailto:soin@psorelya.com">soin@psorelya.com</a> — nous examinerons votre situation au cas par cas.
+            </div>
+            <h3>Procédure de retour</h3>
+            <p>Envoyez un courriel à <a href="mailto:soin@psorelya.com">soin@psorelya.com</a> avec votre numéro de commande et la raison du retour. Nous vous répondrons sous 2 jours ouvrables.</p>
+            <h3>Remboursement</h3>
+            <p>Une fois le retour validé, le remboursement sera effectué dans un délai de <strong>5 à 10 jours ouvrables</strong> via le mode de paiement original. Les frais d'expédition initiaux ne sont pas remboursés, sauf erreur de notre part.</p>
+            <a href="#top" class="back-to-top">↑ Haut de page</a>
+        </section>
+
+        <section class="legal-section" id="mentions">
+            <span class="section-tag">04 — Informations légales</span>
+            <h2>Mentions légales</h2>
+            <h3>Éditeur du site</h3>
+            <ul>
+                <li><strong>Raison sociale :</strong> Psorelya</li>
+                <li><strong>Statut :</strong> Entreprise individuelle enregistrée au Québec</li>
+                <li><strong>Siège social :</strong> 2-538 rue Saint-Joseph, Lévis, QC G6V 1H7, Canada</li>
+                <li><strong>Numéro d'entreprise du Québec (NEQ) :</strong> 2281784357</li>
+                <li><strong>Courriel :</strong> <a href="mailto:info@psorelya.com">info@psorelya.com</a></li>
+                <li><strong>Fondateur :</strong> Patrick</li>
+            </ul>
+            <h3>Hébergement</h3>
+            <p>Le site psorelya.com est hébergé par un prestataire tiers. Pour toute question technique, contactez-nous à <a href="mailto:info@psorelya.com">info@psorelya.com</a>.</p>
+            <h3>Marques et logos</h3>
+            <p>Le nom Psorelya, le logo et l'ensemble des visuels de marque sont la propriété exclusive de leur créateur. Toute utilisation non autorisée est interdite.</p>
+            <h3>Affiliation à la Guilde des herboristes du Québec</h3>
+            <p>Patrick, fondateur de Psorelya, est membre de la Guilde des herboristes du Québec — attestant d'un engagement sérieux envers les pratiques herboristiques responsables.</p>
+            <a href="#top" class="back-to-top">↑ Haut de page</a>
+        </section>
+
+        <section class="legal-section" id="livraison">
+            <span class="section-tag">05 — Expédition</span>
+            <h2>Politique de livraison</h2>
+            <span class="update-badge">En vigueur depuis le 1er janvier 2025</span>
+            <h3>Zones de livraison</h3>
+            <p>Psorelya livre actuellement au <strong>Canada</strong> et aux <strong>États-Unis</strong>. Des livraisons internationales peuvent être envisagées sur demande à <a href="mailto:info@psorelya.com">info@psorelya.com</a>.</p>
+            <h3>Délais de traitement</h3>
+            <p>Chaque commande est préparée avec soin dans un délai de <strong>2 à 5 jours ouvrables</strong> suivant la confirmation de paiement.</p>
+            <h3>Délais de livraison estimés</h3>
+            <ul>
+                <li><strong>Québec :</strong> 3 à 7 jours ouvrables</li>
+                <li><strong>Reste du Canada :</strong> 5 à 10 jours ouvrables</li>
+                <li><strong>États-Unis :</strong> 7 à 14 jours ouvrables</li>
+            </ul>
+            <div class="legal-highlight">
+                Ces délais sont <strong>indicatifs</strong> et peuvent varier selon les transporteurs ou les périodes de forte demande. Un numéro de suivi vous sera transmis dès l'expédition.
+            </div>
+            <h3>Colis endommagé ou perdu</h3>
+            <p>En cas de colis endommagé, documentez les dommages par photo dans les 48 heures et contactez-nous à <a href="mailto:soin@psorelya.com">soin@psorelya.com</a>.</p>
+            <a href="#top" class="back-to-top">↑ Haut de page</a>
+        </section>
+
+        <section class="legal-section" id="sante">
+            <span class="section-tag">06 — Santé & bien-être</span>
+            <h2>Avertissement santé</h2>
+            <div class="disclaimer-box">
+                <div class="disclaimer-icon">🌿</div>
+                <p>Les produits et informations présentés sur ce site sont destinés à compléter, non à remplacer, les soins médicaux professionnels.</p>
+            </div>
+            <h3>Nature des produits Psorelya</h3>
+            <p>Les produits Psorelya sont des soins cosmétiques naturels formulés pour le confort quotidien des peaux sensibles et à tendance atopique. Ils ne sont pas des médicaments et ne sont pas destinés à diagnostiquer, traiter, guérir ou prévenir une maladie.</p>
+            <h3>Contenu éditorial et articles</h3>
+            <p>Les articles publiés dans la section <em>Comprendre</em> sont rédigés à titre informatif uniquement. Ils reflètent les recherches et l'expérience personnelle du fondateur, et ne constituent en aucun cas un avis médical.</p>
+            <div class="legal-highlight">
+                <strong>Consultez toujours un professionnel de la santé</strong> — médecin, dermatologue ou pharmacien — avant d'apporter des modifications à votre routine de soins, surtout en cas d'affection cutanée diagnostiquée, de grossesse ou d'allaitement.
+            </div>
+            <h3>Allergies et réactions cutanées</h3>
+            <p>Nous recommandons de réaliser un test cutané sur une petite zone avant toute première utilisation. En cas de rougeur ou d'irritation, cessez l'utilisation et consultez un professionnel.</p>
+            <h3>Résultats individuels</h3>
+            <p>Les témoignages reflètent des expériences individuelles et ne garantissent pas des résultats similaires pour tous. La réponse de la peau varie selon la génétique, le mode de vie et de nombreux autres facteurs.</p>
+            <a href="#top" class="back-to-top">↑ Haut de page</a>
+        </section>
+
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const sections = ['confidentialite', 'conditions', 'retours', 'mentions', 'livraison', 'sante'];
+            const navLinks = document.querySelectorAll('.legal-nav a');
+            let current = '';
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section && window.scrollY >= section.offsetTop - 160) current = id;
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
