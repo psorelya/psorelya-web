@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Notices | Psorelya</title>
+    <meta name="description" content="Legal notices, privacy policy, terms of use and legal information for Psorelya.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brume: #EAE9E5;
+            --or: #8A6D4B;
+            --texte-fonce: #2D2D2D;
+            --blanc: #FFFFFF;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
+            --header-height: 8.125rem;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 100%; scroll-behavior: smooth; }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+
+        .legal-hero { margin-top: var(--header-height); padding: 5rem 2rem 4rem; text-align: center; background-color: var(--blanc); border-bottom: 1px solid #DDD; }
+        .legal-hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; font-weight: 500; }
+        .legal-hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 1.5rem; line-height: 1.1; }
+        .legal-hero p { font-size: 0.85rem; color: #999; letter-spacing: 0.05rem; font-weight: 300; }
+
+        .legal-nav { position: sticky; top: var(--header-height); z-index: 100; background-color: var(--blanc); border-bottom: 1px solid #DDD; padding: 0 2rem; overflow-x: auto; white-space: nowrap; }
+        .legal-nav ul { display: inline-flex; list-style: none; }
+        .legal-nav ul li a { display: block; padding: 1.1rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18rem; text-transform: uppercase; text-decoration: none; color: #888; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
+        .legal-nav ul li a:hover, .legal-nav ul li a.active { color: var(--or); border-bottom-color: var(--or); }
+
+        .legal-wrapper { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+
+        .legal-section { padding: 4rem 0 3rem; border-bottom: 1px solid #D8D6D1; }
+        .legal-section:last-child { border-bottom: none; }
+
+        .section-tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.25rem; text-transform: uppercase; color: var(--or); font-weight: 500; margin-bottom: 1rem; }
+        .legal-section h2 { font-family: var(--font-titre); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 2.5rem; line-height: 1.15; }
+        .legal-section h3 { font-family: var(--font-titre); font-size: 1.5rem; font-weight: 400; color: var(--texte-fonce); margin: 2.5rem 0 0.8rem; }
+        .legal-section p { font-size: 0.92rem; line-height: 1.95; color: #555; font-weight: 300; margin-bottom: 1.2rem; }
+        .legal-section ul { margin: 0.5rem 0 1.5rem 1.2rem; }
+        .legal-section ul li { font-size: 0.92rem; line-height: 1.95; color: #555; font-weight: 300; margin-bottom: 0.4rem; }
+        .legal-section a { color: var(--or); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .legal-section a:hover { border-bottom-color: var(--or); }
+
+        .legal-highlight { background-color: var(--blanc); border-left: 3px solid var(--or); padding: 1.5rem 2rem; margin: 2rem 0; font-size: 0.9rem; line-height: 1.8; color: #444; font-weight: 300; }
+        .legal-highlight strong { font-weight: 500; color: var(--texte-fonce); }
+
+        .disclaimer-box { background-color: #FAF8F5; border: 1px solid #D8C9B5; padding: 2rem 2.5rem; margin: 2rem 0; text-align: center; }
+        .disclaimer-box .disclaimer-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .disclaimer-box p { font-size: 0.88rem; color: #666; font-style: italic; margin-bottom: 0; }
+
+        .back-to-top { display: inline-block; margin-top: 1.5rem; font-size: 0.7rem; letter-spacing: 0.2rem; text-transform: uppercase; color: #AAA; text-decoration: none; transition: color 0.3s; }
+        .back-to-top:hover { color: var(--or); }
+
+        .update-badge { display: inline-block; font-size: 0.7rem; color: #AAA; letter-spacing: 0.1rem; font-weight: 300; margin-bottom: 2rem; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.9s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 48rem) {
+            .legal-nav ul li a { padding: 1rem 0.9rem; font-size: 0.6rem; letter-spacing: 0.1rem; }
+            .legal-wrapper { padding: 2rem 1.2rem 6rem; }
+            .legal-highlight { padding: 1.2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <div class="legal-hero" id="top">
+        <div class="sur-titre">Psorelya — Québec</div>
+        <h1>Legal Notices</h1>
+        <p>Last updated: April 2026</p>
+    </div>
+
+    <nav class="legal-nav">
+        <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#returns">Returns & Refunds</a></li>
+            <li><a href="#legal">Legal Information</a></li>
+            <li><a href="#shipping">Shipping</a></li>
+            <li><a href="#health">Health Disclaimer</a></li>
+        </ul>
+    </nav>
+
+    <div class="legal-wrapper">
+
+        <section class="legal-section reveal" id="privacy">
+            <span class="section-tag">01 — Personal Data</span>
+            <h2>Privacy Policy</h2>
+            <span class="update-badge">In effect since January 1, 2025</span>
+            <p>At Psorelya, protecting your privacy is a priority. This policy explains how we collect, use and protect your personal information, in compliance with Quebec's <em>Act respecting the protection of personal information in the private sector (Law 25)</em> and the <em>General Data Protection Regulation</em> (GDPR) for our European visitors.</p>
+            <h3>Information we collect</h3>
+            <ul>
+                <li>Name, email address and mailing address when placing an order or subscribing to our newsletter</li>
+                <li>Anonymized browsing data (pages visited, session duration) via analytics tools</li>
+                <li>Payment information — processed directly by our secure payment provider, never stored on our servers</li>
+            </ul>
+            <h3>How we use your data</h3>
+            <ul>
+                <li>Processing and tracking your orders</li>
+                <li>Sending our newsletter <em>L'Atelier</em>, only if you have consented</li>
+                <li>Improving the experience on our website</li>
+                <li>Service communications related to your account or purchases</li>
+            </ul>
+            <div class="legal-highlight">
+                <strong>We never sell your data.</strong> Your personal information is never transferred, rented or sold to third parties for commercial purposes.
+            </div>
+            <h3>Your rights</h3>
+            <p>You have the right at any time to access, correct, delete your data, or withdraw your consent to communications. The person responsible for the protection of personal information is <strong>Patrick Lottin</strong>. You may contact him at <a href="mailto:privacy@psorelya.com">privacy@psorelya.com</a>.</p>
+            <h3>Cookies</h3>
+            <p>Our website uses essential functional cookies and anonymized analytics cookies. You may disable the latter through your browser settings without affecting your browsing experience.</p>
+            <h3>Data retention</h3>
+            <p>Your order data is retained for 7 years in accordance with Quebec accounting obligations. Newsletter subscription data is retained until you unsubscribe.</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+        </section>
+
+        <section class="legal-section reveal" id="terms">
+            <span class="section-tag">02 — Website Use</span>
+            <h2>Terms of Use</h2>
+            <span class="update-badge">In effect since January 1, 2025</span>
+            <p>By accessing and browsing <strong>psorelya.com</strong>, you agree to these terms of use in their entirety. If you do not accept these terms, we invite you not to use this website.</p>
+            <h3>Intellectual property</h3>
+            <p>All content on this website — texts, images, logo, graphics, layout, articles — is the exclusive property of Psorelya and is protected by Canadian and international intellectual property laws. Any reproduction without prior written authorization is strictly prohibited.</p>
+            <h3>Acceptable use</h3>
+            <p>This website is intended for personal, non-commercial use. You are prohibited from:</p>
+            <ul>
+                <li>Reproducing or distributing content for commercial purposes</li>
+                <li>Using robots or scrapers to extract data</li>
+                <li>Attempting to compromise the security of the website</li>
+                <li>Publishing false or misleading information</li>
+            </ul>
+            <h3>Limitation of liability</h3>
+            <p>Psorelya strives to ensure the accuracy of information published on this website but cannot guarantee its completeness. Psorelya shall not be held liable for any damages resulting from the use of or inability to access the website.</p>
+            <h3>Governing law</h3>
+            <p>These terms are governed by the laws of the Province of Quebec and applicable federal laws of Canada. Any dispute shall be subject to the exclusive jurisdiction of the courts of Quebec.</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+        </section>
+
+        <section class="legal-section reveal" id="returns">
+            <span class="section-tag">03 — Returns & Refunds</span>
+            <h2>Return Policy</h2>
+            <span class="update-badge">In effect since January 1, 2025</span>
+            <p>Your satisfaction is our priority. If for any reason you are not fully satisfied with your order, here is how we proceed.</p>
+            <h3>Return window</h3>
+            <p>You have <strong>30 days</strong> from receipt of your order to contact us to initiate a return. After this period, we will unfortunately be unable to process your request.</p>
+            <h3>Return conditions</h3>
+            <ul>
+                <li>Products must be returned in their original packaging, unopened and unused</li>
+                <li>Products damaged upon receipt are eligible for a full refund — a photo is required within 48 hours of delivery</li>
+                <li>Products purchased on sale are not refundable, except for manufacturing defects</li>
+            </ul>
+            <div class="legal-highlight">
+                <strong>Exception — skin reaction:</strong> We understand that every skin is unique. If you experience an unusual skin reaction after using a Psorelya product, contact us immediately at <a href="mailto:soin@psorelya.com">soin@psorelya.com</a> — we will review your situation on a case-by-case basis with all the attention it deserves.
+            </div>
+            <h3>Return procedure</h3>
+            <p>To initiate a return, send an email to <a href="mailto:soin@psorelya.com">soin@psorelya.com</a> with your order number and reason for return. We will respond within 2 business days with shipping instructions.</p>
+            <h3>Refund</h3>
+            <p>Once the return is received and validated, the refund will be processed via the original payment method within <strong>5 to 10 business days</strong>. Original shipping costs are not refunded unless the error is ours.</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+        </section>
+
+        <section class="legal-section reveal" id="legal">
+            <span class="section-tag">04 — Legal Information</span>
+            <h2>Legal Notices</h2>
+            <h3>Website publisher</h3>
+            <ul>
+                <li><strong>Business name:</strong> Psorelya</li>
+                <li><strong>Status:</strong> Sole proprietorship registered in Quebec</li>
+                <li><strong>Address:</strong> 2-538 rue Saint-Joseph, Lévis, QC G6V 1H7, Canada</li>
+                <li><strong>Quebec Enterprise Number (NEQ):</strong> 2281784357</li>
+                <li><strong>Email:</strong> <a href="mailto:info@psorelya.com">info@psorelya.com</a></li>
+                <li><strong>Founder:</strong> Patrick Lottin</li>
+            </ul>
+            <h3>Hosting</h3>
+            <p>The website psorelya.com is hosted by a third-party provider. For any technical questions, contact us at <a href="mailto:info@psorelya.com">info@psorelya.com</a>.</p>
+            <h3>Trademarks and logos</h3>
+            <p>The Psorelya name, logo and all brand visuals are the exclusive property of their creator. Any unauthorized use is prohibited.</p>
+            <h3>Membership — Guilde des herboristes du Québec</h3>
+            <p>Patrick Lottin, founder of Psorelya, is a member of the Guilde des herboristes du Québec — attesting to a serious commitment to responsible, knowledge-based herbalist practices.</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+        </section>
+
+        <section class="legal-section reveal" id="shipping">
+            <span class="section-tag">05 — Shipping</span>
+            <h2>Shipping Policy</h2>
+            <span class="update-badge">In effect since January 1, 2025</span>
+            <h3>Delivery zones</h3>
+            <p>Psorelya currently ships to <strong>Canada</strong> and the <strong>United States</strong>. International deliveries may be considered upon request — write to us at <a href="mailto:info@psorelya.com">info@psorelya.com</a>.</p>
+            <h3>Processing times</h3>
+            <p>Each order is carefully prepared within <strong>2 to 5 business days</strong> following payment confirmation. Orders placed on weekends or holidays are processed the next business day.</p>
+            <h3>Estimated delivery times</h3>
+            <ul>
+                <li><strong>Quebec:</strong> 3 to 7 business days</li>
+                <li><strong>Rest of Canada:</strong> 5 to 10 business days</li>
+                <li><strong>United States:</strong> 7 to 14 business days</li>
+            </ul>
+            <div class="legal-highlight">
+                These times are <strong>estimates</strong> and may vary depending on carriers or peak demand periods. A tracking number will be sent to you as soon as your order ships.
+            </div>
+            <h3>Damaged or lost package</h3>
+            <p>If your package arrives damaged, please document the damage with photos within 48 hours and contact us at <a href="mailto:soin@psorelya.com">soin@psorelya.com</a> — we will handle the situation promptly.</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+        </section>
+
+        <section class="legal-section reveal" id="health">
+            <span class="section-tag">06 — Health & Wellness</span>
+            <h2>Health Disclaimer</h2>
+            <div class="disclaimer-box">
+                <div class="disclaimer-icon">🌿</div>
+                <p>The products and information presented on this website are intended to complement, not replace, professional medical care.</p>
+            </div>
+            <h3>Nature of Psorelya products</h3>
+            <p>Psorelya products are natural cosmetic care formulated for the daily comfort of sensitive and atopic skin. They are not medications and are not intended to diagnose, treat, cure or prevent any disease.</p>
+            <h3>Editorial content and articles</h3>
+            <p>Articles published in the <em>Learn</em> section of our website are written for informational and educational purposes only. They reflect the founder's personal research and experience, and do not constitute medical advice in any way.</p>
+            <div class="legal-highlight">
+                <strong>Always consult a healthcare professional</strong> — doctor, dermatologist or pharmacist — before making changes to your skincare routine, especially in cases of diagnosed skin conditions, pregnancy, breastfeeding, or medication use.
+            </div>
+            <h3>Allergies and skin reactions</h3>
+            <p>We recommend performing a patch test on a small area before first use. In case of redness, irritation or discomfort, discontinue use and consult a professional.</p>
+            <h3>Individual results</h3>
+            <p>Testimonials reflect individual experiences and do not guarantee similar results for all users. Skin response to cosmetic care varies according to genetics, lifestyle and many other factors.</p>
+            <a href="#top" class="back-to-top">↑ Back to top</a>
+        </section>
+
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        fetch('../header-en.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('header-container').innerHTML = d)
+            .catch(e => console.error(e));
+
+        fetch('../footer-en.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('footer-container').innerHTML = d)
+            .catch(e => console.error(e));
+
+        window.addEventListener('scroll', function () {
+            const sections = ['privacy', 'terms', 'returns', 'legal', 'shipping', 'health'];
+            const navLinks = document.querySelectorAll('.legal-nav a');
+            let current = '';
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section && window.scrollY >= section.offsetTop - 160) current = id;
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function revealElements() {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 40) el.classList.add('active');
+                });
+            }
+            window.addEventListener('scroll', revealElements);
+            setTimeout(revealElements, 100);
+        });
+    </script>
+</body>
+</html>
