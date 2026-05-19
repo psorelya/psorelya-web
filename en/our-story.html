@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psorelya | Our Story - Prestige Botanicals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brume: #EAE9E5;
+            --or: #8A6D4B;
+            --texte-fonce: #2D2D2D;
+            --texte-clair: #F5F5F5;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .story-immersion { 
+            width: 100%; height: 60vh; overflow: hidden; position: relative;
+            background-color: var(--brume); margin-top: 80px;
+        }
+        .story-immersion img { 
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; transition: transform 0.8s ease;
+        }
+        .story-immersion:hover img { transform: scale(1.03); }
+
+        .histoire-section { padding: 40px 20px 100px; background-color: var(--brume); }
+        .histoire-container { max-width: 700px; margin: 0 auto; text-align: left; }
+        
+        .histoire-container h1 { font-family: var(--font-titre); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 300; text-align: center; margin-bottom: 20px; color: var(--texte-fonce); }
+        .histoire-container h2 { font-family: var(--font-titre); font-size: 2.5rem; font-weight: 300; text-align: center; margin: 80px 0 30px; color: var(--texte-fonce); }
+        .histoire-container .intro { font-family: var(--font-titre); font-size: 2rem; font-style: italic; text-align: center; color: var(--or); margin-bottom: 60px; line-height: 1.4; }
+        .histoire-container p { font-family: var(--font-texte); font-size: 1.05rem; line-height: 2; color: #444; font-weight: 300; margin-bottom: 30px; }
+
+        .btn-container { text-align: center; margin-top: 80px; }
+        .btn-luxe {
+            padding: 18px 50px; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte); text-decoration: none; display: inline-block;
+            font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
+        }
+        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <section class="story-immersion reveal">
+        <img src="../image_25.png" alt="Psorelya prestige formulation studio">
+    </section>
+
+    <section class="histoire-section">
+        <div class="histoire-container">
+            <h1 class="reveal">Our Story</h1>
+            
+            <div class="intro reveal">Some things can only truly be understood from the inside.</div>
+            
+            <p class="reveal">The sensation of skin that feels tight upon waking. The mornings you avoid the mirror. The discreet glances of others at your hands, your neck, your arms. The constant search for a product that won't sting, won't inflame, won't make things worse. The pharmacy aisles walked dozens of times, hoping to find something different.</p>
+            
+            <p class="reveal">I know all of this. Not because I read about it somewhere — because I have been living it for over 30 years.</p>
+            
+            <p class="reveal">But I chose not to simply endure. I chose to understand.</p>
+            
+            <p class="reveal">Throughout those years, I transformed myself into a researcher of my own skin. I dissected hundreds of ingredient labels, studied plant properties, compared oils, analyzed why certain natural actives soothed where chemical ingredients inflamed. Dermo-botany became a sincere passion — not out of academic interest, but out of absolute necessity.</p>
+            
+            <p class="reveal">This thirst for understanding pushed me to structure my 30 years of empirical observations by deepening my knowledge of herbalism and natural product formulation. Now a member of the Guilde des herboristes du Québec, I want to transform my personal mastery into a true science in service of others.</p>
+            
+            <p class="reveal">It was not frustration that gave birth to Psorelya. It was years of passionate research, a standard of excellence built from within, and the deep conviction that nature, when truly understood, offers unique and complementary answers.</p>
+            
+            <p class="reveal">It is from this conviction that Psorelya was born, in December 2024.</p>
+            
+            <h2 class="reveal">Why Psorelya?</h2>
+            
+            <p class="reveal">The name Psorelya is a tribute to Psoralea corylifolia — an extraordinary plant, used for centuries in the great botanical traditions of Asia and the Middle East for its soothing properties on the most sensitive skin. A discreet plant, little known to the general public, but deeply respected by those who truly explore the power of nature.</p>
+            
+            <p class="reveal">It perfectly embodies what Psorelya aspires to be: not the most visible product on the shelf, but the most right. The one you choose when you truly know what you are looking for.</p>
+            
+            <h2 class="reveal">Our Philosophy</h2>
+            
+            <p class="reveal">Psorelya is a line of natural skincare designed from A to Z for atopic and sensitive skin. Not formulated in an office, but built with the discernment of someone who knows exactly what suffering skin feels like.</p>
+            
+            <p class="reveal">Every product — soap, cream, lotion, balm, Aleppo soap, bamboo washcloth — has been selected for its gentleness, purity and effectiveness. Nothing irritating. Nothing superfluous. Only genuine, sincere care.</p>
+            
+            <p class="reveal">But beyond the products, it is an experience we want to offer you. That of finally caring for yourself, without fear, without compromise — like a true spa ritual, lived at home, at your own pace, every day.</p>
+            
+            <p class="reveal" style="font-weight: 500; text-align: center; color: var(--or); margin-top: 50px; font-size: 1.2rem;">Because your skin no longer has to be a battlefield. Reconcile with it.</p>
+            
+            <div class="btn-container reveal">
+                <a href="collection-origine.html" class="btn-luxe">👉 Discover Collection Origine</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function reveal() {
+                document.querySelectorAll(".reveal").forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 30) {
+                        el.classList.add("active");
+                    }
+                });
+            }
+            window.addEventListener("scroll", reveal);
+            setTimeout(reveal, 100);
+        });
+
+        fetch('../header-en.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('header-container').innerHTML = d)
+            .catch(e => console.error(e));
+
+        fetch('../footer-en.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('footer-container').innerHTML = d)
+            .catch(e => console.error(e));
+    </script>
+</body>
+</html>
