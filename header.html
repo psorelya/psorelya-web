@@ -37,12 +37,12 @@
     </div>
     <div class="header-right">
         <div class="lang-switch">
-            <span class="active">FR</span> | <a href="#" id="lang-en-link">EN</a>
+            <span class="active">FR</span> | <a href="en/index.html" id="lang-en-link">EN</a>
         </div>
     </div>
 </header>
 <script>
-(function() {
+(function waitForLink() {
     var map = {
         'index.html': 'en/index.html',
         'notre-histoire.html': 'en/our-story.html',
@@ -50,7 +50,13 @@
         'mentions-legales.html': 'en/legal.html'
     };
     var page = window.location.pathname.split('/').pop() || 'index.html';
+    if (!page) page = 'index.html';
     var enPage = map[page] || 'en/index.html';
-    document.getElementById('lang-en-link').href = enPage;
+    var link = document.getElementById('lang-en-link');
+    if (link) {
+        link.href = enPage;
+    } else {
+        setTimeout(waitForLink, 50);
+    }
 })();
 </script>
