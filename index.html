@@ -3,141 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psorelya | D E R M O - C O S M É T I Q U E   N A T U R E L L E </title>
+    <title>Psorelya | Dermo-cosmétique naturelle</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    
     <style>
-        /* ==========================================================
-           1. VARIABLES ET BASE
-           ========================================================== */
-        :root {
-            --brume: #EAE9E5;
-            --or: #8A6D4B;
-            --vert-sauge: #7A8450;
-            --texte-fonce: #2D2D2D;
-            --texte-clair: #F5F5F5;
-            --noir-luxe: #1A1A1A;
-            --font-titre: 'Cormorant Garamond', serif;
-            --font-texte: 'Montserrat', sans-serif;
-            --header-height: 8.125rem; 
-        }
-
+        :root { --brume: #EAE9E5; --or: #8A6D4B; --vert-sauge: #7A8450; --texte-fonce: #2D2D2D; --texte-clair: #F5F5F5; --font-titre: 'Cormorant Garamond', serif; --font-texte: 'Montserrat', sans-serif; --header-height: 8.125rem; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { font-size: 100%; }
-        
-        body { 
-            font-family: var(--font-texte); 
-            background-color: var(--brume); 
-            color: var(--texte-fonce); 
-            overflow-x: hidden;
-            scroll-padding-top: var(--header-height);
-        }
-
-        /* ==========================================================
-           2. BOUTONS LUXE
-           ========================================================== */
-        .btn-luxe {
-            padding: 1rem 3rem; 
-            background-color: var(--or); 
-            color: var(--texte-clair); 
-            border: none; 
-            font-family: var(--font-texte); 
-            text-decoration: none; 
-            display: inline-block;
-            font-size: 0.8rem; 
-            letter-spacing: 0.2rem; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-            transition: all 0.4s ease;
-        }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; scroll-padding-top: var(--header-height); }
+        .btn-luxe { padding: 1rem 3rem; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte); text-decoration: none; display: inline-block; font-size: 0.8rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-0.2rem); box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1); }
-
-        /* ==========================================================
-           3. STRUCTURES ET SECTIONS (MOBILE FIRST)
-           ========================================================== */
-        
-        .container { 
-            width: 90%; 
-            max-width: 45rem; 
-            margin: 0 auto; 
-            text-align: center;
-        }
-
-        /* --- HERO SECTION (AVEC VOILE ASSOMBRISSANT) --- */
-        .hero { 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center;
-            margin-top: var(--header-height);
-            min-height: 80vh; 
-            padding: 2rem;
-            /* Gardez le nom de l'image qui fonctionne en ce moment pour vous : */
-            background: url('fond-header-psorelya.png') center/cover no-repeat;
-            position: relative; 
-        }
-        
-        /* Le voile semi-transparent qui assombrit l'image */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* 40% de noir */
-            z-index: 0;
-        }
-        
-        .hero .sur-titre { 
-            font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; 
-            color: var(--texte-clair); /* Texte en blanc */
-            margin-bottom: 1rem; font-weight: 500;
-            position: relative; z-index: 1; 
-        }
-        
-        .hero h1 { 
-            font-family: var(--font-titre); 
-            font-size: clamp(2.5rem, 8vw, 6rem); 
-            font-weight: 300; 
-            letter-spacing: 0.1rem; 
-            color: var(--texte-clair); /* Texte en blanc */
-            line-height: 1.1; 
-            margin-bottom: 3rem;
-            position: relative; z-index: 1; 
-        }
-
-        /* --- SECTION BIENVENUE --- */
-        .bienvenue { 
-            padding: 4rem 1rem; 
-            background-color: var(--brume); 
-        }
+        .container { width: 90%; max-width: 45rem; margin: 0 auto; text-align: center; }
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: var(--header-height); min-height: 80vh; padding: 2rem; background: url('fond-header-psorelya.png') center/cover no-repeat; position: relative; }
+        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index: 0; }
+        .hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--texte-clair); margin-bottom: 1rem; font-weight: 500; position: relative; z-index: 1; }
+        .hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 300; letter-spacing: 0.1rem; color: var(--texte-clair); line-height: 1.1; margin-bottom: 3rem; position: relative; z-index: 1; }
+        .bienvenue { padding: 4rem 1rem; background-color: var(--brume); }
         .bienvenue h2 { font-family: var(--font-titre); font-size: 2.2rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--texte-fonce); }
         .bienvenue p { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1.5rem; font-weight: 300; }
         .signature { font-family: var(--font-titre); font-size: 2.2rem; font-style: italic; color: var(--vert-sauge); margin: 3rem 0 4rem; }
-
-        /* --- ATELIER (NEWSLETTER) --- */
-        .atelier { 
-            padding: 4rem 1rem; 
-            text-align: center; 
-            background-color: #fff; 
-        }
-        .atelier h2 { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; margin-bottom: 1.5rem; font-weight: 300;}
+        .atelier { padding: 4rem 1rem; text-align: center; background-color: #fff; }
+        .atelier h2 { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; margin-bottom: 1.5rem; font-weight: 300; }
         .atelier p { font-size: 1rem; color: #666; font-weight: 300; margin-bottom: 3rem; }
-        
-        .input-group { 
-            display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; 
-            gap: 1rem; 
-        }
-        input[type="email"] { padding: 1rem; width: 100%; max-width: 20rem; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem;}
+        .input-group { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; }
+        input[type="email"] { padding: 1rem; width: 100%; max-width: 20rem; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem; }
         input[type="email"]:focus { border-bottom: 1px solid var(--or); }
-
-        /* ==========================================================
-           4. MÉDIAS QUERIES (DESKTOP)
-           ========================================================== */
-        
-        @media (min-width: 48rem) { 
-            .hero { 
-                background-attachment: fixed;
-                min-height: calc(100vh - var(--header-height)); 
-                padding: 4rem; 
-            }
+        @media (min-width: 48rem) {
+            .hero { background-attachment: fixed; min-height: calc(100vh - var(--header-height)); padding: 4rem; }
             .hero h1 { margin-bottom: 4rem; }
             .bienvenue { padding: 8rem 2rem; }
             .bienvenue h2 { font-size: 3rem; margin-bottom: 3rem; }
@@ -149,15 +40,12 @@
     </style>
 </head>
 <body>
-
     <div id="header-container"></div>
-
     <main>
         <section class="hero">
-            <div class="sur-titre">Botanique de Prestige</div>
+            <div class="sur-titre">Dermo-cosmétique naturelle</div>
             <h1>Psorelya</h1>
         </section>
-
         <section class="bienvenue">
             <div class="container">
                 <h2>Bienvenue chez Psorelya</h2>
@@ -166,10 +54,9 @@
                 <p>Pas de promesses impossibles. Pas d'ingrédients inutiles. Juste le meilleur de la nature, sélectionné avec l'exigence de quelqu'un qui vit exactement ce que vous traversez.</p>
                 <p>Prenez le temps de vous installer. Explorez. Et laissez votre peau respirer.</p>
                 <div class="signature">Patrick</div>
-                <a href="collection-origine.html" class="btn-luxe">👉 Découvrir la collection</a>
+                <a href="collection-origine.html" class="btn-luxe">Découvrez nos soins</a>
             </div>
         </section>
-
         <section class="atelier">
             <div class="container">
                 <h2>Rejoindre l'Atelier</h2>
@@ -181,20 +68,17 @@
             </div>
         </section>
     </main>
-
     <div id="footer-container"></div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('header.html')
                 .then(r => r.text())
-                .then(d => document.getElementById('header-container').innerHTML = d)
-                .catch(e => console.error("Header introuvable", e));
-
+                .then(d => { document.getElementById('header-container').innerHTML = d; if(window.setLangLink) window.setLangLink(); })
+                .catch(e => console.error(e));
             fetch('footer.html')
                 .then(r => r.text())
                 .then(d => document.getElementById('footer-container').innerHTML = d)
-                .catch(e => console.error("Footer introuvable", e));
+                .catch(e => console.error(e));
         });
     </script>
 </body>
