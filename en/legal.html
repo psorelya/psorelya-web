@@ -236,7 +236,7 @@
     <script>
         fetch('../header-en.html')
             .then(r => r.text())
-            .then(d => document.getElementById('header-container').innerHTML = d)
+            .then(d => { document.getElementById('header-container').innerHTML = d; if(window.setLangLink) window.setLangLink(); })
             .catch(e => console.error(e));
 
         fetch('../footer-en.html')
