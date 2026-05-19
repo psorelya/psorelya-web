@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - /bin/echo "Deploiement effectue"
+    - export DEPLOYPATH=/home/psoryopo/public_html/
+    - /bin/cp -r $TRAVIS_BUILD_DIR/. $DEPLOYPATH
