@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psorelya | D E R M O - C O S M E T I C S   N A T U R A L</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brume: #EAE9E5;
+            --or: #8A6D4B;
+            --vert-sauge: #7A8450;
+            --texte-fonce: #2D2D2D;
+            --texte-clair: #F5F5F5;
+            --noir-luxe: #1A1A1A;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
+            --header-height: 8.125rem;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 100%; }
+        body { 
+            font-family: var(--font-texte); 
+            background-color: var(--brume); 
+            color: var(--texte-fonce); 
+            overflow-x: hidden;
+            scroll-padding-top: var(--header-height);
+        }
+
+        .btn-luxe {
+            padding: 1rem 3rem; 
+            background-color: var(--or); 
+            color: var(--texte-clair); 
+            border: none; 
+            font-family: var(--font-texte); 
+            text-decoration: none; 
+            display: inline-block;
+            font-size: 0.8rem; 
+            letter-spacing: 0.2rem; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: all 0.4s ease;
+        }
+        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-0.2rem); box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1); }
+
+        .container { 
+            width: 90%; 
+            max-width: 45rem; 
+            margin: 0 auto; 
+            text-align: center;
+        }
+
+        .hero { 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center;
+            margin-top: var(--header-height);
+            min-height: 80vh; 
+            padding: 2rem;
+            background: url('../fond-header-psorelya.png') center/cover no-repeat;
+            position: relative; 
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        .hero .sur-titre { 
+            font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; 
+            color: var(--texte-clair);
+            margin-bottom: 1rem; font-weight: 500;
+            position: relative; z-index: 1; 
+        }
+        .hero h1 { 
+            font-family: var(--font-titre); 
+            font-size: clamp(2.5rem, 8vw, 6rem); 
+            font-weight: 300; 
+            letter-spacing: 0.1rem; 
+            color: var(--texte-clair);
+            line-height: 1.1; 
+            margin-bottom: 3rem;
+            position: relative; z-index: 1; 
+        }
+
+        .bienvenue { 
+            padding: 4rem 1rem; 
+            background-color: var(--brume); 
+        }
+        .bienvenue h2 { font-family: var(--font-titre); font-size: 2.2rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--texte-fonce); }
+        .bienvenue p { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1.5rem; font-weight: 300; }
+        .signature { font-family: var(--font-titre); font-size: 2.2rem; font-style: italic; color: var(--vert-sauge); margin: 3rem 0 4rem; }
+
+        .atelier { 
+            padding: 4rem 1rem; 
+            text-align: center; 
+            background-color: #fff; 
+        }
+        .atelier h2 { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; margin-bottom: 1.5rem; font-weight: 300;}
+        .atelier p { font-size: 1rem; color: #666; font-weight: 300; margin-bottom: 3rem; }
+        
+        .input-group { 
+            display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; 
+            gap: 1rem; 
+        }
+        input[type="email"] { padding: 1rem; width: 100%; max-width: 20rem; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem;}
+        input[type="email"]:focus { border-bottom: 1px solid var(--or); }
+
+        @media (min-width: 48rem) { 
+            .hero { 
+                background-attachment: fixed;
+                min-height: calc(100vh - var(--header-height)); 
+                padding: 4rem; 
+            }
+            .hero h1 { margin-bottom: 4rem; }
+            .bienvenue { padding: 8rem 2rem; }
+            .bienvenue h2 { font-size: 3rem; margin-bottom: 3rem; }
+            .atelier { padding: 6rem 2rem; }
+            .atelier h2 { font-size: 3.5rem; }
+            .input-group { flex-direction: row; gap: 0.5rem; }
+            input[type="email"] { width: auto; max-width: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <div class="sur-titre">Prestige Botanicals</div>
+            <h1>Psorelya</h1>
+        </section>
+
+        <section class="bienvenue">
+            <div class="container">
+                <h2>Welcome to Psorelya</h2>
+                <p>You are here because your skin speaks to you. Sometimes softly, sometimes too loudly.</p>
+                <p>At Psorelya, we understand you — not from theory, but from lived experience. Every product in our line has been designed to give your skin what it has been asking for far too long: gentleness, respect, and the simple pleasure of caring for yourself without apprehension.</p>
+                <p>No impossible promises. No unnecessary ingredients. Just the best of nature, selected with the discernment of someone who lives exactly what you are going through.</p>
+                <p>Take your time. Explore. And let your skin breathe.</p>
+                <div class="signature">Patrick</div>
+                <a href="collection-origine.html" class="btn-luxe">👉 Discover the Collection</a>
+            </div>
+        </section>
+
+        <section class="atelier">
+            <div class="container">
+                <h2>Join the Atelier</h2>
+                <p>Receive our botanical journals and discover the secrets of our upcoming harvests.</p>
+                <div class="input-group">
+                    <input type="email" placeholder="your@email.com">
+                    <button class="btn-luxe">Subscribe</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../header-en.html')
+                .then(r => r.text())
+                .then(d => document.getElementById('header-container').innerHTML = d)
+                .catch(e => console.error("Header not found", e));
+
+            fetch('../footer-en.html')
+                .then(r => r.text())
+                .then(d => document.getElementById('footer-container').innerHTML = d)
+                .catch(e => console.error("Footer not found", e));
+        });
+    </script>
+</body>
+</html>
