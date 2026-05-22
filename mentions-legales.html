@@ -58,6 +58,8 @@
 </head>
 <body>
 
+    <div id="header-container"></div>
+
     <div class="legal-hero" id="top">
         <div class="sur-titre">Psorelya — Québec</div>
         <h1>Mentions légales</h1>
@@ -162,14 +164,14 @@
                 <li><strong>Siège social :</strong> 2-538 rue Saint-Joseph, Lévis, QC G6V 1H7, Canada</li>
                 <li><strong>Numéro d'entreprise du Québec (NEQ) :</strong> 2281784357</li>
                 <li><strong>Courriel :</strong> <a href="mailto:info@psorelya.com">info@psorelya.com</a></li>
-                <li><strong>Fondateur :</strong> Patrick</li>
+                <li><strong>Fondateur :</strong> Patrick Lottin</li>
             </ul>
             <h3>Hébergement</h3>
             <p>Le site psorelya.com est hébergé par un prestataire tiers. Pour toute question technique, contactez-nous à <a href="mailto:info@psorelya.com">info@psorelya.com</a>.</p>
             <h3>Marques et logos</h3>
             <p>Le nom Psorelya, le logo et l'ensemble des visuels de marque sont la propriété exclusive de leur créateur. Toute utilisation non autorisée est interdite.</p>
             <h3>Affiliation à la Guilde des herboristes du Québec</h3>
-            <p>Patrick, fondateur de Psorelya, est membre de la Guilde des herboristes du Québec — attestant d'un engagement sérieux envers les pratiques herboristiques responsables.</p>
+            <p>Patrick Lottin, fondateur de Psorelya, est membre de la Guilde des herboristes du Québec — attestant d'un engagement sérieux envers les pratiques herboristiques responsables.</p>
             <a href="#top" class="back-to-top">↑ Haut de page</a>
         </section>
 
@@ -218,7 +220,19 @@
 
     </div>
 
+    <div id="footer-container"></div>
+
     <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(d => { document.getElementById('header-container').innerHTML = d; if(window.setLangLink) window.setLangLink(); })
+            .catch(e => console.error(e));
+
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('footer-container').innerHTML = d)
+            .catch(e => console.error(e));
+
         window.addEventListener('scroll', function () {
             const sections = ['confidentialite', 'conditions', 'retours', 'mentions', 'livraison', 'sante'];
             const navLinks = document.querySelectorAll('.legal-nav a');
