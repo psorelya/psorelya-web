@@ -4,7 +4,20 @@
     .site-footer .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap; }
     .site-footer .footer-links a { text-decoration: none; color: #2D2D2D; transition: color 0.3s; }
     .site-footer .footer-links a:hover { color: #8A6D4B; }
+
+    /* BANNIÈRE COOKIES */
+    .cookie-banner { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #2D2D2D; color: #F5F5F5; padding: 1.2rem 2rem; z-index: 99999; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 300; line-height: 1.6; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+    .cookie-banner-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cookie-banner p { margin: 0; }
+    .cookie-banner a { color: #C4A882; text-decoration: underline; }
+    .cookie-buttons { display: flex; gap: 0.8rem; flex-shrink: 0; }
+    .cookie-btn { padding: 0.6rem 1.5rem; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.15rem; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.3s ease; }
+    .cookie-btn-accept { background-color: #8A6D4B; color: #fff; }
+    .cookie-btn-accept:hover { background-color: #6d5439; }
+    .cookie-btn-refuse { background-color: transparent; color: #aaa; border: 1px solid #555; }
+    .cookie-btn-refuse:hover { color: #fff; border-color: #888; }
 </style>
+
 <footer class="site-footer">
     <div class="footer-logo">
         <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
@@ -16,3 +29,31 @@
     </div>
     <p style="font-size: 0.7rem; color: #999; margin-top: 20px; letter-spacing: 1px;">© 2026 PSORELYA QUEBEC</p>
 </footer>
+
+<!-- BANNIÈRE COOKIES -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner-inner">
+        <p>Nous utilisons des cookies pour analyser notre trafic et améliorer votre expérience. Consultez notre <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-refuse" onclick="refuseCookies()">Refuser</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function acceptCookies() {
+    localStorage.setItem('psorelya_cookies', 'accepted');
+    document.getElementById('cookieBanner').style.display = 'none';
+    if (typeof loadGoogleAnalytics === 'function') loadGoogleAnalytics();
+}
+function refuseCookies() {
+    localStorage.setItem('psorelya_cookies', 'refused');
+    document.getElementById('cookieBanner').style.display = 'none';
+}
+(function() {
+    if (!localStorage.getItem('psorelya_cookies')) {
+        document.getElementById('cookieBanner').style.display = 'block';
+    }
+})();
+</script>
