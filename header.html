@@ -3,7 +3,7 @@
     .header-left { position: relative; flex: 1; display: flex; align-items: center; }
     .menu-btn { width: 30px; height: 16px; position: relative; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
     .menu-btn span { display: block; height: 2px; background: #2D2D2D; width: 100%; }
-    .dropdown-menu { display: none; position: absolute; top: 40px; left: 0; background: #fff; padding: 25px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); flex-direction: column; gap: 15px; border: 1px solid #EAE9E5; min-width: 250px; }
+    .dropdown-menu { display: none; position: absolute; top: 40px; left: 0; background: #fff; padding: 25px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); flex-direction: column; gap: 15px; border: 1px solid #EAE9E5; min-width: 250px; z-index: 9999; }
     .dropdown-menu.show { display: flex; }
     .dropdown-menu a { text-decoration: none; color: #2D2D2D; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease; }
     .dropdown-menu a:hover { color: #8A6D4B; }
@@ -28,6 +28,8 @@
             <a href="notre-histoire.html">Notre histoire</a>
             <div class="menu-section-title">COMPRENDRE</div>
             <a href="article-vitamine-d3.html" class="sub-link">- D3, K2 et Magnésium : un trio bienfaiteur ?</a>
+            <div class="menu-section-title">LÉGAL</div>
+            <a href="mentions-legales.html" class="sub-link">- Mentions légales</a>
         </nav>
     </div>
     <div class="header-center">
@@ -42,21 +44,32 @@
     </div>
 </header>
 <script>
-(function waitForLink() {
+(function trySetLang() {
     var map = {
         'index.html': 'en/index.html',
         'notre-histoire.html': 'en/our-story.html',
         'article-vitamine-d3.html': 'en/article-vitamin-d3.html',
         'mentions-legales.html': 'en/legal.html'
     };
-    var page = window.location.pathname.split('/').pop() || 'index.html';
+    var page = window.location.pathname.split('/').pop();
     if (!page) page = 'index.html';
     var enPage = map[page] || 'en/index.html';
     var link = document.getElementById('lang-en-link');
-    if (link) {
-        link.href = enPage;
-    } else {
-        setTimeout(waitForLink, 50);
-    }
+    if (link) { link.href = enPage; }
+    else { setTimeout(trySetLang, 50); }
 })();
+window.setLangLink = function() {
+    var map = {
+        'index.html': 'en/index.html',
+        'notre-histoire.html': 'en/our-story.html',
+        'article-vitamine-d3.html': 'en/article-vitamin-d3.html',
+        'mentions-legales.html': 'en/legal.html'
+    };
+    var page = window.location.pathname.split('/').pop();
+    if (!page) page = 'index.html';
+    var enPage = map[page] || 'en/index.html';
+    var link = document.getElementById('lang-en-link');
+    if (link) link.href = enPage;
+};
 </script>
+
