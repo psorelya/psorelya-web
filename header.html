@@ -1,3 +1,22 @@
+<!-- Google tag (gtag.js) -->
+<script>
+// Google Analytics - ne charge que si consentement accepté
+function loadGoogleAnalytics() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-390M46ZYB9';
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-390M46ZYB9');
+}
+if (localStorage.getItem('psorelya_cookies') === 'accepted') {
+    loadGoogleAnalytics();
+}
+</script>
+
 <style>
     .site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(234, 233, 229, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
     .header-left { position: relative; flex: 1; display: flex; align-items: center; }
@@ -72,4 +91,3 @@ window.setLangLink = function() {
     if (link) link.href = enPage;
 };
 </script>
-
