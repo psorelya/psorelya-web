@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
+            --header-height: 8.125rem;
             --brume: #EAE9E5;
             --or: #8A6D4B;
             --texte-fonce: #2D2D2D;
@@ -15,15 +16,15 @@
             --font-texte: 'Montserrat', sans-serif;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
         body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
 
-        .legal-hero { padding: 5rem 2rem 4rem; text-align: center; background-color: var(--blanc); border-bottom: 1px solid #DDD; }
+        .legal-hero { margin-top: var(--header-height); padding: 5rem 2rem 4rem; text-align: center; background-color: var(--blanc); border-bottom: 1px solid #DDD; }
         .legal-hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; font-weight: 500; }
         .legal-hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 1.5rem; line-height: 1.1; }
         .legal-hero p { font-size: 0.85rem; color: #999; letter-spacing: 0.05rem; font-weight: 300; }
 
-        .legal-nav { position: sticky; top: 0; z-index: 100; background-color: var(--blanc); border-bottom: 1px solid #DDD; padding: 0 2rem; overflow-x: auto; white-space: nowrap; }
+        .legal-nav { position: sticky; top: var(--header-height); z-index: 100; background-color: var(--blanc); border-bottom: 1px solid #DDD; padding: 0 2rem; overflow-x: auto; white-space: nowrap; }
         .legal-nav ul { display: inline-flex; list-style: none; }
         .legal-nav ul li a { display: block; padding: 1.1rem 1.2rem; font-size: 0.65rem; letter-spacing: 0.18rem; text-transform: uppercase; text-decoration: none; color: #888; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.3s ease; }
         .legal-nav ul li a:hover, .legal-nav ul li a.active { color: var(--or); border-bottom-color: var(--or); }
@@ -234,3 +235,4 @@
     </script>
 </body>
 </html>
+
