@@ -67,29 +67,31 @@
             <div class="container">
                 <h2>The letter for discerning skin</h2>
                 <p>Botanical ingredient breakdowns, soothing protocols and behind-the-scenes formulation insights — for those who have tried everything and finally demand better.</p>
-                <div id="cakemail-form"></div>
-                <script id="form-script-cRCVor2IiCOIhNdA85QV">
-                (function() {
-                    var FORM_CONTAINER_ID = 'cakemail-form';
-                    var script = document.getElementById('form-script-cRCVor2IiCOIhNdA85QV');
-                    function insertContent(content) {
-                        var range = document.createRange();
-                        var fragment = range.createContextualFragment(content);
-                        if (FORM_CONTAINER_ID) {
-                            var container = document.getElementById(FORM_CONTAINER_ID);
-                            if (container) { container.appendChild(fragment); container.id = 'form-content-cRCVor2IiCOIhNdA85QV'; return; }
-                            console.error('Container "' + FORM_CONTAINER_ID + '" not found'); return;
-                        }
-                        var div = document.createElement('div');
-                        div.appendChild(fragment); div.id = 'form-content-cRCVor2IiCOIhNdA85QV';
-                        (script && script.parentNode) ? script.parentNode.insertBefore(div, script) : document.body.appendChild(div);
-                    }
+                                <div class="input-group">
+                    <input type="email" id="email-inscription" placeholder="your@email.com">
+                    <button class="btn-luxe" onclick="inscrireAtelier()">Subscribe</button>
+                </div>
+                <p id="msg-inscription" style="margin-top:1rem;font-size:0.85rem;color:#8A6D4B;display:none;">Thank you! Check your email to confirm.</p>
+                <script>
+                function inscrireAtelier() {
+                    var email = document.getElementById('email-inscription').value;
+                    if (!email) return;
                     fetch('https://api.cakemail.dev/forms/01b2ebc22355a61c641ed8d972ab1807c0185a5bca644d95d583bad803f1e70f55c935c4ca8b241c39adf406e7c30e3efd5d2b8899191498/render-html')
-                        .then(response => { if(response.status === 200) return response.text(); return response.json(); })
-                        .then(content => { if(typeof content === "object") throw content; insertContent(content); })
-                        .catch(error => { console.error('Error loading form:', error); })
-                        .finally(() => { if (script) script.remove(); });
-                })();
+                        .then(r => r.text())
+                        .then(html => {
+                            var tmp = document.createElement('div');
+                            tmp.innerHTML = html;
+                            var form = tmp.querySelector('form');
+                            if (form) {
+                                var emailInput = form.querySelector('input[type="email"]');
+                                if (emailInput) emailInput.value = email;
+                                var data = new FormData(form);
+                                fetch(form.action, { method: 'POST', body: data });
+                            }
+                        });
+                    document.getElementById('msg-inscription').style.display = 'block';
+                    document.getElementById('email-inscription').value = '';
+                }
                 </script>
             </div>
         </section>
