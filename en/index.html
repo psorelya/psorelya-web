@@ -19,39 +19,62 @@
         .btn-luxe { padding: 1rem 3rem; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte); text-decoration: none; display: inline-block; font-size: 0.8rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; }
         .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-0.2rem); box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1); }
         .container { width: 90%; max-width: 45rem; margin: 0 auto; text-align: center; }
+
+        /* HERO */
         .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: var(--header-height); min-height: 80vh; padding: 2rem; background: url('../fond-header-psorelya.png') center/cover no-repeat; position: relative; }
         .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index: 0; }
         .hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--texte-clair); margin-bottom: 1rem; font-weight: 500; position: relative; z-index: 1; }
         .hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 300; letter-spacing: 0.1rem; color: var(--texte-clair); line-height: 1.1; margin-bottom: 3rem; position: relative; z-index: 1; }
+
+        /* BIENVENUE */
         .bienvenue { padding: 4rem 1rem; background-color: var(--brume); }
         .bienvenue h2 { font-family: var(--font-titre); font-size: 2.2rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--texte-fonce); }
         .bienvenue p { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1.5rem; font-weight: 300; }
         .signature { font-family: var(--font-titre); font-size: 2.2rem; font-style: italic; color: var(--vert-sauge); margin: 3rem 0 4rem; }
-        .atelier { padding: 4rem 1rem; text-align: center; background-color: #fff; }
-        .atelier h2 { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; margin-bottom: 1.5rem; font-weight: 300; }
-        .atelier p { font-size: 1rem; color: #666; font-weight: 300; margin-bottom: 3rem; }
-        .input-group { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; }
-        input[type="email"] { padding: 1rem; width: 100%; max-width: 20rem; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem; }
-        input[type="email"]:focus { border-bottom: 1px solid var(--or); }
+
+        /* SECTION EBOOK */
+        .ebook-section { background-color: #fff; padding: 6rem 2rem; }
+        .ebook-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 5rem; flex-wrap: wrap; }
+        .ebook-visuel { flex: 0 0 auto; display: flex; justify-content: center; }
+        .ebook-cover { width: 200px; background: #4a5a32; padding: 2rem 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.2); transform: rotate(-2deg); transition: transform 0.4s ease; }
+        .ebook-cover:hover { transform: rotate(0deg) scale(1.03); }
+        .ebook-cover-inner { text-align: center; }
+        .ebook-logo { height: 60px; margin-bottom: 1.5rem; filter: brightness(0) invert(1) opacity(0.9); }
+        .ebook-cover-label { font-family: var(--font-texte); font-size: 0.55rem; letter-spacing: 0.2rem; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+        .ebook-cover-title { font-family: var(--font-titre); font-size: 1.1rem; font-style: italic; color: #C4A882; line-height: 1.4; margin-bottom: 1rem; font-weight: 300; }
+        .ebook-cover-sub { font-family: var(--font-texte); font-size: 0.5rem; letter-spacing: 0.1rem; color: rgba(255,255,255,0.5); }
+        .ebook-texte { flex: 1; min-width: 280px; }
+        .ebook-sur-titre { font-size: 0.7rem; letter-spacing: 0.25rem; text-transform: uppercase; color: var(--or); font-weight: 500; margin-bottom: 1rem; }
+        .ebook-titre { font-family: var(--font-titre); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 1.5rem; line-height: 1.2; }
+        .ebook-sous-titre { font-size: 0.95rem; line-height: 1.9; color: #555; font-weight: 300; margin-bottom: 2.5rem; }
+        .ebook-form { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .ebook-input { padding: 1rem; flex: 1; min-width: 200px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 0.95rem; }
+        .ebook-input:focus { border-bottom-color: var(--or); }
+        .ebook-merci { font-size: 0.88rem; color: var(--or); font-weight: 400; margin-top: 0.5rem; }
+        .ebook-note { font-size: 0.72rem; color: #BBB; letter-spacing: 0.05rem; margin-top: 0.8rem; }
+
         @media (min-width: 48rem) {
             .hero { background-attachment: fixed; min-height: calc(100vh - var(--header-height)); padding: 4rem; }
             .hero h1 { margin-bottom: 4rem; }
             .bienvenue { padding: 8rem 2rem; }
             .bienvenue h2 { font-size: 3rem; margin-bottom: 3rem; }
-            .atelier { padding: 6rem 2rem; }
-            .atelier h2 { font-size: 3.5rem; }
-            .input-group { flex-direction: row; gap: 0.5rem; }
-            input[type="email"] { width: auto; max-width: none; }
+        }
+        @media (max-width: 48rem) {
+            .ebook-inner { gap: 3rem; justify-content: center; text-align: center; }
+            .ebook-cover { width: 160px; }
+            .ebook-form { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <div id="header-container"></div>
+
     <main>
         <section class="hero">
             <div class="sur-titre">Natural Dermo-cosmetics</div>
             <h1>Psorelya</h1>
         </section>
+
         <section class="bienvenue">
             <div class="container">
                 <h2>Welcome to Psorelya</h2>
@@ -63,40 +86,36 @@
                 <a href="collection-origine.html" class="btn-luxe">Discover our skincare</a>
             </div>
         </section>
-        <section class="atelier">
-            <div class="container">
-                <h2>The letter for discerning skin</h2>
-                <p>Botanical ingredient breakdowns, soothing protocols and behind-the-scenes formulation insights — for those who have tried everything and finally demand better.</p>
-                                <div class="input-group">
-                    <input type="email" id="email-inscription" placeholder="your@email.com">
-                    <button class="btn-luxe" onclick="inscrireAtelier()">Subscribe</button>
+
+        <section class="ebook-section">
+            <div class="ebook-inner">
+                <div class="ebook-visuel">
+                    <div class="ebook-cover">
+                        <div class="ebook-cover-inner">
+                            <img src="../Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya" class="ebook-logo">
+                            <p class="ebook-cover-label">WELLNESS GUIDE</p>
+                            <p class="ebook-cover-title">Sensitive Skin<br>& Atopic-Prone Skin</p>
+                            <p class="ebook-cover-sub">Nutrition · Ingredients · Routines · Lifestyle</p>
+                        </div>
+                    </div>
                 </div>
-                <p id="msg-inscription" style="margin-top:1rem;font-size:0.85rem;color:#8A6D4B;display:none;">Thank you! Check your email to confirm.</p>
-                <script>
-                function inscrireAtelier() {
-                    var email = document.getElementById('email-inscription').value;
-                    if (!email) return;
-                    fetch('https://api.cakemail.dev/forms/01b2ebc22355a61c641ed8d972ab1807c0185a5bca644d95d583bad803f1e70f55c935c4ca8b241c39adf406e7c30e3efd5d2b8899191498/render-html')
-                        .then(r => r.text())
-                        .then(html => {
-                            var tmp = document.createElement('div');
-                            tmp.innerHTML = html;
-                            var form = tmp.querySelector('form');
-                            if (form) {
-                                var emailInput = form.querySelector('input[type="email"]');
-                                if (emailInput) emailInput.value = email;
-                                var data = new FormData(form);
-                                fetch(form.action, { method: 'POST', body: data });
-                            }
-                        });
-                    document.getElementById('msg-inscription').style.display = 'block';
-                    document.getElementById('email-inscription').value = '';
-                }
-                </script>
+                <div class="ebook-texte">
+                    <p class="ebook-sur-titre">Free download</p>
+                    <h2 class="ebook-titre">Finally make peace with your skin.</h2>
+                    <p class="ebook-sous-titre">I have spent 30 years searching, studying and testing solutions so you no longer have to. Receive my free wellness guide: real dermo-botanical solutions for demanding skin.</p>
+                    <div class="ebook-form">
+                        <input type="email" id="email-inscription" placeholder="your@email.com" class="ebook-input">
+                        <button class="btn-luxe" onclick="inscrireAtelier()">Get the guide</button>
+                    </div>
+                    <p id="msg-inscription" class="ebook-merci" style="display:none;">✓ Thank you! Check your email to confirm and receive your guide.</p>
+                    <p class="ebook-note">By subscribing, you will occasionally receive our newsletter <em>The Letter for Discerning Skin</em> — botanical insights, soothing protocols and Psorelya news. No spam. Unsubscribe anytime.</p>
+                </div>
             </div>
         </section>
     </main>
+
     <div id="footer-container"></div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('../header-en.html')
@@ -108,6 +127,26 @@
                 .then(d => document.getElementById('footer-container').innerHTML = d)
                 .catch(e => console.error(e));
         });
+
+        function inscrireAtelier() {
+            var email = document.getElementById('email-inscription').value;
+            if (!email) return;
+            fetch('https://api.cakemail.dev/forms/01b2ebc22355a61c641ed8d972ab1807c0185a5bca644d95d583bad803f1e70f55c935c4ca8b241c39adf406e7c30e3efd5d2b8899191498/render-html')
+                .then(r => r.text())
+                .then(html => {
+                    var tmp = document.createElement('div');
+                    tmp.innerHTML = html;
+                    var form = tmp.querySelector('form');
+                    if (form) {
+                        var emailInput = form.querySelector('input[type="email"]');
+                        if (emailInput) emailInput.value = email;
+                        var data = new FormData(form);
+                        fetch(form.action, { method: 'POST', body: data });
+                    }
+                });
+            document.getElementById('msg-inscription').style.display = 'block';
+            document.getElementById('email-inscription').value = '';
+        }
     </script>
     <script src="../cookies.js"></script>
 </body>
