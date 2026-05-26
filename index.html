@@ -21,18 +21,42 @@
         .bienvenue h2 { font-family: var(--font-titre); font-size: 2.2rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--texte-fonce); }
         .bienvenue p { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1.5rem; font-weight: 300; }
         .signature { font-family: var(--font-titre); font-size: 2.2rem; font-style: italic; color: var(--vert-sauge); margin: 3rem 0 4rem; }
-        .atelier { padding: 4rem 1rem; text-align: center; background-color: #fff; }
         .atelier h2 { font-family: var(--font-titre); font-size: 2.5rem; font-style: italic; margin-bottom: 1.5rem; font-weight: 300; }
         .atelier p { font-size: 1rem; color: #666; font-weight: 300; margin-bottom: 3rem; }
         .input-group { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; }
         input[type="email"] { padding: 1rem; width: 100%; max-width: 20rem; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 1rem; }
         input[type="email"]:focus { border-bottom: 1px solid var(--or); }
+
+        /* SECTION EBOOK */
+        .ebook-section { background-color: #fff; padding: 6rem 2rem; }
+        .ebook-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 5rem; flex-wrap: wrap; }
+        .ebook-visuel { flex: 0 0 auto; display: flex; justify-content: center; }
+        .ebook-cover { width: 200px; background: #4a5a32; padding: 2rem 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.2); transform: rotate(-2deg); transition: transform 0.4s ease; }
+        .ebook-cover:hover { transform: rotate(0deg) scale(1.03); }
+        .ebook-cover-inner { text-align: center; }
+        .ebook-logo { height: 60px; margin-bottom: 1.5rem; filter: brightness(0) invert(1) opacity(0.9); }
+        .ebook-cover-label { font-family: var(--font-texte); font-size: 0.55rem; letter-spacing: 0.2rem; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+        .ebook-cover-title { font-family: var(--font-titre); font-size: 1.1rem; font-style: italic; color: #C4A882; line-height: 1.4; margin-bottom: 1rem; font-weight: 300; }
+        .ebook-cover-sub { font-family: var(--font-texte); font-size: 0.5rem; letter-spacing: 0.1rem; color: rgba(255,255,255,0.5); }
+        .ebook-texte { flex: 1; min-width: 280px; }
+        .ebook-sur-titre { font-size: 0.7rem; letter-spacing: 0.25rem; text-transform: uppercase; color: var(--or); font-weight: 500; margin-bottom: 1rem; }
+        .ebook-titre { font-family: var(--font-titre); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 1.5rem; line-height: 1.2; }
+        .ebook-sous-titre { font-size: 0.95rem; line-height: 1.9; color: #555; font-weight: 300; margin-bottom: 2.5rem; }
+        .ebook-form { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .ebook-input { padding: 1rem; flex: 1; min-width: 200px; border: none; border-bottom: 1px solid #ccc; background: transparent; font-family: var(--font-texte); outline: none; font-size: 0.95rem; }
+        .ebook-input:focus { border-bottom-color: var(--or); }
+        .ebook-merci { font-size: 0.88rem; color: var(--or); font-weight: 400; margin-top: 0.5rem; }
+        .ebook-note { font-size: 0.72rem; color: #BBB; letter-spacing: 0.05rem; margin-top: 0.8rem; }
+        @media (max-width: 48rem) {
+            .ebook-inner { gap: 3rem; justify-content: center; text-align: center; }
+            .ebook-cover { width: 160px; }
+            .ebook-form { justify-content: center; }
+        }
         @media (min-width: 48rem) {
             .hero { background-attachment: fixed; min-height: calc(100vh - var(--header-height)); padding: 4rem; }
             .hero h1 { margin-bottom: 4rem; }
             .bienvenue { padding: 8rem 2rem; }
             .bienvenue h2 { font-size: 3rem; margin-bottom: 3rem; }
-            .atelier { padding: 6rem 2rem; }
             .atelier h2 { font-size: 3.5rem; }
             .input-group { flex-direction: row; gap: 0.5rem; }
             input[type="email"] { width: auto; max-width: none; }
