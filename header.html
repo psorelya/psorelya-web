@@ -1,7 +1,8 @@
 <!-- Google tag (gtag.js) -->
 <script>
-// Google Analytics - ne charge que si consentement accepté
 function loadGoogleAnalytics() {
+    if (window._gaLoaded) return;
+    window._gaLoaded = true;
     var script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-390M46ZYB9';
@@ -22,12 +23,13 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
     .header-left { position: relative; flex: 1; display: flex; align-items: center; }
     .menu-btn { width: 30px; height: 16px; position: relative; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
     .menu-btn span { display: block; height: 2px; background: #2D2D2D; width: 100%; }
-    .dropdown-menu { display: none; position: absolute; top: 40px; left: 0; background: #fff; padding: 25px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); flex-direction: column; gap: 15px; border: 1px solid #EAE9E5; min-width: 250px; z-index: 9999; }
+    .dropdown-menu { display: none; position: absolute; top: 40px; left: 0; background: #fff; padding: 25px 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); flex-direction: column; gap: 12px; border: 1px solid #EAE9E5; min-width: 260px; z-index: 9999; }
     .dropdown-menu.show { display: flex; }
-    .dropdown-menu a { text-decoration: none; color: #2D2D2D; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease; }
+    .dropdown-menu a { text-decoration: none; color: #2D2D2D; font-size: 0.8rem; letter-spacing: 0.1rem; font-weight: 300; transition: color 0.3s ease; }
     .dropdown-menu a:hover { color: #8A6D4B; }
-    .menu-section-title { font-size: 0.7rem; color: #999; letter-spacing: 3px; margin-top: 15px; border-bottom: 1px solid #EAE9E5; padding-bottom: 5px; }
-    .sub-link { padding-left: 10px; font-size: 0.75rem !important; text-transform: none !important; font-weight: 400; }
+    .menu-separator { height: 1px; background: #EAE9E5; margin: 5px 0; }
+    .menu-section-label { font-size: 0.65rem; color: #BBB; letter-spacing: 0.2rem; text-transform: uppercase; font-weight: 400; }
+    .sub-link { padding-left: 8px; font-size: 0.78rem; color: #666; }
     .header-center { flex: 1; display: flex; justify-content: center; }
     .logo img { height: 100px; width: auto; transition: transform 0.4s ease; display: block; }
     .logo:hover img { transform: scale(1.05); }
@@ -45,10 +47,12 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
         <nav id="mon-menu" class="dropdown-menu">
             <a href="index.html">Accueil</a>
             <a href="notre-histoire.html">Notre histoire</a>
-            <div class="menu-section-title">COMPRENDRE</div>
-            <a href="article-vitamine-d3.html" class="sub-link">- D3, K2 et Magnésium : un trio bienfaiteur ?</a>
-            <div class="menu-section-title">LÉGAL</div>
-            <a href="mentions-legales.html" class="sub-link">- Mentions légales</a>
+            <a href="collection-origine.html">Nos soins</a>
+            <div class="menu-separator"></div>
+            <span class="menu-section-label">Comprendre</span>
+            <a href="article-vitamine-d3.html" class="sub-link">D3, K2 et Magnésium : un trio bienfaiteur ?</a>
+            <div class="menu-separator"></div>
+            <a href="mentions-legales.html" class="sub-link">Mentions légales</a>
         </nav>
     </div>
     <div class="header-center">
