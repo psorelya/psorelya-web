@@ -38,8 +38,9 @@ $headers  = "From: Psorelya <info@psorelya.com>\r\n";
 $headers .= "Reply-To: " . $courriel . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-// Envoi
-if (mail($destinataire, $objet, $corps, $headers)) {
+// Envoi — le 5e paramètre (-f) fixe l'expéditeur d'enveloppe,
+// ce qui améliore la délivrabilité et l'alignement SPF sur cPanel
+if (mail($destinataire, $objet, $corps, $headers, "-f info@psorelya.com")) {
     echo json_encode(["ok" => true]);
 } else {
     http_response_code(500);
