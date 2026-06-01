@@ -1,9 +1,13 @@
 <style>
-    .site-footer { padding: 60px 20px; text-align: center; background-color: #fff; font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
-    .site-footer .footer-logo img { height: 60px; margin-bottom: 30px; }
-    .site-footer .footer-links { display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px; flex-wrap: wrap; }
-    .site-footer .footer-links a { text-decoration: none; color: #2D2D2D; transition: color 0.3s; }
+    .site-footer { padding: 60px 20px 40px; text-align: center; background-color: #fff; font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+    .site-footer .footer-logo img { height: 60px; margin-bottom: 2rem; }
+    .site-footer .footer-links { display: flex; justify-content: center; gap: 2rem; font-size: 0.75rem; letter-spacing: 0.15rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .site-footer .footer-links a { text-decoration: none; color: #2D2D2D; transition: color 0.3s; text-transform: uppercase; }
     .site-footer .footer-links a:hover { color: #8A6D4B; }
+    .footer-guilde { display: flex; justify-content: center; align-items: center; margin-bottom: 2rem; }
+    .footer-guilde img { height: 50px; opacity: 0.7; transition: opacity 0.3s; }
+    .footer-guilde img:hover { opacity: 1; }
+    .footer-bottom { font-size: 0.7rem; color: #999; letter-spacing: 1px; }
 
     /* BANNIÈRE COOKIES */
     .cookie-banner { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #2D2D2D; color: #F5F5F5; padding: 1.2rem 2rem; z-index: 99999; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 300; line-height: 1.6; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
@@ -23,14 +27,21 @@
         <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
     </div>
     <div class="footer-links">
-        <a href="notre-histoire.html">L'ESSENCE</a>
-        <a href="collection-origine.html">COLLECTIONS</a>
-        <a href="mentions-legales.html">MENTIONS LÉGALES</a>
+        <a href="index.html">Accueil</a>
+        <a href="collection-origine.html">Nos soins</a>
+        <a href="faq.html">FAQ</a>
+        <a href="nous-joindre.html">Nous joindre</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="faq.html#livraison">Zones et frais de livraison</a>
     </div>
-    <p style="font-size: 0.7rem; color: #999; margin-top: 20px; letter-spacing: 1px;">© 2026 PSORELYA QUEBEC</p>
+    <div class="footer-guilde">
+        <a href="https://www.guildedesherboristes.org" target="_blank" rel="noopener">
+            <img src="Logo_guilde_2006_600x200_avif.webp" alt="Membre de la Guilde des herboristes du Québec">
+        </a>
+    </div>
+    <p class="footer-bottom">© 2026 PSORELYA QUEBEC</p>
 </footer>
 
-<!-- BANNIÈRE COOKIES -->
 <div class="cookie-banner" id="cookieBanner">
     <div class="cookie-banner-inner">
         <p>Nous utilisons des cookies pour analyser notre trafic et améliorer votre expérience. Consultez notre <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</p>
