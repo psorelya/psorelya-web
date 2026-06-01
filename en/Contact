@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Psorelya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --brume: #EAE9E5; --or: #8A6D4B; --texte-fonce: #2D2D2D; --blanc: #FFFFFF; --texte-clair: #F5F5F5; --font-titre: 'Cormorant Garamond', serif; --font-texte: 'Montserrat', sans-serif; --header-height: 8.125rem; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+        .contact-hero { margin-top: var(--header-height); padding: 5rem 2rem 4rem; text-align: center; background-color: var(--blanc); border-bottom: 1px solid #DDD; }
+        .contact-hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; font-weight: 500; }
+        .contact-hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; margin-bottom: 1rem; }
+        .contact-hero p { font-size: 0.9rem; color: #888; font-weight: 300; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+        .contact-wrapper { max-width: 700px; margin: 0 auto; padding: 5rem 2rem 8rem; }
+        .contact-email-block { text-align: center; margin-bottom: 4rem; padding: 3rem; background-color: var(--blanc); }
+        .contact-email-block p { font-size: 0.8rem; color: #AAA; letter-spacing: 0.1rem; text-transform: uppercase; margin-bottom: 0.8rem; }
+        .contact-email-block a { font-family: var(--font-titre); font-size: 1.8rem; color: var(--or); text-decoration: none; font-weight: 300; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+        .contact-email-block a:hover { border-bottom-color: var(--or); }
+        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-form label { font-size: 0.72rem; letter-spacing: 0.15rem; text-transform: uppercase; color: #888; display: block; margin-bottom: 0.4rem; }
+        .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 1rem; border: none; border-bottom: 1px solid #CCC; background: transparent; font-family: var(--font-texte); font-size: 0.92rem; color: var(--texte-fonce); outline: none; transition: border-color 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-bottom-color: var(--or); }
+        .contact-form textarea { resize: vertical; min-height: 140px; }
+        .btn-luxe { padding: 1rem 3rem; background-color: var(--or); color: var(--texte-clair); border: none; font-family: var(--font-texte); font-size: 0.8rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; align-self: flex-start; }
+        .btn-luxe:hover { background-color: var(--texte-fonce); transform: translateY(-0.2rem); }
+        .contact-separateur { text-align: center; margin: 3rem 0; color: #CCC; font-size: 0.8rem; letter-spacing: 0.2rem; }
+        .contact-merci { padding: 1.5rem; background-color: #F0F5EE; border-left: 3px solid var(--or); font-size: 0.9rem; color: #555; display: none; }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="contact-hero">
+        <p class="sur-titre">Psorelya — Contact</p>
+        <h1>Contact Us</h1>
+        <p>A question about our products, an order, or simply want to connect? We will get back to you with care.</p>
+    </div>
+
+    <div class="contact-wrapper">
+        <div class="contact-email-block">
+            <p>Direct email</p>
+            <a href="mailto:info@psorelya.com">info@psorelya.com</a>
+        </div>
+
+        <p class="contact-separateur">— or use the form below —</p>
+
+        <div id="contact-merci" class="contact-merci">
+            ✓ Your message has been sent. We will reply as soon as possible.
+        </div>
+
+        <form class="contact-form" id="contact-form" onsubmit="envoyerMessage(event)">
+            <div>
+                <label>Your name</label>
+                <input type="text" name="nom" required placeholder="First and last name">
+            </div>
+            <div>
+                <label>Your email</label>
+                <input type="email" name="courriel" required placeholder="your@email.com">
+            </div>
+            <div>
+                <label>Subject</label>
+                <select name="sujet">
+                    <option value="">Select a subject</option>
+                    <option value="order">My order</option>
+                    <option value="product">Product question</option>
+                    <option value="shipping">International shipping</option>
+                    <option value="reaction">Skin reaction</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label>Your message</label>
+                <textarea name="message" required placeholder="Describe your request..."></textarea>
+            </div>
+            <button type="submit" class="btn-luxe">Send</button>
+        </form>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        fetch('../header-en.html')
+            .then(r => r.text())
+            .then(d => { document.getElementById('header-container').innerHTML = d; if(window.setLangLink) window.setLangLink(); })
+            .catch(e => console.error(e));
+        fetch('../footer-en.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('footer-container').innerHTML = d)
+            .catch(e => console.error(e));
+
+        function envoyerMessage(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('contact-merci').style.display = 'block';
+        }
+    </script>
+    <script src="../cookies.js"></script>
+</body>
+</html>
