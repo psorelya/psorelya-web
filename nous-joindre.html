@@ -111,8 +111,29 @@
 
         function envoyerMessage(e) {
             e.preventDefault();
-            document.getElementById('contact-form').style.display = 'none';
-            document.getElementById('contact-merci').style.display = 'block';
+            var form = document.getElementById('contact-form');
+            var data = new FormData(form);
+            var bouton = form.querySelector('button[type="submit"]');
+            var texteOrigine = bouton.textContent;
+            bouton.disabled = true;
+            bouton.textContent = 'Envoi en cours...';
+            fetch('envoi-contact.php', { method: 'POST', body: data })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.ok) {
+                        form.style.display = 'none';
+                        document.getElementById('contact-merci').style.display = 'block';
+                    } else {
+                        bouton.disabled = false;
+                        bouton.textContent = texteOrigine;
+                        alert("Une erreur est survenue. Veuillez réessayer ou nous écrire directement à info@psorelya.com");
+                    }
+                })
+                .catch(function() {
+                    bouton.disabled = false;
+                    bouton.textContent = texteOrigine;
+                    alert("Une erreur est survenue. Veuillez réessayer ou nous écrire directement à info@psorelya.com");
+                });
         }
     </script>
     <script src="cookies.js"></script>
