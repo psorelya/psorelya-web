@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Psorelya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --brume: #EAE9E5; --or: #8A6D4B; --texte-fonce: #2D2D2D; --blanc: #FFFFFF; --font-titre: 'Cormorant Garamond', serif; --font-texte: 'Montserrat', sans-serif; --header-height: 8.125rem; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 2rem); }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+        .faq-hero { margin-top: var(--header-height); padding: 5rem 2rem 4rem; text-align: center; background-color: var(--blanc); border-bottom: 1px solid #DDD; }
+        .faq-hero .sur-titre { font-size: 0.7rem; letter-spacing: 0.3rem; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; font-weight: 500; }
+        .faq-hero h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; margin-bottom: 1rem; line-height: 1.1; }
+        .faq-hero .sous-titre { font-family: var(--font-titre); font-size: 1.4rem; font-style: italic; color: var(--or); font-weight: 300; }
+        .faq-nav { background-color: var(--blanc); border-bottom: 1px solid #DDD; padding: 2rem; position: sticky; top: var(--header-height); z-index: 100; }
+        .faq-nav p { font-size: 0.7rem; letter-spacing: 0.2rem; text-transform: uppercase; color: #AAA; margin-bottom: 1rem; text-align: center; }
+        .faq-nav-links { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+        .faq-nav-links a { font-size: 0.72rem; color: #666; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #DDD; transition: all 0.3s; font-weight: 300; }
+        .faq-nav-links a:hover { color: var(--or); border-color: var(--or); }
+        .faq-wrapper { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 8rem; }
+        .faq-item { padding: 3rem 0; border-bottom: 1px solid #D8D6D1; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-num { font-size: 0.6rem; letter-spacing: 0.25rem; text-transform: uppercase; color: var(--or); font-weight: 500; margin-bottom: 0.8rem; display: block; }
+        .faq-item h2 { font-family: var(--font-titre); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 300; color: var(--texte-fonce); margin-bottom: 1.5rem; line-height: 1.3; }
+        .faq-reponse { font-size: 0.92rem; line-height: 1.95; color: #555; font-weight: 300; margin-bottom: 1rem; }
+        .faq-note { background-color: var(--blanc); border-left: 3px solid var(--or); padding: 1.2rem 1.8rem; margin-top: 1.2rem; font-size: 0.88rem; line-height: 1.8; color: #444; font-weight: 300; }
+        .faq-note strong { font-weight: 500; color: var(--texte-fonce); }
+        .livraison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+        .livraison-table th { background-color: var(--or); color: #fff; padding: 0.8rem 1rem; text-align: left; font-weight: 400; letter-spacing: 0.05rem; }
+        .livraison-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #E0DDD9; color: #555; font-weight: 300; }
+        .livraison-table tr:last-child td { border-bottom: none; }
+        .livraison-table tr:nth-child(even) td { background-color: #F5F4F1; }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="faq-hero">
+        <p class="sur-titre">Psorelya — Questions & Answers</p>
+        <h1>Frequently Asked Questions</h1>
+        <p class="sous-titre">The commitment to transparency</p>
+    </div>
+
+    <nav class="faq-nav">
+        <p>Jump to</p>
+        <div class="faq-nav-links">
+            <a href="#crise">Skin in crisis</a>
+            <a href="#guerison">Healing</a>
+            <a href="#parfums">Fragrances & EO</a>
+            <a href="#delai">Time to results</a>
+            <a href="#enfants">Children</a>
+            <a href="#zones">Delivery zones</a>
+            <a href="#livraison">Shipping fees</a>
+        </div>
+    </nav>
+
+    <div class="faq-wrapper">
+
+        <div class="faq-item" id="crise">
+            <span class="faq-num">01</span>
+            <h2>Are your products suitable for skin in full crisis (redness, extreme tightness)?</h2>
+            <p class="faq-reponse">Absolutely. This is precisely the reason Psorelya exists. Our dermo-botanical protocols are formulated without superfluous ingredients, without denaturing alcohols and without aggressive sulfates. Our absolute priority is to soothe immediate discomfort while supporting the skin barrier.</p>
+            <div class="faq-note"><strong>Expert note:</strong> If your skin is "raw", we always recommend performing a patch test on a small area (such as the inner elbow) 24 hours before full application.</div>
+        </div>
+
+        <div class="faq-item" id="guerison">
+            <span class="faq-num">02</span>
+            <h2>Will your products cure my skin condition (eczema, psoriasis, etc.)?</h2>
+            <p class="faq-reponse">No — and we encourage you to be wary of cosmetic brands that promise "miracle cures". Psorelya is not a medication. Our products are dermo-botanical tools designed to break the cycle of discomfort (the dryness that leads to scratching) and provide lasting comfort. We soothe the discomfort, not the disease. Our mission is to restore your skin barrier and give it the tools it needs to repair itself naturally.</p>
+        </div>
+
+        <div class="faq-item" id="parfums">
+            <span class="faq-num">03</span>
+            <h2>Do you use fragrances or essential oils in your formulas?</h2>
+            <p class="faq-reponse">You will never find synthetic fragrances in our products — they are the number one cause of skin reactions. Our formulas derive their natural scent from our botanical actives (butters, plant oils, extracts). When we use essential oils (such as true lavender or chamomile), they are dosed at extremely low concentrations (less than 1%) to ensure maximum tolerance, even for reactive skin.</p>
+        </div>
+
+        <div class="faq-item" id="delai">
+            <span class="faq-num">04</span>
+            <h2>How long before I notice a difference in my skin?</h2>
+            <p class="faq-reponse">The soothing of tightness and the comforting effect are often immediate, thanks to our lipid-rich ingredients (such as ceramides or shea butter). However, to observe a true improvement in the suppleness and resilience of your skin barrier, the skin needs time to renew itself.</p>
+            <div class="faq-note">We recommend consistent use, following the protocol specific to each product, for at least <strong>28 days</strong> (one complete cell cycle) to evaluate deeper results.</div>
+        </div>
+
+        <div class="faq-item" id="enfants">
+            <span class="faq-num">05</span>
+            <h2>Can I use Psorelya products on my child?</h2>
+            <p class="faq-reponse">Our products are formulated with the utmost gentleness using natural ingredients widely recognised for their safety. However, as the skin of infants and young children is particularly thin and specific, we always recommend consulting your paediatrician or pharmacist before introducing any new skincare product into their routine, and performing a tolerance test beforehand.</p>
+        </div>
+
+        <div class="faq-item" id="zones">
+            <span class="faq-num">06</span>
+            <h2>Where do you deliver?</h2>
+            <p class="faq-reponse">Psorelya currently ships within <strong>Canada</strong>. For orders from the <strong>United States</strong> or <strong>other countries</strong>, please contact us directly at <a href="mailto:info@psorelya.com" style="color:var(--or);text-decoration:none;border-bottom:1px solid var(--or);">info@psorelya.com</a> — we will do our best to accommodate you.</p>
+        </div>
+
+        <div class="faq-item" id="livraison">
+            <span class="faq-num">07</span>
+            <h2>What are the shipping fees?</h2>
+            <p class="faq-reponse">Our Canadian shipping fees are simple and transparent:</p>
+            <table class="livraison-table">
+                <tr>
+                    <th>Destination</th>
+                    <th>Order amount</th>
+                    <th>Fee</th>
+                </tr>
+                <tr>
+                    <td>Canada</td>
+                    <td>Under $75 (before taxes and promotions)</td>
+                    <td>$9.00</td>
+                </tr>
+                <tr>
+                    <td>Canada</td>
+                    <td>$75 and over (before taxes and promotions)</td>
+                    <td>Free 🎁</td>
+                </tr>
+                <tr>
+                    <td>USA & international</td>
+                    <td>Any order</td>
+                    <td>On request</td>
+                </tr>
+            </table>
+            <div class="faq-note">Shipping fees are calculated on the order amount before taxes and before applying any promotional code.</div>
+        </div>
+
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        fetch('../header-en.html')
+            .then(r => r.text())
+            .then(d => { document.getElementById('header-container').innerHTML = d; if(window.setLangLink) window.setLangLink(); })
+            .catch(e => console.error(e));
+        fetch('../footer-en.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('footer-container').innerHTML = d)
+            .catch(e => console.error(e));
+    </script>
+    <script src="../cookies.js"></script>
+</body>
+</html>
