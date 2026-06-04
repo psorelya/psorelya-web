@@ -98,7 +98,7 @@
             var texteOrigine = bouton.textContent;
             bouton.disabled = true;
             bouton.textContent = 'Sending...';
-            fetch('../envoi-contact.php', { method: 'POST', body: data })
+            fetch('/envoi-contact.php', { method: 'POST', body: data })
                 .then(r => r.json())
                 .then(res => {
                     if (res.ok) {
