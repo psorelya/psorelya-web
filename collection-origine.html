@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Origine | Psorelya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brume: #EAE9E5; --or: #8A6D4B; --vert: #4a5a32;
+            --texte-fonce: #2D2D2D; --texte-clair: #F5F5F5;
+            --font-titre: 'Cormorant Garamond', serif;
+            --font-texte: 'Montserrat', sans-serif;
+            --header-height: 8.125rem;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-texte); background-color: var(--brume); color: var(--texte-fonce); overflow-x: hidden; }
+
+        /* BLOC COMMUN */
+        .bloc {
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .bloc-fr { margin-top: var(--header-height); background-color: var(--brume); }
+        .bloc-en { background-color: #fff; }
+
+        .bloc::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('fond-botanique.png') center/cover no-repeat;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .bloc-inner { position: relative; z-index: 1; max-width: 620px; width: 100%; }
+
+        .bloc-logo { margin-bottom: 2.5rem; }
+        .bloc-logo img { height: 75px; }
+
+        .ligne-or { width: 50px; height: 1px; background: var(--or); margin: 0 auto 2rem; }
+
+        .bloc-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.35rem;
+            text-transform: uppercase;
+            color: var(--or);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .bloc-titre {
+            font-family: var(--font-titre);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--texte-fonce);
+            margin-bottom: 0.8rem;
+        }
+        .bloc-titre em { font-style: italic; color: var(--or); }
+
+        .bloc-sous-titre {
+            font-family: var(--font-titre);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #999;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .bloc-texte {
+            font-size: 0.88rem;
+            line-height: 2;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .sep {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        .sep::before, .sep::after { content: ""; flex: 1; height: 1px; background: #D0CEC9; }
+        .sep span { font-size: 0.62rem; letter-spacing: 0.25rem; text-transform: uppercase; color: #BBB; white-space: nowrap; }
+
+        .bloc-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto 1.2rem; }
+        .bloc-input {
+            flex: 1; padding: 1rem 1.2rem;
+            border: 1px solid #CCC; border-right: none;
+            background: #fff; font-family: var(--font-texte);
+            font-size: 0.88rem; outline: none; color: var(--texte-fonce);
+            transition: border-color 0.3s;
+        }
+        .bloc-en .bloc-input { background: var(--brume); }
+        .bloc-input:focus { border-color: var(--or); }
+        .btn-luxe {
+            padding: 1rem 1.8rem; background-color: var(--or); color: #fff;
+            border: none; font-family: var(--font-texte); font-size: 0.72rem;
+            letter-spacing: 0.18rem; text-transform: uppercase; cursor: pointer;
+            transition: background-color 0.3s; white-space: nowrap;
+        }
+        .btn-luxe:hover { background-color: var(--texte-fonce); }
+
+        .bloc-merci { font-size: 0.85rem; color: var(--or); display: none; margin-bottom: 1rem; }
+        .bloc-note { font-size: 0.68rem; color: #BBB; line-height: 1.8; }
+        .bloc-note em { font-style: italic; }
+
+        /* SÉPARATEUR ENTRE LES DEUX BLOCS */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(to right, var(--brume), #fff);
+        }
+        .divider-line { flex: 1; height: 1px; background: #D0CEC9; }
+        .divider-logo { margin: 0 2rem; }
+        .divider-logo img { height: 40px; opacity: 0.4; }
+
+        @media (max-width: 48rem) {
+            .bloc-form { flex-direction: column; gap: 0.8rem; }
+            .bloc-input { border-right: 1px solid #CCC; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <!-- VERSION FRANÇAISE -->
+    <section class="bloc bloc-fr">
+        <div class="bloc-inner">
+            <div class="bloc-logo">
+                <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
+            </div>
+            <div class="ligne-or"></div>
+            <p class="bloc-label">Collection Origine — Bientôt disponible</p>
+            <h1 class="bloc-titre">Quelque chose d'<em>exceptionnel</em><br>se prépare.</h1>
+            <p class="bloc-sous-titre">Des soins formulés avec l'exigence de ceux qui comprennent vraiment.</p>
+            <p class="bloc-texte">Chaque formule Psorelya est pensée pour les peaux qui ont tout essayé — et qui exigent enfin mieux. Nos soins dermo-botaniques sont en cours de finalisation. Inscrivez-vous pour être les premiers informés du lancement et recevoir une offre exclusive réservée à notre communauté.</p>
+            <div class="sep"><span>Soyez parmi les premiers</span></div>
+            <div class="bloc-form">
+                <input type="email" id="email-fr" class="bloc-input" placeholder="votre@email.com">
+                <button class="btn-luxe" onclick="inscrire('fr')">M'avertir</button>
+            </div>
+            <p id="merci-fr" class="bloc-merci">✓ Merci ! Vous serez parmi les premiers informés.</p>
+            <p class="bloc-note">En vous inscrivant, vous recevrez notre infolettre <em>La lettre des peaux exigeantes</em> et serez notifié en priorité lors du lancement. Désabonnement en un clic.</p>
+        </div>
+    </section>
+
+    <!-- SÉPARATEUR -->
+    <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-logo"><img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya"></div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- VERSION ANGLAISE -->
+    <section class="bloc bloc-en">
+        <div class="bloc-inner">
+            <div class="bloc-logo">
+                <img src="Logo-Psorelya-FINAL-RVB-WEB.png" alt="Psorelya">
+            </div>
+            <div class="ligne-or"></div>
+            <p class="bloc-label">Collection Origine — Coming Soon</p>
+            <h1 class="bloc-titre">Something <em>exceptional</em><br>is being prepared.</h1>
+            <p class="bloc-sous-titre">Formulations crafted with the standards of those who truly understand.</p>
+            <p class="bloc-texte">Every Psorelya formula is designed for skin that has tried everything — and finally demands better. Our dermo-botanical skincare line is in its final stages. Sign up to be the first to know about our launch and receive an exclusive offer reserved for our community.</p>
+            <div class="sep"><span>Be among the first</span></div>
+            <div class="bloc-form">
+                <input type="email" id="email-en" class="bloc-input" placeholder="your@email.com">
+                <button class="btn-luxe" onclick="inscrire('en')">Notify me</button>
+            </div>
+            <p id="merci-en" class="bloc-merci">✓ Thank you! You will be among the first to know.</p>
+            <p class="bloc-note">By subscribing, you will receive our newsletter <em>The Letter for Discerning Skin</em> and be notified first at launch. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('header.html')
+                .then(r => r.text())
+                .then(d => { document.getElementById('header-container').innerHTML = d; if(window.setLangLink) window.setLangLink(); })
+                .catch(e => console.error(e));
+            fetch('footer.html')
+                .then(r => r.text())
+                .then(d => document.getElementById('footer-container').innerHTML = d)
+                .catch(e => console.error(e));
+        });
+
+        function inscrire(lang) {
+            var emailId = 'email-' + lang;
+            var merciId = 'merci-' + lang;
+            var email = document.getElementById(emailId).value;
+            if (!email) return;
+            fetch('https://api.cakemail.dev/forms/01b2ebc22355a61c641ed8d972ab1807c0185a5bca644d95d583bad803f1e70f55c935c4ca8b241c39adf406e7c30e3efd5d2b8899191498/render-html')
+                .then(r => r.text())
+                .then(html => {
+                    var tmp = document.createElement('div');
+                    tmp.innerHTML = html;
+                    var form = tmp.querySelector('form');
+                    if (form) {
+                        var emailInput = form.querySelector('input[type="email"]');
+                        if (emailInput) emailInput.value = email;
+                        fetch(form.action, { method: 'POST', body: new FormData(form) });
+                    }
+                });
+            document.getElementById(emailId).value = '';
+            document.getElementById(merciId).style.display = 'block';
+        }
+    </script>
+    <script src="cookies.js"></script>
+</body>
+</html>
