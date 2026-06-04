@@ -73,3 +73,19 @@
         banner.style.display = 'none';
     });
 })();
+
+// Fermer le menu hamburger au scroll et au clic extérieur
+(function() {
+    function fermerMenu() {
+        var menu = document.getElementById('mon-menu');
+        if (menu) menu.classList.remove('show');
+    }
+    window.addEventListener('scroll', fermerMenu, { passive: true });
+    document.addEventListener('click', function(e) {
+        var menu = document.getElementById('mon-menu');
+        var btn = document.getElementById('menu-btn');
+        if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+            fermerMenu();
+        }
+    });
+})();
