@@ -22,7 +22,7 @@ if ($nom === "" || $message === "" || !filter_var($courriel, FILTER_VALIDATE_EMA
 }
 
 // Construction du courriel
-$destinataire = "info@psorelya.com";
+$destinataire = "psorelya@gmail.com";
 $objet        = "Nouveau message du site Psorelya — " . $sujet;
 
 $corps  = "Vous avez reçu un nouveau message via le formulaire de contact.\n\n";
@@ -40,7 +40,7 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 // Envoi — le 5e paramètre (-f) fixe l'expéditeur d'enveloppe,
 // ce qui améliore la délivrabilité et l'alignement SPF sur cPanel
-if (mail($destinataire, $objet, $corps, $headers, "-f info@psorelya.com")) {
+if (mail($destinataire, $objet, $corps, $headers)) {
     echo json_encode(["ok" => true]);
 } else {
     http_response_code(500);
