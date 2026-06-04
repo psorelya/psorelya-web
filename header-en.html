@@ -41,13 +41,15 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
 </style>
 <header class="site-header">
     <div class="header-left">
-        <div class="menu-btn" onclick="document.getElementById('mon-menu').classList.toggle('show')">
+        <div class="menu-btn" id="menu-btn" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </div>
         <nav id="mon-menu" class="dropdown-menu">
             <a href="../en/index.html">Home</a>
             <a href="../en/our-story.html">Our Story</a>
             <a href="../collection-origine.html">Our Skincare</a>
+            <a href="../en/faq.html">FAQ</a>
+            <a href="../en/contact.html">Contact us</a>
             <div class="menu-separator"></div>
             <span class="menu-section-label">Learn</span>
             <a href="../en/article-vitamin-d3.html" class="sub-link">D3, K2 and Magnesium: a beneficial trio?</a>
@@ -94,4 +96,23 @@ window.setLangLink = function() {
     var link = document.getElementById('lang-fr-link');
     if (link) link.href = frPage;
 };
+
+function toggleMenu() {
+    document.getElementById('mon-menu').classList.toggle('show');
+}
+
+// Fermer en cliquant ailleurs
+document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mon-menu');
+    var btn = document.getElementById('menu-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('show');
+    }
+});
+
+// Fermer au scroll
+window.addEventListener('scroll', function() {
+    var menu = document.getElementById('mon-menu');
+    if (menu) menu.classList.remove('show');
+}, { passive: true });
 </script>
