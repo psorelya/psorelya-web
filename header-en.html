@@ -19,7 +19,7 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
 </script>
 
 <style>
-    .site-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(234, 233, 229, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    .site-header { position: fixed; top: 33px; left: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; background: rgba(234, 233, 229, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05); box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
     .header-left { position: relative; flex: 1; display: flex; align-items: center; }
     .menu-btn { width: 30px; height: 16px; position: relative; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
     .menu-btn span { display: block; height: 2px; background: #2D2D2D; width: 100%; }
@@ -33,12 +33,30 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
     .header-center { flex: 1; display: flex; justify-content: center; }
     .logo img { height: 100px; width: auto; transition: transform 0.4s ease; display: block; }
     .logo:hover img { transform: scale(1.05); }
-    .header-right { flex: 1; display: flex; justify-content: flex-end; }
+    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 1.2rem; }
     .lang-switch { font-size: 0.8rem; letter-spacing: 2px; font-weight: 500; }
     .lang-switch a { text-decoration: none; color: #999; transition: color 0.3s; }
     .lang-switch a:hover { color: #8A6D4B; }
     .lang-switch .active { color: #2D2D2D; }
+
+    /* PANIER */
+    .cart-icon { position: relative; display: flex; align-items: center; text-decoration: none; color: #2D2D2D; transition: color 0.3s; }
+    .cart-icon:hover { color: #8A6D4B; }
+    .cart-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .cart-badge { position: absolute; top: -7px; right: -8px; background: #8A6D4B; color: #fff; font-size: 9px; font-weight: 600; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; }
+
+    /* BANNIERE LIVRAISON */
+    .livraison-banner { background: #7A8450; color: #fff; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 0.15rem; text-transform: uppercase; padding: 8px 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 10000; }
+
+    @media (max-width: 768px) {
+        .site-header { padding: 15px 20px; }
+        .livraison-banner { font-size: 0.6rem; padding: 6px 10px; }
+    }
 </style>
+
+<!-- BANNIERE LIVRAISON GRATUITE -->
+<div class="livraison-banner">Free shipping in Canada on orders over $75</div>
+
 <header class="site-header">
     <div class="header-left">
         <div class="menu-btn" id="menu-btn" onclick="document.getElementById('mon-menu').classList.toggle('show')">
@@ -47,7 +65,7 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
         <nav id="mon-menu" class="dropdown-menu">
             <a href="../en/index.html">Home</a>
             <a href="../en/our-story.html">Our Story</a>
-            <a href="../collection-origine.html">Our Skincare</a>
+            <a href="/boutique/">Shop</a>
             <a href="../en/faq.html">FAQ</a>
             <a href="../en/contact.html">Contact us</a>
             <div class="menu-separator"></div>
@@ -66,6 +84,14 @@ if (localStorage.getItem('psorelya_cookies') === 'accepted') {
         <div class="lang-switch">
             <a href="../index.html" id="lang-fr-link">FR</a> | <span class="active">EN</span>
         </div>
+        <a href="/boutique/cart/" class="cart-icon" title="Cart">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="cart-badge" id="cart-count">0</span>
+        </a>
     </div>
 </header>
 <script>
@@ -115,4 +141,26 @@ window.addEventListener('scroll', function() {
     var menu = document.getElementById('mon-menu');
     if (menu) menu.classList.remove('show');
 }, { passive: true });
+
+// Compteur panier WooCommerce via cookie
+function getCartCount() {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var c = cookies[i].trim();
+        if (c.indexOf('woocommerce_items_in_cart=') === 0) {
+            return parseInt(c.substring('woocommerce_items_in_cart='.length)) || 0;
+        }
+    }
+    return 0;
+}
+function updateCartBadge() {
+    var count = getCartCount();
+    var badge = document.getElementById('cart-count');
+    if (badge) {
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+}
+updateCartBadge();
+setInterval(updateCartBadge, 2000);
 </script>
